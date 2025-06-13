@@ -457,6 +457,19 @@
             left: -15px;
             color: #f5a623;
         }
+        #logo {
+    position: absolute;
+    z-index: 2;
+    top: 19px;
+    left: 30px;
+    display: block;
+    width: 259px;
+    height: 71px;
+    background: url('../Images/acuative-light.png') no-repeat center;
+    background-size: 100%;
+    text-indent: -9999em;
+    transition: all .25s ease-in-out;
+}
     </style>
 </head>
 <body>
@@ -464,11 +477,7 @@
         <!-- Sidebar -->
         <div class="sidebar">
             <div class="logo-section">
-                <svg width="150" height="40" viewBox="0 0 150 40">
-                    <!-- Simplified Acuative Logo -->
-                    <circle cx="20" cy="20" r="18" fill="#f5a623"/>
-                    <path d="M10 30 L20 10 L30 30" fill="#003366"/>
-                </svg>
+                <span id="logo" style="cursor: pointer" onclick="location.href='http://www.acuative.com'"></span>
                 <div class="logo-text">InsideEdge ERP</div>
             </div>
             
