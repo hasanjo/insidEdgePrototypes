@@ -496,6 +496,18 @@
         .field-invalid {
             border-color: #dc3545;
         }
+        #logo {
+    position: absolute;
+    z-index: 2;
+    top: 5px;
+    left: 5px;
+    width: 230px;
+    height: 71px;
+    background: url(acuative-light.png) no-repeat center;
+    background-size: 100%;
+    text-indent: -9999em;
+    transition: all .25s ease-in-out;
+}
     </style>
 </head>
 <body>
@@ -503,18 +515,7 @@
         <!-- Sidebar -->
         <div class="sidebar">
             <div class="logo-section">
-                <!-- Acuative Logo -->
-                <svg class="logo" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Yellow circle -->
-                    <circle cx="30" cy="30" r="25" fill="#f5a623"/>
-                    <!-- Blue arrow/person shape -->
-                    <path d="M15,45 L25,20 L30,25 L35,15 L40,20 L30,50 Z" fill="#003366"/>
-                    <!-- ACUATIVE text -->
-                    <text x="60" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#003366">ACUATIVE</text>
-                    <!-- Be Ready! tagline -->
-                    <text x="60" y="50" font-family="Arial, sans-serif" font-size="12" font-style="italic" fill="#003366">Be Ready!</text>
-                </svg>
-                <div class="logo-text">InsideEdge ERP</div>
+               <span id="logo" style="cursor: pointer" onclick="location.href='http://www.acuative.com'"></span>
             </div>
             
             <div class="menu-section">
