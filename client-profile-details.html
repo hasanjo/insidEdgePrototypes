@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Profile Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="erp-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo-section">
+                <span id="logo" style="cursor: pointer" onclick="location.href='https://www.acuative.com'"></span>
+            </div>
+
+            <div class="menu-section">
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">🏠</span>
+                    Dashboard
+                </a>
+                <a href="#" class="menu-item active">
+                    <span class="menu-icon">👥</span>
+                    Client Management
+                </a>
+                <div class="submenu active">
+                    <a href="index.html" class="submenu-item active">Client Profiles</a>
+                    <a href="contract-configuration.html" class="submenu-item">Contracts</a>
+                    <a href="service-instructions.html" class="submenu-item">Service Instructions</a>
+                    <a href="billing-configuration.html" class="submenu-item">Billing Configuration</a>
+                </div>
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">📋</span>
+                    Order Management
+                </a>
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">📦</span>
+                    Inventory
+                </a>
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">💰</span>
+                    Finance
+                </a>
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">📊</span>
+                    Reports
+                </a>
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">⚙️</span>
+                    Administration
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="page-title">Client Profile Details</div>
+                <div class="user-section">
+                    <span>Welcome, Jane Smith</span>
+                    <div class="user-avatar">JS</div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="content-wrapper">
+                <!-- Breadcrumb -->
+                <div class="breadcrumb">
+                    <div class="breadcrumb-item">Home</div>
+                    <div class="breadcrumb-item">Client Management</div>
+                    <div class="breadcrumb-item">Client Profiles</div>
+                    <div class="breadcrumb-item">Acme Corporation</div>
+                </div>
+
+                <!-- Help Panel -->
+                <div class="help-panel">
+                    <h4>📌 Important Information - Client Profile</h4>
+                    <ul class="help-list">
+                        <li>Fields marked with red asterisk (*) are mandatory and must be completed</li>
+                        <li>Client ID must be unique and follow format: CL-XXXXX (alphanumeric)</li>
+                        <li>Email addresses must be valid format (example@domain.com)</li>
+                        <li>Phone numbers must include area code: (XXX) XXX-XXXX</li>
+                        <li>At least one primary contact is required for active clients</li>
+                        <li>Changes to client information are tracked in the activity log</li>
+                    </ul>
+                </div>
+
+                <!-- Action Bar -->
+                <div class="action-bar">
+                    <div>
+                        <h2 style="color: #003366; margin: 0;">
+                            Acme Corporation
+                            <span class="status-badge status-active">Active</span>
+                        </h2>
+                        <p style="color: #666; font-size: 14px; margin-top: 5px;">Client ID: CL-10001</p>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-secondary">📋 View Activity Log</button>
+                        <button class="btn btn-accent">✏️ Edit Profile</button>
+                        <button class="btn btn-primary">+ New Contract</button>
+                    </div>
+                </div>
+
+                <!-- Summary Cards -->
+                <div class="summary-cards">
+                    <div class="summary-card">
+                        <div class="summary-icon">📄</div>
+                        <div class="summary-value">3</div>
+                        <div class="summary-label">Active Contracts</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon">💰</div>
+                        <div class="summary-value">$450K</div>
+                        <div class="summary-label">Total Contract Value</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon">📅</div>
+                        <div class="summary-value">Dec 31</div>
+                        <div class="summary-label">Next Renewal</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon">🏭</div>
+                        <div class="summary-value">15</div>
+                        <div class="summary-label">Covered Equipment</div>
+                    </div>
+                </div>
+
+                <!-- Tabs -->
+                <div class="tabs">
+                    <button class="tab active">General Info</button>
+                    <button class="tab">Contracts</button>
+                    <button class="tab">Contacts</button>
+                    <button class="tab">Service Instructions</button>
+                    <button class="tab">Billing Info</button>
+                    <button class="tab">Activity Log</button>
+                </div>
+
+                <!-- Client Information Section -->
+                <div class="form-section">
+                    <h3>📋 Client Information</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>
+                                Client Name <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Legal name of the client company. Must be between 2-100
+                                        characters.</span>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control field-valid" value="Acme Corporation" readonly>
+                            <div class="validation-success">✓ Valid client name</div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Client ID <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Unique identifier for the client. Format: CL-XXXXX. This
+                                        cannot be changed after creation.</span>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control field-valid" value="CL-10001" readonly>
+                            <div class="field-hint">System-generated unique identifier</div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Industry
+                                <span class="info-tip">?
+                                    <span class="tooltip">Primary industry classification for reporting and
+                                        segmentation</span>
+                                </span>
+                            </label>
+                            <select class="form-control" disabled>
+                                <option>Manufacturing</option>
+                                <option>Healthcare</option>
+                                <option>Financial Services</option>
+                                <option>Technology</option>
+                                <option>Retail</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Account Manager <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Primary account manager responsible for this client
+                                        relationship</span>
+                                </span>
+                            </label>
+                            <select class="form-control" disabled>
+                                <option>Jane Smith</option>
+                                <option>Robert Johnson</option>
+                                <option>Maria Garcia</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Annual Revenue
+                                <span class="info-tip">?
+                                    <span class="tooltip">Estimated annual revenue for client segmentation</span>
+                                </span>
+                            </label>
+                            <select class="form-control" disabled>
+                                <option>$10M - $50M</option>
+                                <option>$50M - $100M</option>
+                                <option>$100M - $500M</option>
+                                <option>$500M+</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Employee Count
+                                <span class="info-tip">?
+                                    <span class="tooltip">Approximate number of employees</span>
+                                </span>
+                            </label>
+                            <select class="form-control" disabled>
+                                <option>100-500</option>
+                                <option>500-1000</option>
+                                <option>1000-5000</option>
+                                <option>5000+</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Primary Contact Section -->
+                <div class="form-section">
+                    <h3>👤 Primary Contact Information</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>
+                                Contact Name <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Full name of the primary contact person. First and last name
+                                        required.</span>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control field-valid" value="John Doe" readonly>
+                            <div class="validation-success">✓ Valid contact name</div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Title/Position <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Job title or position of the contact person</span>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" value="IT Director" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Email Address <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Valid email address for primary communications. Format:
+                                        user@domain.com</span>
+                                </span>
+                            </label>
+                            <input type="email" class="form-control field-valid" value="john.doe@acme.com" readonly>
+                            <div class="validation-success">✓ Valid email format</div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Phone Number <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Primary phone number with area code. Format: (XXX)
+                                        XXX-XXXX</span>
+                                </span>
+                            </label>
+                            <input type="tel" class="form-control field-valid" value="(555) 123-4567" readonly>
+                            <div class="validation-success">✓ Valid phone format</div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Mobile Number
+                                <span class="info-tip">?
+                                    <span class="tooltip">Mobile phone for urgent communications. Optional field.</span>
+                                </span>
+                            </label>
+                            <input type="tel" class="form-control" value="(555) 987-6543" readonly>
+                            <div class="field-hint">Optional - For emergency contact</div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Preferred Contact Method <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Primary method for contacting this person</span>
+                                </span>
+                            </label>
+                            <select class="form-control" disabled>
+                                <option>Email</option>
+                                <option>Phone</option>
+                                <option>Mobile</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Address Information -->
+                <div class="form-section">
+                    <h3>📍 Primary Address</h3>
+                    <div class="form-grid">
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label>
+                                Street Address <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Primary business address. Cannot be a P.O. Box for service
+                                        delivery.</span>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" value="123 Business Park Drive, Suite 400" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                City <span class="required">*</span>
+                            </label>
+                            <input type="text" class="form-control" value="New York" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                State/Province <span class="required">*</span>
+                            </label>
+                            <input type="text" class="form-control" value="NY" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                ZIP/Postal Code <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">5 or 9 digit ZIP code (XXXXX or XXXXX-XXXX)</span>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" value="10001" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Country <span class="required">*</span>
+                            </label>
+                            <select class="form-control" disabled>
+                                <option>United States</option>
+                                <option>Canada</option>
+                                <option>Mexico</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Business Rules Notice -->
+                <div class="form-section" style="background: #fff3cd; border: 1px solid #ffeeba;">
+                    <h3 style="color: #856404;">⚠️ Business Rules & Compliance</h3>
+                    <ul style="margin: 0; padding-left: 20px; color: #856404;">
+                        <li>All client information changes are logged with timestamp and user ID</li>
+                        <li>Clients cannot be deleted if they have active contracts</li>
+                        <li>Changing client status to "Inactive" will prevent new contract creation</li>
+                        <li>Email and phone formats are validated against standard patterns</li>
+                        <li>Client ID cannot be modified after initial creation</li>
+                        <li>Address changes may affect service delivery and require contract review</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

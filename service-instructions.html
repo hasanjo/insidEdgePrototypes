@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Instructions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="erp-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo-section">
+               <span id="logo" style="cursor: pointer" onclick="location.href='https://www.acuative.com'"></span>
+            </div>
+            
+            <div class="menu-section">
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">🏠</span>
+                    Dashboard
+                </a>
+                <a href="#" class="menu-item active">
+                    <span class="menu-icon">👥</span>
+                    Client Management
+                </a>
+                <div class="submenu active">
+                    <a href="index.html" class="submenu-item">Client Profiles</a>
+                    <a href="contract-configuration.html" class="submenu-item">Contracts</a>
+                    <a href="service-instructions.html" class="submenu-item active">Service Instructions</a>
+                    <a href="billing-configuration.html" class="submenu-item">Billing Configuration</a>
+                </div>
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">📋</span>
+                    Order Management
+                </a>
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">📦</span>
+                    Inventory
+                </a>
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">💰</span>
+                    Finance
+                </a>
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">📊</span>
+                    Reports
+                </a>
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">⚙️</span>
+                    Administration
+                </a>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="page-title">Service Instructions Management</div>
+                <div class="user-section">
+                    <span>Welcome, Michael Chen</span>
+                    <div class="user-avatar">MC</div>
+                </div>
+            </div>
+            
+            <!-- Content -->
+            <div class="content-wrapper">
+                <!-- Breadcrumb -->
+                <div class="breadcrumb">
+                    <div class="breadcrumb-item">Home</div>
+                    <div class="breadcrumb-item">Client Management</div>
+                    <div class="breadcrumb-item">Client Profiles</div>
+                    <div class="breadcrumb-item">Acme Corporation</div>
+                    <div class="breadcrumb-item">Service Instructions</div>
+                </div>
+                
+                <!-- Help Panel -->
+                <div class="help-panel">
+                    <h4>📌 Service Instructions Guidelines</h4>
+                    <ul class="help-list">
+                        <li>Service instructions are version-controlled - all changes create new versions</li>
+                        <li>Instructions must be categorized by type (Site-specific, Product-specific, Maintenance, Other)</li>
+                        <li>Minimum 10 characters required for instruction details</li>
+                        <li>Effective dates determine when instructions become active</li>
+                        <li>Historical versions are maintained indefinitely for audit purposes</li>
+                        <li>Instructions can be linked to specific contracts or apply globally</li>
+                        <li>Critical instructions should be marked with high priority flag</li>
+                    </ul>
+                </div>
+                
+                <!-- Action Bar -->
+                <div class="action-bar">
+                    <div>
+                        <h2 style="color: #003366; margin: 0;">
+                            Service Instructions - Acme Corporation
+                            <span class="status-badge status-active">Active Client</span>
+                        </h2>
+                        <p style="color: #666; font-size: 14px; margin-top: 5px;">Client ID: CL-10001 | Total Instructions: 12 Active</p>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-secondary">📥 Export All</button>
+                        <button class="btn btn-accent">+ New Instruction</button>
+                    </div>
+                </div>
+                
+                <!-- Instruction Categories Summary -->
+                <div class="summary-cards" style="margin-bottom: 20px;">
+                    <div class="summary-card">
+                        <div class="summary-icon">🏢</div>
+                        <div class="summary-value">4</div>
+                        <div class="summary-label">Site-Specific</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon">📦</div>
+                        <div class="summary-value">3</div>
+                        <div class="summary-label">Product-Specific</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon">🔧</div>
+                        <div class="summary-value">3</div>
+                        <div class="summary-label">Maintenance</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon">📄</div>
+                        <div class="summary-value">2</div>
+                        <div class="summary-label">Other</div>
+                    </div>
+                </div>
+                
+                <!-- Filter Section -->
+                <div class="form-section">
+                    <h3>🔍 Filter Instructions</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Instruction Type</label>
+                            <select class="form-control">
+                                <option value="">All Types</option>
+                                <option value="site">Site-Specific</option>
+                                <option value="product">Product-Specific</option>
+                                <option value="maintenance">Maintenance</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Priority Level</label>
+                            <select class="form-control">
+                                <option value="">All Priorities</option>
+                                <option value="critical">Critical</option>
+                                <option value="high">High</option>
+                                <option value="medium">Medium</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select class="form-control">
+                                <option value="">All Statuses</option>
+                                <option value="active" selected>Active Only</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="draft">Draft</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Contract</label>
+                            <select class="form-control">
+                                <option value="">All Contracts</option>
+                                <option value="CNT-2025-00123">CNT-2025-00123 (Maintenance)</option>
+                                <option value="CNT-2025-00124">CNT-2025-00124 (Support)</option>
+                                <option value="CNT-2024-00089">CNT-2024-00089 (Service)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Site-Specific Instructions -->
+                <div class="form-section">
+                    <h3>🏢 Site-Specific Instructions</h3>
+                    <div class="instruction-list">
+                        <!-- Instruction Card 1 -->
+                        <div class="instruction-card" style="border-left: 4px solid #dc3545; padding: 15px; margin-bottom: 15px; background: #f8f9fa;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <div>
+                                    <span class="priority-badge critical">CRITICAL</span>
+                                    <strong style="margin-left: 10px; font-size: 16px;">Security Access Requirements</strong>
+                                    <span style="margin-left: 10px; color: #666; font-size: 14px;">Version 3.0</span>
+                                </div>
+                                <div>
+                                    <button class="btn btn-sm btn-secondary">View History</button>
+                                    <button class="btn btn-sm btn-primary">Edit</button>
+                                </div>
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <p style="margin: 0; color: #333;">
+                                    All technicians must check in at security desk in main lobby. <br>
+                                    Photo ID required. <br>
+                                    Visitor badge must be visible at all times. <br>
+                                    Equipment must be logged with security. <br>
+                                    Access hours: Mon-Fri 7:00 AM - 7:00 PM. <br>
+                                    Weekend access requires 48-hour advance approval from facilities manager (John Smith - ext. 4521).</p>
+                            </div>
+                            <div style="display: flex; gap: 20px; font-size: 13px; color: #666;">
+                                <span>📍 <strong>Location:</strong> All Sites</span>
+                                <span>📅 <strong>Effective:</strong> 01/01/2025</span>
+                                <span>👤 <strong>Updated by:</strong> Michael Chen</span>
+                                <span>🕒 <strong>Last Update:</strong> 01/10/2025 14:32</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Instruction Card 2 -->
+                        <div class="instruction-card" style="border-left: 4px solid #f5a623; padding: 15px; margin-bottom: 15px; background: #f8f9fa;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <div>
+                                    <span class="priority-badge high">HIGH</span>
+                                    <strong style="margin-left: 10px; font-size: 16px;">Data Center Access Protocol</strong>
+                                    <span style="margin-left: 10px; color: #666; font-size: 14px;">Version 2.1</span>
+                                </div>
+                                <div>
+                                    <button class="btn btn-sm btn-secondary">View History</button>
+                                    <button class="btn btn-sm btn-primary">Edit</button>
+                                </div>
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <p style="margin: 0; color: #333;">
+                                    Data center located on 5th floor, Suite 500. <br>
+                                    Biometric access required - coordinate with IT Security (security@acme.com) 24 hours in advance. <br>
+                                    Temperature-controlled environment - no food/beverages allowed. <br>
+                                    ESD protection required. Emergency contacts: DC Manager (555-123-4567 x500), Security (x911).
+                                </p>
+                            </div>
+                            <div style="display: flex; gap: 20px; font-size: 13px; color: #666;">
+                                <span>📍 <strong>Location:</strong> NYC Headquarters</span>
+                                <span>📅 <strong>Effective:</strong> 11/15/2024</span>
+                                <span>👤 <strong>Updated by:</strong> Sarah Johnson</span>
+                                <span>🕒 <strong>Last Update:</strong> 11/14/2024 09:15</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product-Specific Instructions -->
+                <div class="form-section">
+                    <h3>📦 Product-Specific Instructions</h3>
+                    <div class="instruction-list">
+                        <!-- Instruction Card 3 -->
+                        <div class="instruction-card" style="border-left: 4px solid #28a745; padding: 15px; margin-bottom: 15px; background: #f8f9fa;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <div>
+                                    <span class="priority-badge medium">MEDIUM</span>
+                                    <strong style="margin-left: 10px; font-size: 16px;">Dell PowerEdge Server Maintenance</strong>
+                                    <span style="margin-left: 10px; color: #666; font-size: 14px;">Version 1.2</span>
+                                </div>
+                                <div>
+                                    <button class="btn btn-sm btn-secondary">View History</button>
+                                    <button class="btn btn-sm btn-primary">Edit</button>
+                                </div>
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <p style="margin: 0; color: #333;">
+                                    All Dell PowerEdge servers require firmware updates to be performed during maintenance windows only (Sat 2:00 AM - 6:00 AM). <br>
+                                    Backup verification required before any updates. <br>
+                                    iDRAC credentials stored in password vault (reference: ACME-DELL-IDRAC). <br>
+                                    Change management ticket required for all firmware updates.</p>
+                            </div>
+                            <div style="display: flex; gap: 20px; font-size: 13px; color: #666;">
+                                <span>📦 <strong>Product:</strong> Dell PowerEdge R740</span>
+                                <span>📋 <strong>Contract:</strong> CNT-2025-00123</span>
+                                <span>👤 <strong>Updated by:</strong> Robert Kim</span>
+                                <span>🕒 <strong>Last Update:</strong> 12/20/2024 16:45</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Maintenance Instructions -->
+                <div class="form-section">
+                    <h3>🔧 Maintenance Instructions</h3>
+                    <div class="instruction-list">
+                        <!-- Instruction Card 4 -->
+                        <div class="instruction-card" style="border-left: 4px solid #17a2b8; padding: 15px; margin-bottom: 15px; background: #f8f9fa;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <div>
+                                    <span class="priority-badge high">HIGH</span>
+                                    <strong style="margin-left: 10px; font-size: 16px;">Quarterly Preventive Maintenance Checklist</strong>
+                                    <span style="margin-left: 10px; color: #666; font-size: 14px;">Version 4.0</span>
+                                </div>
+                                <div>
+                                    <button class="btn btn-sm btn-secondary">View History</button>
+                                    <button class="btn btn-sm btn-primary">Edit</button>
+                                </div>
+                            </div>
+                            <div style="margin-bottom: 10px;">
+                                <p style="margin: 0; color: #333;">
+                                    Quarterly PM must include: <br>
+                                    1) Visual inspection of all equipment, <br>
+                                    2) Clean air filters and vents, <br>
+                                    3) Check and tighten all connections, <br>
+                                    4) Verify backup systems operational, <br>
+                                    5) Test UPS batteries and runtime, <br>
+                                    6) Update firmware if available, <br>
+                                    7) Document all findings in service report. <br>
+                                    PM window: First Saturday of each quarter, 6:00 AM - 2:00 PM. <br>
+                                    Customer sign-off required upon completion.</p>
+                            </div>
+                            <div style="display: flex; gap: 20px; font-size: 13px; color: #666;">
+                                <span>🔧 <strong>Type:</strong> Preventive Maintenance</span>
+                                <span>📅 <strong>Frequency:</strong> Quarterly</span>
+                                <span>👤 <strong>Updated by:</strong> Tom Anderson</span>
+                                <span>🕒 <strong>Last Update:</strong> 01/02/2025 11:20</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Add New Instruction Modal (shown as example) -->
+                <div class="form-section" style="background: #e7f3ff; border: 2px dashed #003366;">
+                    <h3>➕ Add New Service Instruction</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>
+                                Instruction Type <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Select the category that best describes this instruction</span>
+                                </span>
+                            </label>
+                            <select class="form-control">
+                                <option value="">-- Select Type --</option>
+                                <option value="site">Site-Specific</option>
+                                <option value="product">Product-Specific</option>
+                                <option value="maintenance">Maintenance</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Priority Level <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Critical instructions will be highlighted and shown first</span>
+                                </span>
+                            </label>
+                            <select class="form-control">
+                                <option value="">-- Select Priority --</option>
+                                <option value="critical">Critical - Safety/Security Related</option>
+                                <option value="high">High - Important Operational</option>
+                                <option value="medium">Medium - Standard Procedure</option>
+                                <option value="low">Low - Informational</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Title <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Brief descriptive title (max 100 characters)</span>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" placeholder="Enter instruction title...">
+                            <div class="field-hint">0/100 characters</div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Effective Date <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Date when this instruction becomes active</span>
+                                </span>
+                            </label>
+                            <input type="date" class="form-control" value="2025-01-14">
+                        </div>
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label>
+                                Detailed Instructions <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Provide clear, detailed instructions. Minimum 10 characters required.</span>
+                                </span>
+                            </label>
+                            <textarea class="form-control" rows="5" placeholder="Enter detailed instructions..."></textarea>
+                            <div class="field-hint">Minimum 10 characters required</div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Applicable Contract
+                                <span class="info-tip">?
+                                    <span class="tooltip">Link to specific contract or leave blank for all contracts</span>
+                                </span>
+                            </label>
+                            <select class="form-control">
+                                <option value="">All Contracts</option>
+                                <option value="CNT-2025-00123">CNT-2025-00123 (Maintenance)</option>
+                                <option value="CNT-2025-00124">CNT-2025-00124 (Support)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Location/Site
+                                <span class="info-tip">?
+                                    <span class="tooltip">Specific location or 'All Sites' if applicable everywhere</span>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" placeholder="e.g., NYC Headquarters, All Sites">
+                        </div>
+                    </div>
+                    <div class="action-buttons" style="margin-top: 20px;">
+                        <button class="btn btn-secondary">Cancel</button>
+                        <button class="btn btn-primary">Save as Draft</button>
+                        <button class="btn btn-success">Save & Activate</button>
+                    </div>
+                </div>
+                
+                <!-- Version History Example -->
+                <div class="form-section">
+                    <h3>📜 Version History - Security Access Requirements</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Version</th>
+                                <th>Modified By</th>
+                                <th>Date/Time</th>
+                                <th>Change Summary</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>3.0</strong></td>
+                                <td>Michael Chen</td>
+                                <td>01/10/2025 14:32</td>
+                                <td>Added weekend access approval requirement</td>
+                                <td><span class="status-badge status-active">Current</span></td>
+                                <td>
+                                    <button class="btn btn-sm btn-secondary">View</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2.0</td>
+                                <td>Sarah Johnson</td>
+                                <td>11/05/2024 09:15</td>
+                                <td>Updated security contact information</td>
+                                <td>Superseded</td>
+                                <td>
+                                    <button class="btn btn-sm btn-secondary">View</button>
+                                    <button class="btn btn-sm btn-primary">Compare</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1.0</td>
+                                <td>Robert Kim</td>
+                                <td>06/01/2024 10:00</td>
+                                <td>Initial version</td>
+                                <td>Superseded</td>
+                                <td>
+                                    <button class="btn btn-sm btn-secondary">View</button>
+                                    <button class="btn btn-sm btn-primary">Compare</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Business Rules Summary -->
+                <div class="form-section" style="background: #f8f9fa; border: 2px solid #dee2e6;">
+                    <h3 style="color: #495057;">📋 Service Instruction Management Rules</h3>
+                    <div class="form-grid">
+                        <div>
+                            <h4 style="color: #003366; font-size: 16px; margin-bottom: 10px;">Content Requirements</h4>
+                            <ul style="margin: 0; padding-left: 20px; color: #666; font-size: 14px;">
+                                <li>Minimum 10 characters for instructions</li>
+                                <li>Title maximum 100 characters</li>
+                                <li>Must select instruction type</li>
+                                <li>Priority level required</li>
+                                <li>Effective date cannot be backdated >30 days</li>
+                                <li>Version numbers auto-increment</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: #003366; font-size: 16px; margin-bottom: 10px;">Management Rules</h4>
+                            <ul style="margin: 0; padding-left: 20px; color: #666; font-size: 14px;">
+                                <li>All changes create new versions</li>
+                                <li>Previous versions retained indefinitely</li>
+                                <li>Only one current version per instruction</li>
+                                <li>Critical instructions require manager approval</li>
+                                <li>Instructions can be deactivated but not deleted</li>
+                                <li>Audit trail maintained for all changes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Action Footer -->
+                <div class="action-bar" style="position: sticky; bottom: 0; z-index: 10;">
+                    <div>
+                        <span style="color: #666; font-size: 14px;">
+                            <strong>Total Instructions:</strong> 12 Active, 3 Draft, 8 Historical | 
+                            <strong>Last Review:</strong> January 10, 2025
+                        </span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-secondary">Print All Instructions</button>
+                        <button class="btn btn-primary">Export to PDF</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

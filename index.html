@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Profile Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="erp-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo-section">
+                <span id="logo" style="cursor: pointer" onclick="location.href='https://www.acuative.com'"></span>
+            </div>
+
+            <div class="menu-section">
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">🏠</span>
+                    Dashboard
+                </a>
+                <a href="#" class="menu-item active">
+                    <span class="menu-icon">👥</span>
+                    Client Management
+                </a>
+                <div class="submenu active">
+                    <a href="index.html" class="submenu-item active">Client Profiles</a>
+                    <a href="contract-configuration.html" class="submenu-item">Contracts</a>
+                    <a href="service-instructions.html" class="submenu-item">Service Instructions</a>
+                    <a href="billing-configuration.html" class="submenu-item">Billing Configuration</a>
+                </div>
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">📋</span>
+                    Order Management
+                </a>
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">📦</span>
+                    Inventory
+                </a>
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">💰</span>
+                    Finance
+                </a>
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">📊</span>
+                    Reports
+                </a>
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">⚙️</span>
+                    Administration
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="page-title">Client Profile Management</div>
+                <div class="user-section">
+                    <span>Welcome, Jane Smith</span>
+                    <div class="user-avatar">JS</div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="content-wrapper">
+                <!-- Screen 1: Client Search/List -->
+                <div class="breadcrumb">
+                    <div class="breadcrumb-item">Home</div>
+                    <div class="breadcrumb-item">Client Management</div>
+                    <div class="breadcrumb-item">Client Profiles</div>
+                </div>
+
+                <div class="help-panel">
+                    <h4>📌 Quick Tips - Client Search</h4>
+                    <ul class="help-list">
+                        <li>Use the search filters to quickly find clients by name, ID, or contact information</li>
+                        <li>Client ID format must be alphanumeric (e.g., CL-10001)</li>
+                        <li>You can search using partial names or email addresses</li>
+                        <li>Maximum 5 coverage codes allowed per contract type</li>
+                        <li>Clients must have at least one active contract to access services</li>
+                    </ul>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-header">
+                        <span>Client Profiles</span>
+                        <button class="btn btn-accent btn-sm">+ New Client</button>
+                    </div>
+                    <div class="panel-body">
+                        <div class="search-section">
+                            <div class="search-group" style="flex: 2;">
+                                <label class="search-label">
+                                    Search Clients
+                                    <span class="info-tip">?
+                                        <span class="tooltip">Search by client name, ID, email, or phone number</span>
+                                    </span>
+                                </label>
+                                <input type="text" class="search-input"
+                                    placeholder="Enter client name, ID, or contact info...">
+                                <div class="field-hint">Example: "Acme", "CL-10001", or "john@example.com"</div>
+                            </div>
+                            <div class="search-group">
+                                <label class="search-label">Status Filter</label>
+                                <select class="search-input">
+                                    <option>All Statuses</option>
+                                    <option>Active Only</option>
+                                    <option>Inactive Only</option>
+                                </select>
+                            </div>
+                            <div class="search-group" style="flex: 0; align-self: center;">
+                                <button style="white-space: nowrap;" class="btn btn-primary">🔍 Search</button>
+                            </div>
+                        </div>
+
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Client ID <span class="required-field">*</span></th>
+                                    <th>Client Name <span class="required-field">*</span></th>
+                                    <th>Primary Contact</th>
+                                    <th>Phone</th>
+                                    <th>Active Contracts</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>CL-10001</strong></td>
+                                    <td>Acme Corporation</td>
+                                    <td>John Doe<br><small style="color: #666;">john.doe@acme.com</small></td>
+                                    <td>(555) 123-4567</td>
+                                    <td style="text-align: center;">3</td>
+                                    <td><span class="status-badge status-active">Active</span></td>
+                                    <td>
+                                        <div class="action-icons">
+                                            <a style="text-decoration: none;" href="client-profile-details.html" class="action-icon" title="View Details">👁️</a>
+                                            <a style="text-decoration: none;" href="client-profile-details.html" class="action-icon" title="Edit Profile">✏️</a>
+                                            <a style="text-decoration: none;" href="client-profile-details.html" class="action-icon" title="View Contracts">📄</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>CL-10002</strong></td>
+                                    <td>Beta Industries</td>
+                                    <td>Sarah Johnson<br><small style="color: #666;">sarah.j@beta.com</small></td>
+                                    <td>(555) 234-5678</td>
+                                    <td style="text-align: center;">1</td>
+                                    <td><span class="status-badge status-active">Active</span></td>
+                                    <td>
+                                      <div class="action-icons">
+                                            <a style="text-decoration: none;" href="client-profile-details.html" class="action-icon" title="View Details">👁️</a>
+                                            <a style="text-decoration: none;" href="client-profile-details.html" class="action-icon" title="Edit Profile">✏️</a>
+                                            <a style="text-decoration: none;" href="client-profile-details.html" class="action-icon" title="View Contracts">📄</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>CL-10003</strong></td>
+                                    <td>Gamma Solutions</td>
+                                    <td>Mike Wilson<br><small style="color: #666;">m.wilson@gamma.com</small></td>
+                                    <td>(555) 345-6789</td>
+                                    <td style="text-align: center;">0</td>
+                                    <td><span class="status-badge status-inactive">Inactive</span></td>
+                                    <td>
+                                        <div class="action-icons">
+                                            <a style="text-decoration: none;" href="client-profile-details.html" class="action-icon" title="View Details">👁️</a>
+                                            <a style="text-decoration: none;" href="client-profile-details.html" class="action-icon" title="Edit Profile">✏️</a>
+                                            <a style="text-decoration: none;" href="client-profile-details.html" class="action-icon" title="View Contracts">📄</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 4px;">
+                            <strong>Business Rules:</strong>
+                            <ul style="margin-top: 10px; margin-left: 20px; font-size: 13px; color: #666;">
+                                <li>Client ID must be unique within the system</li>
+                                <li>Clients require at least one primary contact to be active</li>
+                                <li>Inactive clients cannot create new contracts</li>
+                                <li>Deleting clients is not allowed if active contracts exist</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contract Configuration</title>
+   <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="erp-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo-section">
+                <span id="logo" style="cursor: pointer" onclick="location.href='https://www.acuative.com'"></span>
+            </div>
+            <div class="menu-section">
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">🏠</span>
+                    Dashboard
+                </a>
+                <a href="#" class="menu-item active">
+                    <span class="menu-icon">👥</span>
+                    Client Management
+                </a>
+                <div class="submenu active">
+                    <a href="index.html" class="submenu-item">Client Profiles</a>
+                    <a href="contract-configuration.html" class="submenu-item active">Contracts</a>
+                    <a href="service-instructions.html" class="submenu-item">Service Instructions</a>
+                    <a href="billing-configuration.html" class="submenu-item">Billing Configuration</a>
+                </div>
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">📋</span>
+                    Order Management
+                </a>
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">📦</span>
+                    Inventory
+                </a>
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">💰</span>
+                    Finance
+                </a>
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">📊</span>
+                    Reports
+                </a>
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">⚙️</span>
+                    Administration
+                </a>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="page-title">Contract Configuration</div>
+                <div class="user-section">
+                    <span>Welcome, Robert Johnson</span>
+                    <div class="user-avatar">RJ</div>
+                </div>
+            </div>
+            
+            <!-- Content -->
+            <div class="content-wrapper">
+                <!-- Breadcrumb -->
+                <div class="breadcrumb">
+                    <div class="breadcrumb-item">Home</div>
+                    <div class="breadcrumb-item">Client Management</div>
+                    <div class="breadcrumb-item">Contracts</div>
+                    <div class="breadcrumb-item">New Maintenance Contract</div>
+                </div>
+                
+                <!-- Progress Indicator -->
+                <div class="progress-indicator">
+                    <div class="progress-step completed">
+                        <div class="step-icon">✓</div>
+                        <div class="step-label">Client Selection</div>
+                    </div>
+                    <div class="progress-step active">
+                        <div class="step-icon">2</div>
+                        <div class="step-label">Contract Details</div>
+                    </div>
+                    <div class="progress-step">
+                        <div class="step-icon">3</div>
+                        <div class="step-label">Equipment Setup</div>
+                    </div>
+                    <div class="progress-step">
+                        <div class="step-icon">4</div>
+                        <div class="step-label">Review & Finalize</div>
+                    </div>
+                </div>
+                
+                <!-- Help Panel -->
+                <div class="help-panel">
+                    <h4>📌 Contract Configuration Guidelines</h4>
+                    <ul class="help-list">
+                        <li>Contract Number will be auto-generated upon saving (Format: CNT-YYYY-XXXXX)</li>
+                        <li>Contract end date must be after start date</li>
+                        <li>Service Level Agreement (SLA) determines response time requirements</li>
+                        <li>Maximum 5 coverage codes allowed per contract type (except maintenance by product)</li>
+                        <li>Spare parts management approach affects billing and service delivery</li>
+                        <li>All contracts require management approval if value exceeds $100,000</li>
+                    </ul>
+                </div>
+                
+                <!-- Warning Box -->
+                <div class="warning-box">
+                    <div class="warning-icon">⚠️</div>
+                    <div class="warning-content">
+                        <div class="warning-title">Important: Contract Validation</div>
+                        <div class="warning-text">This contract is being created for Acme Corporation (CL-10001). Ensure all contract terms align with the master service agreement.</div>
+                    </div>
+                </div>
+                
+                <!-- Action Bar -->
+                <div class="action-bar">
+                    <div>
+                        <h2 style="color: #003366; margin: 0;">
+                            New Maintenance Contract
+                            <span class="status-badge status-draft">Draft</span>
+                        </h2>
+                        <p style="color: #666; font-size: 14px; margin-top: 5px;">Client: Acme Corporation (CL-10001)</p>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-secondary">Cancel</button>
+                        <button class="btn btn-primary">Save Draft</button>
+                        <button class="btn btn-success">Next Step →</button>
+                    </div>
+                </div>
+                
+                <!-- Contract Details Section -->
+                <div class="form-section">
+                    <h3>📄 Contract Information</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>
+                                Contract Number
+                                <span class="info-tip">?
+                                    <span class="tooltip">Auto-generated unique identifier. Format: CNT-YYYY-XXXXX</span>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" placeholder="Auto-generated upon save" disabled>
+                            <div class="field-hint">Will be generated when contract is saved</div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Contract Type <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Select the type of service contract. This determines available options and billing structure.</span>
+                                </span>
+                            </label>
+                            <select class="form-control">
+                                <option value="">-- Select Contract Type --</option>
+                                <option value="maintenance" selected>Maintenance Contract</option>
+                                <option value="service">Service Contract</option>
+                                <option value="support">Support Contract</option>
+                                <option value="warranty">Extended Warranty</option>
+                            </select>
+                            <div class="validation-success">✓ Valid selection</div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Contract Start Date <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Contract effective start date. Cannot be backdated more than 30 days.</span>
+                                </span>
+                            </label>
+                            <input type="date" class="form-control field-valid" value="2025-01-01">
+                            <div class="validation-success">✓ Valid date</div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Contract End Date <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Contract expiration date. Must be after start date.</span>
+                                </span>
+                            </label>
+                            <input type="date" class="form-control field-valid" value="2025-12-31">
+                            <div class="validation-success">✓ Valid date (12 months term)</div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Contract Value <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Total contract value in USD. Contracts over $100K require additional approval.</span>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control field-warning" placeholder="$0.00" value="$125,000.00">
+                            <div class="validation-warning">⚠️ Requires management approval (>$100K)</div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Payment Terms <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Payment schedule for the contract</span>
+                                </span>
+                            </label>
+                            <select class="form-control">
+                                <option value="">-- Select Payment Terms --</option>
+                                <option value="monthly">Monthly</option>
+                                <option value="quarterly" selected>Quarterly</option>
+                                <option value="annual">Annual</option>
+                                <option value="custom">Custom Schedule</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service Level Configuration -->
+                <div class="form-section">
+                    <h3>⚡ Service Level Agreement (SLA)</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>
+                                Coverage Hours <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Service availability hours. Affects response time and billing rates.</span>
+                                </span>
+                            </label>
+                            <select class="form-control field-valid">
+                                <option value="">-- Select Coverage Hours --</option>
+                                <option value="8x5" selected>8x5 (Business Hours: Mon-Fri 8AM-5PM)</option>
+                                <option value="16x5">16x5 (Extended Hours: Mon-Fri 6AM-10PM)</option>
+                                <option value="24x7">24x7 (Round the Clock)</option>
+                                <option value="custom">Custom Schedule</option>
+                            </select>
+                            <div class="field-hint">Standard business hours coverage selected</div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Response Time <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Maximum time to initial response after service request</span>
+                                </span>
+                            </label>
+                            <select class="form-control field-valid">
+                                <option value="">-- Select Response Time --</option>
+                                <option value="2">2 Hours</option>
+                                <option value="4" selected>4 Hours</option>
+                                <option value="8">8 Hours</option>
+                                <option value="nbd">Next Business Day</option>
+                            </select>
+                            <div class="validation-success">✓ Standard response time for this coverage</div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Service Level <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Level of service management provided under this contract</span>
+                                </span>
+                            </label>
+                            <select class="form-control">
+                                <option value="">-- Select Service Level --</option>
+                                <option value="incident">Incident Only</option>
+                                <option value="resolution" selected>Incident and Resolution</option>
+                                <option value="none">None (Time & Materials)</option>
+                            </select>
+                            <div class="field-hint">Full incident management and resolution included</div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Resolution Time <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Target time for issue resolution based on severity</span>
+                                </span>
+                            </label>
+                            <select class="form-control">
+                                <option value="">-- Select Resolution Time --</option>
+                                <option value="severity">Based on Severity Level</option>
+                                <option value="8">8 Business Hours</option>
+                                <option value="24" selected>24 Business Hours</option>
+                                <option value="best">Best Effort</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Spare Parts Management -->
+                <div class="form-section">
+                    <h3>🔧 Spare Parts & Inventory Management</h3>
+                    <div class="form-grid">
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label>
+                                Spare Parts Management Approach <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Determines who manages spare parts inventory and associated costs</span>
+                                </span>
+                            </label>
+                            <select class="form-control field-valid">
+                                <option value="">-- Select Spare Parts Approach --</option>
+                                <option value="client-managed" selected>Client Spares Managed by TLS</option>
+                                <option value="not-spared">Equipment not Spared</option>
+                                <option value="manufacturer">Spares Managed by Manufacturer</option>
+                                <option value="tls-owned">TLS Owned Spares</option>
+                            </select>
+                            <div class="validation-success">✓ Client will own spares, TLS will manage inventory</div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Minimum Stock Level
+                                <span class="info-tip">?
+                                    <span class="tooltip">Minimum spare parts inventory to maintain</span>
+                                </span>
+                            </label>
+                            <input type="number" class="form-control" placeholder="Enter minimum stock level" value="2">
+                            <div class="field-hint">Recommended: 2 units for critical components</div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Reorder Point
+                                <span class="info-tip">?
+                                    <span class="tooltip">Stock level that triggers reorder process</span>
+                                </span>
+                            </label>
+                            <input type="number" class="form-control" placeholder="Enter reorder point" value="3">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Coverage Codes -->
+                <div class="form-section">
+                    <h3>🏷️ Coverage Codes Configuration</h3>
+                    <div style="margin-bottom: 15px;">
+                        <button class="btn btn-accent">+ Add Coverage Code</button>
+                        <span style="margin-left: 15px; color: #666; font-size: 14px;">
+                            <span class="info-tip">?
+                                <span class="tooltip">Maximum 5 coverage codes per contract type (except maintenance by product)</span>
+                            </span>
+                            Coverage Codes: 2/5 used
+                        </span>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Code <span class="required">*</span></th>
+                                <th>Description <span class="required">*</span></th>
+                                <th>Coverage Type <span class="required">*</span></th>
+                                <th>Response Override</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input type="text" class="form-control" value="MAINT-GOLD" style="width: 120px;">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" value="Gold Maintenance Package">
+                                </td>
+                                <td>
+                                    <select class="form-control" style="width: 150px;">
+                                        <option>Preventive</option>
+                                        <option selected>Comprehensive</option>
+                                        <option>Basic</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-control" style="width: 120px;">
+                                        <option selected>Use Default</option>
+                                        <option>2 Hours</option>
+                                        <option>4 Hours</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="btn btn-danger btn-sm">Remove</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" class="form-control" value="MAINT-CRIT" style="width: 120px;">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" value="Critical Equipment Coverage">
+                                </td>
+                                <td>
+                                    <select class="form-control" style="width: 150px;">
+                                        <option>Preventive</option>
+                                        <option selected>Comprehensive</option>
+                                        <option>Basic</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-control" style="width: 120px;">
+                                        <option>Use Default</option>
+                                        <option selected>2 Hours</option>
+                                        <option>4 Hours</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="btn btn-danger btn-sm">Remove</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Additional Terms -->
+                <div class="form-section">
+                    <h3>📝 Additional Contract Terms</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>
+                                Auto-Renewal
+                                <span class="info-tip">?
+                                    <span class="tooltip">Contract will automatically renew unless cancelled 30 days before expiration</span>
+                                </span>
+                            </label>
+                            <select class="form-control">
+                                <option value="yes" selected>Yes - Auto-renew</option>
+                                <option value="no">No - Manual renewal</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Price Escalation
+                                <span class="info-tip">?
+                                    <span class="tooltip">Annual price increase percentage for multi-year contracts</span>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" placeholder="0%" value="3%">
+                            <div class="field-hint">Standard annual increase</div>
+                        </div>
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label>
+                                Special Terms & Conditions
+                                <span class="info-tip">?
+                                    <span class="tooltip">Any special terms specific to this contract</span>
+                                </span>
+                            </label>
+                            <textarea class="form-control" rows="4" placeholder="Enter any special terms or conditions...">Quarterly business reviews required. 
+Client to provide secure access to equipment locations.
+All work to be performed during business hours unless emergency.</textarea>
+                        </div>
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label>
+                                Internal Notes
+                                <span class="info-tip">?
+                                    <span class="tooltip">Internal notes not visible to client</span>
+                                </span>
+                            </label>
+                            <textarea class="form-control" rows="3" placeholder="Internal notes for service team...">High-value client - priority response requested by sales team.
+Main contact prefers email communication.</textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Business Rules Reminder -->
+                <div class="form-section" style="background: #f8f9fa; border: 2px solid #dee2e6;">
+                    <h3 style="color: #495057;">📋 Contract Validation Rules</h3>
+                    <div class="form-grid">
+                        <div>
+                            <h4 style="color: #003366; font-size: 16px; margin-bottom: 10px;">Required Fields</h4>
+                            <ul style="margin: 0; padding-left: 20px; color: #666; font-size: 14px;">
+                                <li>Contract Type</li>
+                                <li>Start and End Dates</li>
+                                <li>Contract Value</li>
+                                <li>Coverage Hours</li>
+                                <li>Response Time</li>
+                                <li>Service Level</li>
+                                <li>Spare Parts Approach</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: #003366; font-size: 16px; margin-bottom: 10px;">Validation Rules</h4>
+                            <ul style="margin: 0; padding-left: 20px; color: #666; font-size: 14px;">
+                                <li>End date must be after start date</li>
+                                <li>Maximum 5 coverage codes (except maintenance by product)</li>
+                                <li>Contracts >$100K need approval</li>
+                                <li>Response time must align with coverage hours</li>
+                                <li>Cannot backdate >30 days</li>
+                                <li>Auto-renewal requires 30-day notice period</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Action Footer -->
+                <div class="action-bar" style="position: sticky; bottom: 0; z-index: 10;">
+                    <div>
+                        <span style="color: #666; font-size: 14px;">
+                            <strong>Contract Status:</strong> Draft | 
+                            <strong>Created by:</strong> Robert Johnson | 
+                            <strong>Last saved:</strong> Not saved yet
+                        </span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-secondary">← Previous Step</button>
+                        <button class="btn btn-primary">Save Draft</button>
+                        <button class="btn btn-success">Next: Equipment Setup →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+                

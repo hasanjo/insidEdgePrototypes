@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing Configuration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="erp-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo-section">
+                <span id="logo" style="cursor: pointer" onclick="location.href='https://www.acuative.com'"></span>
+            </div>
+            
+            <div class="menu-section">
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">🏠</span>
+                    Dashboard
+                </a>
+                <a href="#" class="menu-item active">
+                    <span class="menu-icon">👥</span>
+                    Client Management
+                </a>
+                <div class="submenu active">
+                    <a href="index.html" class="submenu-item">Client Profiles</a>
+                    <a href="contract-configuration.html" class="submenu-item">Contracts</a>
+                    <a href="service-instructions.html" class="submenu-item">Service Instructions</a>
+                    <a href="billing-configuration.html" class="submenu-item active">Billing Configuration</a>
+                </div>
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">📋</span>
+                    Order Management
+                </a>
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">📦</span>
+                    Inventory
+                </a>
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">💰</span>
+                    Finance
+                </a>
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">📊</span>
+                    Reports
+                </a>
+                <a href="#" class="menu-item">
+                    <span class="menu-icon">⚙️</span>
+                    Administration
+                </a>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="page-title">Billing Configuration</div>
+                <div class="user-section">
+                    <span>Welcome, Sarah Johnson</span>
+                    <div class="user-avatar">SJ</div>
+                </div>
+            </div>
+            
+            <!-- Content -->
+            <div class="content-wrapper">
+                <!-- Breadcrumb -->
+                <div class="breadcrumb">
+                    <div class="breadcrumb-item">Home</div>
+                    <div class="breadcrumb-item">Client Management</div>
+                    <div class="breadcrumb-item">Client Profiles</div>
+                    <div class="breadcrumb-item">Acme Corporation</div>
+                    <div class="breadcrumb-item">Billing Configuration</div>
+                </div>
+                
+                <!-- Help Panel -->
+                <div class="help-panel">
+                    <h4>📌 Billing Configuration Guidelines</h4>
+                    <ul class="help-list">
+                        <li>All fields marked with red asterisk (*) are mandatory</li>
+                        <li>Email addresses must be valid format (example@domain.com)</li>
+                        <li>Phone numbers must include area code: (XXX) XXX-XXXX</li>
+                        <li>Billing address cannot be a P.O. Box for equipment delivery</li>
+                        <li>Tax exemption requires valid certificate upload</li>
+                        <li>Changes to billing information are tracked in audit log</li>
+                        <li>Credit terms require Finance approval for NET 60+ days</li>
+                    </ul>
+                </div>
+                
+                <!-- Action Bar -->
+                <div class="action-bar">
+                    <div>
+                        <h2 style="color: #003366; margin: 0;">
+                            Billing Configuration - Acme Corporation
+                            <span class="status-badge status-active">Active</span>
+                        </h2>
+                        <p style="color: #666; font-size: 14px; margin-top: 5px;">Client ID: CL-10001 | Last Updated: January 15, 2025</p>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-secondary">View History</button>
+                        <button class="btn btn-accent">✏️ Edit Configuration</button>
+                    </div>
+                </div>
+                
+                <!-- Tabs -->
+                <div class="tabs" style="    position: sticky;top: 73px;z-index: 10;">
+                    <button class="tab active">Billing Address</button>
+                    <button class="tab">Payment Terms</button>
+                    <button class="tab">Tax Configuration</button>
+                    <button class="tab">Pricing Rules</button>
+                    <button class="tab">Manufacturer Discounts</button>
+                </div>
+                
+                <!-- Billing Address Section -->
+                <div class="form-section">
+                    <h3>📍 Billing Address Information</h3>
+                    <div class="form-grid">
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label>
+                                Company Name <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Legal company name for invoicing. Must match tax records.</span>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control field-valid" value="Acme Corporation" readonly>
+                            <div class="validation-success">✓ Verified company name</div>
+                        </div>
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label>
+                                Billing Address Line 1 <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Primary billing address. Cannot be a P.O. Box for equipment delivery.</span>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control field-valid" value="500 Financial Plaza" readonly>
+                            <div class="validation-success">✓ Valid street address</div>
+                        </div>
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label>
+                                Billing Address Line 2
+                                <span class="info-tip">?
+                                    <span class="tooltip">Additional address information (Suite, Floor, etc.)</span>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" value="Suite 1200" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                City <span class="required">*</span>
+                            </label>
+                            <input type="text" class="form-control field-valid" value="New York" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                State/Province <span class="required">*</span>
+                            </label>
+                            <select class="form-control" disabled>
+                                <option selected>NY - New York</option>
+                                <option>CA - California</option>
+                                <option>TX - Texas</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                ZIP/Postal Code <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">5 or 9 digit ZIP code (XXXXX or XXXXX-XXXX)</span>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control field-valid" value="10001-1234" readonly>
+                            <div class="validation-success">✓ Valid ZIP+4 format</div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Country <span class="required">*</span>
+                            </label>
+                            <select class="form-control" disabled>
+                                <option selected>United States</option>
+                                <option>Canada</option>
+                                <option>Mexico</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Billing Contact Section -->
+                <div class="form-section">
+                    <h3>👤 Billing Contact Information</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>
+                                Billing Contact Name <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Primary contact for billing inquiries</span>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control field-valid" value="Mary Thompson" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Title/Department <span class="required">*</span>
+                            </label>
+                            <input type="text" class="form-control" value="Accounts Payable Manager" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Billing Email <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Email for invoices and billing notifications. Multiple emails separated by semicolon.</span>
+                                </span>
+                            </label>
+                            <input type="email" class="form-control field-valid" value="billing@acme.com" readonly>
+                            <div class="validation-success">✓ Valid email format</div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                CC Email Addresses
+                                <span class="info-tip">?
+                                    <span class="tooltip">Additional emails for invoice copies. Separate multiple with semicolon.</span>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" value="mary.thompson@acme.com; finance@acme.com" readonly>
+                            <div class="field-hint">2 additional recipients configured</div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Billing Phone <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Primary phone for billing inquiries. Include extension if applicable.</span>
+                                </span>
+                            </label>
+                            <input type="tel" class="form-control field-valid" value="(555) 123-4567 ext 234" readonly>
+                            <div class="validation-success">✓ Valid phone format</div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Billing Fax
+                                <span class="info-tip">?
+                                    <span class="tooltip">Fax number for billing documents if required</span>
+                                </span>
+                            </label>
+                            <input type="tel" class="form-control" value="(555) 123-4568" readonly>
+                        </div>
+                    </div>
+                </div>
+                
+               <!-- Current Payment Terms Summary -->
+                <div class="form-section">
+                    <h3>💳 Current Payment Terms Summary</h3>
+                    <div class="summary-cards" style="margin-bottom: 0;">
+                        <div class="summary-card">
+                            <div class="summary-icon">📅</div>
+                            <div class="summary-value">NET 30</div>
+                            <div class="summary-label">Standard Terms</div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="summary-icon">💰</div>
+                            <div class="summary-value">2%</div>
+                            <div class="summary-label">Early Payment Discount</div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="summary-icon">⏱️</div>
+                            <div class="summary-value">10 Days</div>
+                            <div class="summary-label">Discount Period</div>
+                        </div>
+                        <div class="summary-card">
+                            <div class="summary-icon">📊</div>
+                            <div class="summary-value">98%</div>
+                            <div class="summary-label">On-Time Payment Rate</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Default Payment Terms Configuration -->
+                <div class="form-section">
+                    <h3>⚙️ Default Payment Terms Settings</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>
+                                Client Default Payment Terms <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Default payment terms applied to all new contracts for this client. Can be overridden per contract.</span>
+                                </span>
+                            </label>
+                            <select class="form-control field-valid" disabled>
+                                <option value="">-- Select Payment Terms --</option>
+                                <option value="DOR">Due on Receipt</option>
+                                <option value="N10">NET 10</option>
+                                <option value="N15">NET 15</option>
+                                <option value="N30" selected>NET 30 - Payment due 30 days after invoice date</option>
+                                <option value="N45">NET 45</option>
+                                <option value="N60">NET 60</option>
+                                <option value="N90">NET 90</option>
+                                <option value="210N30">2/10 NET 30 - 2% discount if paid within 10 days</option>
+                                <option value="EOM">End of Month</option>
+                            </select>
+                            <div class="validation-success">✓ Standard terms - No approval required</div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Early Payment Discount
+                                <span class="info-tip">?
+                                    <span class="tooltip">Percentage discount offered for early payment. Must be approved by Finance.</span>
+                                </span>
+                            </label>
+                            <div style="display: flex; gap: 10px;">
+                                <input type="number" class="form-control" value="2" style="width: 80px;" disabled>
+                                <span style="line-height: 40px;">%</span>
+                            </div>
+                            <div class="field-hint">Applied when payment received within discount period</div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Discount Period (Days)
+                                <span class="info-tip">?
+                                    <span class="tooltip">Number of days from invoice date to qualify for early payment discount</span>
+                                </span>
+                            </label>
+                            <input type="number" class="form-control" value="10" disabled>
+                            <div class="field-hint">Days from invoice date</div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Late Payment Penalty
+                                <span class="info-tip">?
+                                    <span class="tooltip">Interest rate charged on overdue amounts. Subject to local regulations.</span>
+                                </span>
+                            </label>
+                            <div style="display: flex; gap: 10px;">
+                                <input type="number" class="form-control" value="1.5" style="width: 80px;" disabled>
+                                <span style="line-height: 40px;">% per month</span>
+                            </div>
+                            <div class="field-hint">Applied to overdue balance after grace period</div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Grace Period (Days)
+                                <span class="info-tip">?
+                                    <span class="tooltip">Additional days after due date before late fees apply</span>
+                                </span>
+                            </label>
+                            <input type="number" class="form-control" value="5" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Credit Limit Impact
+                                <span class="info-tip">?
+                                    <span class="tooltip">How payment terms affect available credit calculations</span>
+                                </span>
+                            </label>
+                            <select class="form-control" disabled>
+                                <option selected>Standard - Full invoice amount</option>
+                                <option>Extended - 1.5x invoice amount</option>
+                                <option>Accelerated - 0.75x invoice amount</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contract-Specific Payment Terms Override -->
+                <div class="form-section">
+                    <h3>📄 Contract-Specific Payment Terms</h3>
+                    <div style="margin-bottom: 15px;">
+                        <p style="color: #666; font-size: 14px;">Override default payment terms for specific contracts. Changes require approval for extended terms.</p>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Contract Number</th>
+                                <th>Contract Type</th>
+                                <th>Payment Terms <span class="required">*</span></th>
+                                <th>Discount</th>
+                                <th>Approval Status</th>
+                                <th>Effective Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <strong>CNT-2025-00123</strong>
+                                    <div style="font-size: 12px; color: #666;">Maintenance</div>
+                                </td>
+                                <td>Annual Maintenance</td>
+                                <td>
+                                    <select class="form-control" style="width: 180px;" disabled>
+                                        <option value="N30" selected>NET 30</option>
+                                        <option value="N45">NET 45</option>
+                                        <option value="N60">NET 60</option>
+                                    </select>
+                                </td>
+                                <td>2% 10 Days</td>
+                                <td><span class="status-badge status-active">Approved</span></td>
+                                <td>01/01/2025</td>
+                                <td>
+                                    <button class="btn btn-sm btn-secondary">Edit</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>CNT-2025-00124</strong>
+                                    <div style="font-size: 12px; color: #666;">Support</div>
+                                </td>
+                                <td>Premium Support</td>
+                                <td>
+                                    <select class="form-control" style="width: 180px;" disabled>
+                                        <option value="N30">NET 30</option>
+                                        <option value="N45" selected>NET 45</option>
+                                        <option value="N60">NET 60</option>
+                                    </select>
+                                </td>
+                                <td>None</td>
+                                <td><span class="status-badge status-active">Approved</span></td>
+                                <td>01/15/2025</td>
+                                <td>
+                                    <button class="btn btn-sm btn-secondary">Edit</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>CNT-2025-00125</strong>
+                                    <div style="font-size: 12px; color: #666;">Project</div>
+                                </td>
+                                <td>Implementation</td>
+                                <td>
+                                    <select class="form-control field-warning" style="width: 180px;">
+                                        <option value="N30">NET 30</option>
+                                        <option value="N45">NET 45</option>
+                                        <option value="N60" selected>NET 60</option>
+                                    </select>
+                                </td>
+                                <td>None</td>
+                                <td><span class="status-badge status-pending">Pending Approval</span></td>
+                                <td>02/01/2025</td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary">Save</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="validation-warning" style="margin-top: 10px;">
+                        ⚠️ CNT-2025-00125: Extended payment terms (NET 60) require Finance Manager approval
+                    </div>
+                </div>
+                
+                <!-- Payment Terms History -->
+                <div class="form-section">
+                    <h3>📜 Payment Terms Change History</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Date/Time</th>
+                                <th>Changed By</th>
+                                <th>Contract/Scope</th>
+                                <th>Previous Terms</th>
+                                <th>New Terms</th>
+                                <th>Approval</th>
+                                <th>Reason</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>01/15/2025 10:30 AM</td>
+                                <td>Sarah Johnson</td>
+                                <td>CNT-2025-00124</td>
+                                <td>NET 30</td>
+                                <td>NET 45</td>
+                                <td>John Smith (CFO)</td>
+                                <td>Client requested extended terms for large project</td>
+                            </tr>
+                            <tr>
+                                <td>01/01/2025 09:15 AM</td>
+                                <td>Robert Kim</td>
+                                <td>Client Default</td>
+                                <td>NET 15</td>
+                                <td>NET 30</td>
+                                <td>Auto-approved</td>
+                                <td>Annual contract renewal with improved terms</td>
+                            </tr>
+                            <tr>
+                                <td>06/01/2024 02:45 PM</td>
+                                <td>Maria Garcia</td>
+                                <td>Client Default</td>
+                                <td>Due on Receipt</td>
+                                <td>NET 15</td>
+                                <td>Auto-approved</td>
+                                <td>Credit approved after initial trial period</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Available Payment Terms Reference -->
+                <div class="form-section">
+                    <h3>📋 Available Payment Terms Reference</h3>
+                    <div class="help-panel" style="margin-bottom: 20px;">
+                        <h4>ℹ️ Payment Terms Definitions</h4>
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                            <div>
+                                <ul class="help-list">
+                                    <li><strong>Due on Receipt:</strong> Payment due immediately upon invoice receipt</li>
+                                    <li><strong>NET 10/15/30:</strong> Payment due 10/15/30 days after invoice date</li>
+                                    <li><strong>NET 45/60/90:</strong> Extended terms requiring approval</li>
+                                    <li><strong>2/10 NET 30:</strong> 2% discount if paid within 10 days</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul class="help-list">
+                                    <li><strong>EOM:</strong> Payment due at end of invoice month</li>
+                                    <li><strong>COD:</strong> Cash on delivery (rarely used)</li>
+                                    <li><strong>CIA:</strong> Cash in advance (new clients)</li>
+                                    <li><strong>Custom:</strong> Special terms requiring executive approval</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Terms Code</th>
+                                <th>Description</th>
+                                <th>Days to Pay</th>
+                                <th>Discount %</th>
+                                <th>Discount Days</th>
+                                <th>Approval Required</th>
+                                <th>Usage Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>DOR</strong></td>
+                                <td>Due on Receipt</td>
+                                <td>0</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>No</td>
+                                <td>45</td>
+                            </tr>
+                            <tr>
+                                <td><strong>N30</strong></td>
+                                <td>NET 30</td>
+                                <td>30</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>No</td>
+                                <td>1,234</td>
+                            </tr>
+                            <tr>
+                                <td><strong>210N30</strong></td>
+                                <td>2/10 NET 30</td>
+                                <td>30</td>
+                                <td>2%</td>
+                                <td>10</td>
+                                <td>No</td>
+                                <td>456</td>
+                            </tr>
+                            <tr>
+                                <td><strong>N45</strong></td>
+                                <td>NET 45</td>
+                                <td>45</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>Manager</td>
+                                <td>234</td>
+                            </tr>
+                            <tr>
+                                <td><strong>N60</strong></td>
+                                <td>NET 60</td>
+                                <td>60</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>Finance Manager</td>
+                                <td>89</td>
+                            </tr>
+                            <tr>
+                                <td><strong>N90</strong></td>
+                                <td>NET 90</td>
+                                <td>90</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>CFO</td>
+                                <td>12</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Business Rules Summary -->
+                <div class="form-section" style="background: #fff3cd; border: 1px solid #ffeeba;">
+                    <h3 style="color: #856404;">⚠️ Payment Terms Business Rules</h3>
+                    <div class="form-grid">
+                        <div>
+                            <h4 style="color: #856404; font-size: 16px; margin-bottom: 10px;">Configuration Rules</h4>
+                            <ul style="margin: 0; padding-left: 20px; color: #856404; font-size: 14px;">
+                                <li>Only pre-defined payment terms allowed</li>
+                                <li>NET 30 or less: Auto-approved</li>
+                                <li>NET 45-60: Manager approval required</li>
+                                <li>NET 90+: CFO approval required</li>
+                                <li>Early payment discounts need documentation</li>
+                                <li>Changes tracked in audit log</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: #856404; font-size: 16px; margin-bottom: 10px;">Financial Impact</h4>
+                            <ul style="margin: 0; padding-left: 20px; color: #856404; font-size: 14px;">
+                                <li>Payment terms affect credit limit utilization</li>
+                                <li>Extended terms impact cash flow projections</li>
+                                <li>Early payment discounts reduce revenue</li>
+                                <li>Late payment penalties subject to state laws</li>
+                                <li>Terms changes may trigger credit review</li>
+                                <li>Contract value affects approval thresholds</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tax Configuration Section -->
+                <div class="form-section">
+                    <h3>🏛️ Tax Configuration</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>
+                                Tax Exempt Status
+                                <span class="info-tip">?
+                                    <span class="tooltip">Tax exemption status. Certificate required if exempt.</span>
+                                </span>
+                            </label>
+                            <div class="toggle-switch">
+                                <label class="switch">
+                                    <input type="checkbox" disabled>
+                                    <span class="slider"></span>
+                                </label>
+                                <span>Not Tax Exempt</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Tax ID Number <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Federal Tax ID (EIN) for business clients</span>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control field-valid" value="12-3456789" readonly>
+                            <div class="validation-success">✓ Valid EIN format</div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                State Tax ID
+                                <span class="info-tip">?
+                                    <span class="tooltip">State tax registration number if applicable</span>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" value="NY-987654321" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Tax Jurisdiction <span class="required">*</span>
+                                <span class="info-tip">?
+                                    <span class="tooltip">Primary tax jurisdiction for rate calculation</span>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" value="New York, NY (10001)" readonly>
+                            <div class="field-hint">Sales Tax Rate: 8.875%</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Special Pricing Rules -->
+                <div class="form-section">
+                    <h3>💰 Special Pricing Rules</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>
+                                Contract Pricing Override
+                                <span class="info-tip">?
+                                    <span class="tooltip">Apply special contract pricing instead of list prices</span>
+                                </span>
+                            </label>
+                            <div class="toggle-switch">
+                                <label class="switch">
+                                    <input type="checkbox" checked disabled>
+                                    <span class="slider"></span>
+                                </label>
+                                <span>Contract Pricing Active</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Volume Discount Tier
+                                <span class="info-tip">?
+                                    <span class="tooltip">Automatic discount based on purchase volume</span>
+                                </span>
+                            </label>
+                            <select class="form-control" disabled>
+                                <option>No Volume Discount</option>
+                                <option>Bronze (5% off)</option>
+                                <option selected>Silver (10% off)</option>
+                                <option>Gold (15% off)</option>
+                                <option>Platinum (20% off)</option>
+                            </select>
+                            <div class="field-hint">Based on $2M annual volume</div>
+                        </div>
+                    </div>
+                    
+                    <h4 style="margin-top: 20px; margin-bottom: 10px; color: #003366;">Active Pricing Rules</h4>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Rule Type</th>
+                                <th>Description</th>
+                                <th>Discount/Markup</th>
+                                <th>Effective Date</th>
+                                <th>Expiry Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Contract Discount</td>
+                                <td>2025 Master Agreement Pricing</td>
+                                <td style="color: #28a745;">-15%</td>
+                                <td>01/01/2025</td>
+                                <td>12/31/2025</td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td>Category Discount</td>
+                                <td>Network Equipment Special</td>
+                                <td style="color: #28a745;">-20%</td>
+                                <td>01/01/2025</td>
+                                <td>06/30/2025</td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td>Service Markup</td>
+                                <td>After-Hours Service Premium</td>
+                                <td style="color: #dc3545;">+50%</td>
+                                <td>01/01/2025</td>
+                                <td>No Expiry</td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Manufacturer Discounts -->
+                <div class="form-section">
+                    <h3>🏭 Manufacturer Discount Configuration</h3>
+                    <div style="margin-bottom: 15px;">
+                        <button class="btn btn-accent">+ Add Manufacturer Discount</button>
+                        <span style="margin-left: 15px; color: #666; font-size: 14px;">
+                            Configure special discounts by manufacturer
+                        </span>
+                    </div>
+                    
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Manufacturer <span class="required">*</span></th>
+                                <th>Discount % <span class="required">*</span></th>
+                                <th>Product Categories</th>
+                                <th>Min Order Value</th>
+                                <th>Approval Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <strong>Dell Technologies</strong>
+                                    <div style="font-size: 12px; color: #666;">MFG-DELL-001</div>
+                                </td>
+                                <td>
+                                    <strong style="color: #28a745;">18%</strong>
+                                    <div style="font-size: 12px; color: #666;">Volume Tier 3</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px;">
+                                        • Servers<br>
+                                        • Storage<br>
+                                        • Networking
+                                    </div>
+                                </td>
+                                <td>$10,000</td>
+                                <td><span class="status-badge status-active">Approved</span></td>
+                                <td>
+                                    <button class="btn btn-sm btn-secondary">Edit</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Cisco Systems</strong>
+                                    <div style="font-size: 12px; color: #666;">MFG-CISCO-001</div>
+                                </td>
+                                <td>
+                                    <strong style="color: #28a745;">22%</strong>
+                                    <div style="font-size: 12px; color: #666;">Partner Gold</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px;">
+                                        • Routers<br>
+                                        • Switches<br>
+                                        • Security
+                                    </div>
+                                </td>
+                                <td>$25,000</td>
+                                <td><span class="status-badge status-active">Approved</span></td>
+                                <td>
+                                    <button class="btn btn-sm btn-secondary">Edit</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>HP Enterprise</strong>
+                                    <div style="font-size: 12px; color: #666;">MFG-HP-001</div>
+                                </td>
+                                <td>
+                                    <strong style="color: #28a745;">15%</strong>
+                                    <div style="font-size: 12px; color: #666;">Standard</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px;">
+                                        • Printers<br>
+                                        • Workstations
+                                    </div>
+                                </td>
+                                <td>$5,000</td>
+                                <td><span class="status-badge status-active">Approved</span></td>
+                                <td>
+                                    <button class="btn btn-sm btn-secondary">Edit</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Labor Rate Configuration -->
+                <div class="form-section">
+                    <h3>👷 Labor Rate Configuration</h3>
+                    <div class="help-panel" style="margin-bottom: 20px;">
+                        <h4>ℹ️ Labor Rate Information</h4>
+                        <ul class="help-list">
+                            <li>Standard rates apply during business hours (8 AM - 5 PM)</li>
+                            <li>Overtime rates apply after hours and weekends (1.5x standard)</li>
+                            <li>Emergency rates apply for same-day urgent requests (2x standard)</li>
+                            <li>Holiday rates apply on company-observed holidays (2.5x standard)</li>
+                        </ul>
+                    </div>
+                    
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Labor Code <span class="required">*</span></th>
+                                <th>Description</th>
+                                <th>Standard Rate</th>
+                                <th>Overtime Rate</th>
+                                <th>Emergency Rate</th>
+                                <th>Holiday Rate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>TECH-L1</strong></td>
+                                <td>Level 1 Technician</td>
+                                <td>$85/hr</td>
+                                <td>$127.50/hr</td>
+                                <td>$170/hr</td>
+                                <td>$212.50/hr</td>
+                            </tr>
+                            <tr>
+                                <td><strong>TECH-L2</strong></td>
+                                <td>Level 2 Technician</td>
+                                <td>$125/hr</td>
+                                <td>$187.50/hr</td>
+                                <td>$250/hr</td>
+                                <td>$312.50/hr</td>
+                            </tr>
+                            <tr>
+                                <td><strong>TECH-L3</strong></td>
+                                <td>Level 3 Engineer</td>
+                                <td>$175/hr</td>
+                                <td>$262.50/hr</td>
+                                <td>$350/hr</td>
+                                <td>$437.50/hr</td>
+                            </tr>
+                            <tr>
+                                <td><strong>TECH-SPEC</strong></td>
+                                <td>Specialist/Architect</td>
+                                <td>$225/hr</td>
+                                <td>$337.50/hr</td>
+                                <td>$450/hr</td>
+                                <td>$562.50/hr</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Business Rules Summary -->
+                <div class="form-section" style="background: #fff3cd; border: 1px solid #ffeeba;">
+                    <h3 style="color: #856404;">⚠️ Billing Configuration Rules & Compliance</h3>
+                    <div class="form-grid">
+                        <div>
+                            <h4 style="color: #856404; font-size: 16px; margin-bottom: 10px;">Validation Rules</h4>
+                            <ul style="margin: 0; padding-left: 20px; color: #856404; font-size: 14px;">
+                                <li>Billing address cannot be P.O. Box</li>
+                                <li>Valid email format required</li>
+                                <li>Phone must include area code</li>
+                                <li>Tax ID must be valid EIN format</li>
+                                <li>Credit limit changes require approval</li>
+                                <li>NET 60+ terms need Finance approval</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: #856404; font-size: 16px; margin-bottom: 10px;">Audit Requirements</h4>
+                            <ul style="margin: 0; padding-left: 20px; color: #856404; font-size: 14px;">
+                                <li>All changes tracked with user/timestamp</li>
+                                <li>Discount approvals documented</li>
+                                <li>Tax exemption certificates on file</li>
+                                <li>Credit reviews quarterly</li>
+                                <li>Manufacturer agreements current</li>
+                                <li>Labor rates reviewed annually</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                  <!-- Action Footer -->
+                <div class="action-bar" style="position: sticky; bottom: 0; z-index: 10;">
+                    <div>
+                        <span style="color: #666; font-size: 14px;">
+                            <strong>Last Updated:</strong> January 15, 2025 by Sarah Johnson | 
+                            <strong>Pending Approvals:</strong> 1 Contract
+                        </span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-secondary">Cancel Changes</button>
+                        <button class="btn btn-primary">Save All Changes</button>
+                        <button class="btn btn-success">Submit for Approval</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
