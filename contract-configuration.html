@@ -38,8 +38,8 @@
             padding: 20px;
             text-align: center;
             border-bottom: 3px solid #f5a623;
+            height: 100px;
             position: relative;
-            height: 78px;
         }
         
         #logo {
@@ -596,7 +596,7 @@
         <div class="sidebar">
             <div class="logo-section">
                <span id="logo" style="cursor: pointer" onclick="location.href='http://www.acuative.com'"></span>
-         
+               <div class="logo-text">InsideEdge ERP</div>
             </div>
             
             <div class="menu-section">
@@ -911,4 +911,175 @@
                     <div style="margin-bottom: 15px;">
                         <button class="btn btn-accent">+ Add Coverage Code</button>
                         <span style="margin-left: 15px; color: #666; font-size: 14px;">
+                            <span class="info-tip">?
+                                <span class="tooltip">Maximum 5 coverage codes per contract type (except maintenance by product)</span>
+                            </span>
+                            Coverage Codes: 2/5 used
+                        </span>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Code <span class="required">*</span></th>
+                                <th>Description <span class="required">*</span></th>
+                                <th>Coverage Type <span class="required">*</span></th>
+                                <th>Response Override</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input type="text" class="form-control" value="MAINT-GOLD" style="width: 120px;">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" value="Gold Maintenance Package">
+                                </td>
+                                <td>
+                                    <select class="form-control" style="width: 150px;">
+                                        <option>Preventive</option>
+                                        <option selected>Comprehensive</option>
+                                        <option>Basic</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-control" style="width: 120px;">
+                                        <option selected>Use Default</option>
+                                        <option>2 Hours</option>
+                                        <option>4 Hours</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="btn btn-danger btn-sm">Remove</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" class="form-control" value="MAINT-CRIT" style="width: 120px;">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" value="Critical Equipment Coverage">
+                                </td>
+                                <td>
+                                    <select class="form-control" style="width: 150px;">
+                                        <option>Preventive</option>
+                                        <option selected>Comprehensive</option>
+                                        <option>Basic</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-control" style="width: 120px;">
+                                        <option>Use Default</option>
+                                        <option selected>2 Hours</option>
+                                        <option>4 Hours</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="btn btn-danger btn-sm">Remove</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Additional Terms -->
+                <div class="form-section">
+                    <h3>📝 Additional Contract Terms</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>
+                                Auto-Renewal
+                                <span class="info-tip">?
+                                    <span class="tooltip">Contract will automatically renew unless cancelled 30 days before expiration</span>
+                                </span>
+                            </label>
+                            <select class="form-control">
+                                <option value="yes" selected>Yes - Auto-renew</option>
+                                <option value="no">No - Manual renewal</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Price Escalation
+                                <span class="info-tip">?
+                                    <span class="tooltip">Annual price increase percentage for multi-year contracts</span>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" placeholder="0%" value="3%">
+                            <div class="field-hint">Standard annual increase</div>
+                        </div>
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label>
+                                Special Terms & Conditions
+                                <span class="info-tip">?
+                                    <span class="tooltip">Any special terms specific to this contract</span>
+                                </span>
+                            </label>
+                            <textarea class="form-control" rows="4" placeholder="Enter any special terms or conditions...">Quarterly business reviews required. 
+Client to provide secure access to equipment locations.
+All work to be performed during business hours unless emergency.</textarea>
+                        </div>
+                        <div class="form-group" style="grid-column: 1 / -1;">
+                            <label>
+                                Internal Notes
+                                <span class="info-tip">?
+                                    <span class="tooltip">Internal notes not visible to client</span>
+                                </span>
+                            </label>
+                            <textarea class="form-control" rows="3" placeholder="Internal notes for service team...">High-value client - priority response requested by sales team.
+Main contact prefers email communication.</textarea>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Business Rules Reminder -->
+                <div class="form-section" style="background: #f8f9fa; border: 2px solid #dee2e6;">
+                    <h3 style="color: #495057;">📋 Contract Validation Rules</h3>
+                    <div class="form-grid">
+                        <div>
+                            <h4 style="color: #003366; font-size: 16px; margin-bottom: 10px;">Required Fields</h4>
+                            <ul style="margin: 0; padding-left: 20px; color: #666; font-size: 14px;">
+                                <li>Contract Type</li>
+                                <li>Start and End Dates</li>
+                                <li>Contract Value</li>
+                                <li>Coverage Hours</li>
+                                <li>Response Time</li>
+                                <li>Service Level</li>
+                                <li>Spare Parts Approach</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: #003366; font-size: 16px; margin-bottom: 10px;">Validation Rules</h4>
+                            <ul style="margin: 0; padding-left: 20px; color: #666; font-size: 14px;">
+                                <li>End date must be after start date</li>
+                                <li>Maximum 5 coverage codes (except maintenance by product)</li>
+                                <li>Contracts >$100K need approval</li>
+                                <li>Response time must align with coverage hours</li>
+                                <li>Cannot backdate >30 days</li>
+                                <li>Auto-renewal requires 30-day notice period</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Action Footer -->
+                <div class="action-bar" style="position: sticky; bottom: 0; z-index: 10;">
+                    <div>
+                        <span style="color: #666; font-size: 14px;">
+                            <strong>Contract Status:</strong> Draft | 
+                            <strong>Created by:</strong> Robert Johnson | 
+                            <strong>Last saved:</strong> Not saved yet
+                        </span>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-secondary">← Previous Step</button>
+                        <button class="btn btn-primary">Save Draft</button>
+                        <button class="btn btn-success">Next: Equipment Setup →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
                 
