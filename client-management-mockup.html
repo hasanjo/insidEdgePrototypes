@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InsideEdge - Client Profile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+            font-size: 11px;
+            background-color: #d4d0c8;
+        }
+
+        /* Window Chrome */
+        .window {
+            border: 2px solid #0054e3;
+            background-color: #ece9d8;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            position: relative;
+        }
+
+        .title-bar {
+            background: linear-gradient(to right, #0054e3, #4d94ff);
+            color: white;
+            padding: 3px 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .window-controls {
+            display: flex;
+            gap: 2px;
+        }
+
+        .window-controls button {
+            width: 16px;
+            height: 14px;
+            border: 1px solid #fff;
+            background: #d4d0c8;
+            font-size: 10px;
+            cursor: pointer;
+        }
+
+        /* Menu Bar */
+        .menu-bar {
+            background-color: #ece9d8;
+            border-bottom: 1px solid #fff;
+            border-top: 1px solid #808080;
+            padding: 2px 0;
+        }
+
+        .menu-bar ul {
+            list-style: none;
+            display: flex;
+            padding: 0 5px;
+        }
+
+        .menu-bar li {
+            padding: 3px 8px;
+            cursor: pointer;
+        }
+
+        .menu-bar li:hover {
+            background-color: #316ac5;
+            color: white;
+        }
+
+        /* Toolbar */
+        .toolbar {
+            background-color: #ece9d8;
+            border-bottom: 1px solid #808080;
+            padding: 2px 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .toolbar button {
+            width: 23px;
+            height: 22px;
+            border: 1px solid transparent;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .toolbar button:hover {
+            border: 1px solid #808080;
+            background-color: #e5e5e5;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            background-color: #d6d3ce;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px groove #fff;
+        }
+
+        .search-bar label {
+            font-weight: normal;
+        }
+
+        .search-bar select,
+        .search-bar input[type="text"] {
+            border: 1px solid #808080;
+            background-color: #fff;
+            padding: 2px;
+            font-family: inherit;
+            font-size: 11px;
+        }
+
+        .search-bar button {
+            background-color: #ffff99;
+            border: 1px solid #808080;
+            padding: 2px 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+            background-color: #d6d3ce;
+        }
+
+        /* Client Details Section */
+        .section {
+            background-color: #ece9d8;
+            border: 2px groove #fff;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+
+        .section-header {
+            background-color: #0054e3;
+            color: white;
+            padding: 2px 5px;
+            margin: -5px -5px 5px -5px;
+            font-weight: bold;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 120px 1fr 120px 1fr;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .form-grid label {
+            text-align: right;
+            padding-right: 5px;
+        }
+
+        .form-grid input[type="text"],
+        .form-grid select {
+            border: 1px solid #808080;
+            background-color: #fff;
+            padding: 2px;
+            font-family: inherit;
+            font-size: 11px;
+            width: 100%;
+        }
+
+        .form-grid input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .highlight {
+            background-color: #ffff99;
+        }
+
+        /* Tabs */
+        .tabs-container {
+            max-height: 355px;
+            overflow: auto;
+            background-color: #ece9d8;
+            border: 2px groove #fff;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tabs {
+            position: sticky;
+            top: 0;
+            display: flex;
+            background-color: #d6d3ce;
+            border-bottom: 1px solid #808080;
+        }
+
+        .tab {
+            padding: 5px 15px;
+            background-color: #ece9d8;
+            border: 1px solid #808080;
+            border-bottom: none;
+            cursor: pointer;
+            margin-right: 2px;
+        }
+
+        .tab.active {
+            background-color: #0054e3;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tab-content {
+            flex: 1;
+            background-color: #d6d3ce;
+            padding: 10px;
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Grid */
+        .grid-container {
+            background-color: #fff;
+            border: 1px solid #808080;
+            height: 200px;
+            overflow: auto;
+        }
+
+        .grid-header {
+            display: grid;
+            background-color: #d6d3ce;
+            border-bottom: 1px solid #808080;
+        }
+
+        .grid-header div {
+            padding: 3px 5px;
+            border-right: 1px solid #808080;
+            font-weight: bold;
+        }
+
+        .grid-row {
+            display: grid;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .grid-row div {
+            padding: 3px 5px;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        .grid-row.selected {
+            background-color: #316ac5;
+            color: white;
+        }
+
+        .grid-row.highlight-yellow {
+            background-color: #ffff99;
+        }
+
+        /* Bottom Buttons */
+        .button-bar {
+            background-color: #d6d3ce;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            border-top: 2px groove #fff;
+        }
+
+        .button-bar button {
+            padding: 5px 20px;
+            background-color: #ece9d8;
+            border: 2px outset #ece9d8;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 11px;
+        }
+
+        .button-bar button:active {
+            border: 2px inset #ece9d8;
+        }
+
+        /* Status Bar */
+        .status-bar {
+            background-color: #d6d3ce;
+            border-top: 1px solid #fff;
+            padding: 2px 5px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .link {
+            color: #0000ff;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        /* Dialogs */
+        .dialog-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.3);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .dialog-overlay.active {
+            display: flex;
+        }
+
+        .dialog {
+            background-color: #ece9d8;
+            border: 2px solid #0054e3;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            max-width: 90%;
+            max-height: 90%;
+            overflow: auto;
+        }
+
+        .dialog-title {
+            background: linear-gradient(to right, #0054e3, #4d94ff);
+            color: white;
+            padding: 3px 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .dialog-content {
+            padding: 10px;
+        }
+
+        .dialog-buttons {
+            padding: 10px;
+            text-align: center;
+            border-top: 1px solid #808080;
+        }
+
+        .dialog-buttons button {
+            padding: 5px 20px;
+            margin: 0 5px;
+            background-color: #ece9d8;
+            border: 2px outset #ece9d8;
+            cursor: pointer;
+        }
+
+        /* PO Tab specific styles */
+        .po-grid {
+            display: grid;
+            grid-template-columns: 100px 1fr 100px 1fr 100px 1fr 100px 1fr 100px 1fr;
+            gap: 5px;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .po-grid label {
+            text-align: right;
+            padding-right: 5px;
+            font-size: 10px;
+        }
+
+        .po-grid input[type="text"],
+        .po-grid select {
+            border: 1px solid #808080;
+            background-color: #fff;
+            padding: 2px;
+            font-family: inherit;
+            font-size: 11px;
+            width: 100%;
+        }
+
+        .billing-section {
+            background-color: #e8e8e8;
+            border: 1px solid #808080;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .billing-header {
+            font-weight: bold;
+            margin-bottom: 10px;
+            background-color: #d6d3ce;
+            padding: 3px 5px;
+            margin: -10px -10px 10px -10px;
+        }
+
+        /* Maintenance Contract Dialog */
+        .maintenance-dialog {
+            width: 600px;
+        }
+
+        .maintenance-dialog .form-grid {
+            grid-template-columns: 100px 150px 100px 150px;
+        }
+
+        .comments-box {
+            width: 100%;
+            height: 100px;
+            border: 1px solid #808080;
+            font-family: inherit;
+            font-size: 11px;
+            margin-top: 10px;
+        }
+
+        .disabled-field {
+            position: relative;
+            border: 2px dashed #ff0000 !important;
+        }
+
+        .disabled-field::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background-image: repeating-linear-gradient(45deg,
+                    transparent,
+                    transparent 10px,
+                    #ff0000 10px,
+                    #ff0000 12px);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Alternative version with tighter lines */
+        .disabled-field-tight {
+            position: relative;
+            border: 2px dashed #ff0000 !important;
+        }
+
+        .disabled-field-tight::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background-image: repeating-linear-gradient(45deg,
+                    transparent,
+                    transparent 5px,
+                    #ff0000 5px,
+                    #ff0000 6px);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Cross-hatch pattern version */
+        .disabled-field-crosshatch {
+            position: relative;
+            border: 2px dashed #ff0000 !important;
+        }
+
+        .disabled-field-crosshatch::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background-image:
+                repeating-linear-gradient(45deg,
+                    transparent,
+                    transparent 10px,
+                    #ff0000 10px,
+                    #ff0000 11px),
+                repeating-linear-gradient(-45deg,
+                    transparent,
+                    transparent 10px,
+                    #ff0000 10px,
+                    #ff0000 11px);
+            pointer-events: none;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="window">
+        <div class="title-bar">
+            <span>🔍 InsideEdge - [Client Profile]</span>
+            <div class="window-controls">
+                <button>_</button>
+                <button>□</button>
+                <button>X</button>
+            </div>
+        </div>
+
+        <div class="menu-bar">
+            <ul>
+                <li>File</li>
+                <li>Edit</li>
+                <li>Maintain</li>
+                <li>Programs</li>
+                <li>Scrolling Reports</li>
+                <li>Utilities</li>
+                <li>View</li>
+                <li>Windows</li>
+                <li>Help</li>
+            </ul>
+        </div>
+
+        <div class="toolbar">
+            <button title="New">📄</button>
+            <button title="Open">📁</button>
+            <button title="Save">💾</button>
+            <button title="Print">🖨️</button>
+            <button title="Cut">✂️</button>
+            <button title="Copy">📋</button>
+            <button title="Paste">📋</button>
+            <button title="Find">🔍</button>
+            <button title="Help">❓</button>
+        </div>
+
+        <div class="search-bar">
+            <label>Search By:</label>
+            <select>
+                <option>Client ID</option>
+                <option>Client Name</option>
+                <option>Phone Number</option>
+            </select>
+            <input type="text" value="6456" style="width: 100px;">
+            <button>Search</button>
+        </div>
+
+        <div class="main-content">
+            <div class="section">
+                <div class="section-header">Client Details</div>
+                <div class="form-grid">
+                    <label>Client Name:</label>
+                    <input type="text" value="ARAMARK" class="highlight">
+                    <label>Last Updated By:</label>
+                    <input type="text" value="10331 - OLIVA, SAINDRA" readonly>
+
+                    <label>Date Client Entered on File:</label>
+                    <input type="text" value="05/17/2023" readonly>
+                    <label>Last Updated Date:</label>
+                    <input type="text" value="05/17/2023 18:24 AM" readonly>
+
+                    <div></div>
+                    <div></div>
+                    <label>No of Sites: <span style="margin-left: 20px;">0</span></label>
+                    <div style="display: flex; align-items: center;">
+                        <input type="checkbox" checked><span>Active</span>
+                        
+                    </div>
+                </div>
+            </div>
+            <div style="width: 100%;display: table;">
+                <div class="section" style="width: calc( 100vw /2 - 20px);display: table-cell;">
+                    <div class="section-header">Contact Details</div>
+                    <div class="form-grid" style="grid-template-columns: 109px 73fr 131px 1fr;">
+                        <label>Address 1:</label>
+                        <input type="text" value="115 N. FIRST ST">
+                        <label></label>
+                        <div></div>
+
+                        <label>Address 2:</label>
+                        <input type="text" value="">
+                        <label></label>
+                        <div></div>
+
+                        <label>City,State,Zip,Country:</label>
+                        <div style="display: flex; gap: 5px;">
+                            <select style="width: 120px;">
+                                <option>BURBANK</option>
+                            </select>
+                            <select style="width: 50px;">
+                                <option>CA</option>
+                            </select>
+                            <input type="text" value="91502" style="width: 60px;">
+                            <select style="flex: 1;">
+                                <option>UNITED STATES</option>
+                            </select>
+                        </div>
+                        <label></label>
+                        <div></div>
+
+                        <label>Phone Number:</label>
+                        <div style="display: flex; gap: 5px;">
+                            <input type="text" value="(818) 973-3688" class="highlight">
+                            <span>Extn:</span>
+                            <input type="text" value="" style="width: 60px;">
+                        </div>
+                        <label></label>
+                        <div></div>
+
+                        <label>Web Address:</label>
+                        <input type="text" value="">
+                        <label></label>
+                        <div></div>
+                    </div>
+                </div>
+
+                <div class="section" style="width: calc( 100vw /2 - 20px);display: table-cell;">
+                    <div class="section-header">Account Details</div>
+                    <div class="form-grid">
+                        <label>Account Type:</label>
+                        <select>
+                            <option>ENTERPRISE</option>
+                            <option>FINANCIAL</option>
+                            <option>HOUSE</option>
+                            <option>MED-TIER ENTERPRISE</option>
+                            <option>PUBLIC SECTOR</option>
+                            <option>RETAIL</option>
+                            <option>SERVICE PROVIDER_OEM</option>
+                            <option>TENFOUR</option>
+                        </select>
+                        <label></label>
+                        <div></div>
+
+                        <label>Geographic Scope:</label>
+                        <input type="text" value="">
+                        <label></label>
+                        <div></div>
+
+                        <label>Credit Limit Amt:</label>
+                        <input type="text" value="$0.00">
+                        <label></label>
+                        <div></div>
+
+                        <label>Est. Annual Revenue Amt:</label>
+                        <input type="text" value="$0.00">
+                        <label></label>
+                        <div></div>
+
+                        <label>Line of Business:</label>
+                        <select>
+                            <option value=""></option>
+                        </select>
+                        <label></label>
+                        <div></div>
+
+                        <label>Federal Tax Id:</label>
+                        <input type="text" value="">
+                        <span class="link" onclick="openBillingDialog()">Default Billing Info</span>
+                        <div></div>
+
+                        <label>Tax Exempt Form?:</label>
+                        <div class="radio-group">
+                            <input type="checkbox"> Yes
+                        </div>
+                        <label>Credit Appl. Ind:</label>
+                        <div class="radio-group">
+                            <input type="checkbox"> Yes
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="section">
+                <div class="section-header">General Comments</div>
+                <textarea
+                    style="width: calc(100% - 150px); height: 60px; border: 1px solid #808080; font-family: inherit; font-size: 11px;"></textarea>
+                <button style="margin-left: auto; margin-right: 5px; padding: 2px 10px;">Add Comments</button>
+            </div>
+        </div>
+
+        <div class="tabs-container">
+            <div class="tabs">
+                <div class="tab active" onclick="switchTab('contracts')">Contracts List</div>
+                <div class="tab" onclick="switchTab('subclients')">SubClients</div>
+                <div class="tab" onclick="switchTab('po')">PO</div>
+                <div class="tab" onclick="switchTab('resellers')">Resellers IDs</div>
+                <div class="tab" onclick="switchTab('internal')">Internal Contacts for all Contracts</div>
+                <div class="tab" onclick="switchTab('external')">External Contacts for all Contracts</div>
+                <div class="tab" onclick="switchTab('maintenance')">Maintenance Contract</div>
+            </div>
+
+            <!-- Contracts List Tab -->
+            <div class="tab-content active" id="contracts-tab">
+                <div style="margin-bottom: 10px;">
+                    <span>View Contracts:</span>
+                    <label style="margin-left: 20px;"><input type="radio" name="view" checked> Active</label>
+                    <label style="margin-left: 10px;"><input type="radio" name="view"> Inactive</label>
+                    <label style="margin-left: 10px;"><input type="radio" name="view"> All</label>
+                </div>
+                <div class="grid-container">
+                    <div class="grid-header" style="grid-template-columns: 2fr 1fr 1fr 1fr 60px;">
+                        <div>ContractName</div>
+                        <div>Contract Cd</div>
+                        <div>Eff Date</div>
+                        <div>End Date</div>
+                        <div>Final?</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SubClients Tab -->
+            <div class="tab-content" id="subclients-tab">
+                <div class="grid-container" style="height: 300px;">
+                    <div class="grid-header" style="grid-template-columns: 80px 100px 3fr 80px 120px 120px;">
+                        <div>Client Id</div>
+                        <div>SubClient ID</div>
+                        <div>SubClient Name</div>
+                        <div>Active?</div>
+                        <div>Group Invoice</div>
+                        <div>Accounting Cust Cd</div>
+                    </div>
+                    <div class="grid-row selected" style="grid-template-columns: 80px 100px 3fr 80px 120px 120px;">
+                        <div>6456</div>
+                        <div>7062</div>
+                        <div>ARAMARK SUB CLIENT</div>
+                        <div style="text-align: center;">☑</div>
+                        <div style="text-align: center;">☑</div>
+                        <div>14201</div>
+                    </div>
+                </div>
+                <div class="button-bar" style="justify-content: flex-start; padding: 10px 0;">
+                    <button>New SubClient</button>
+                    <button>Delete SubClient</button>
+                </div>
+            </div>
+
+            <!-- PO Tab -->
+            <div class="tab-content" id="po-tab">
+                <div class="grid-container" style="height: 300px; width:54%;display: table-cell;float: left;">
+                    <div class="grid-header"
+                        style="grid-template-columns: 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px;">
+                        <div>Client Id</div>
+                        <div>Cust PO Num</div>
+                        <div>Currency</div>
+                        <div>PO Amt</div>
+                        <div>Est.PO Amt</div>
+                        <div>Applied PO Amt</div>
+                        <div>Effective Date</div>
+                        <div>End Date</div>
+                        <div>Active</div>
+                        <div>Comments</div>
+                    </div>
+                    <div class="grid-row selected"
+                        style="grid-template-columns: 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px ;">
+                        <div>6456</div>
+                        <div>14</div>
+                        <div>Dollars (USD)</div>
+                        <div>0.00</div>
+                        <div>0.00</div>
+                        <div>0.00</div>
+                        <div>06/17/2025</div>
+                        <div>06/17/2026</div>
+                        <div style="text-align: center;">☑</div>
+                        <div></div>
+                    </div>
+                </div>
+                <div style="width: 45%;display: table-cell;float: left;">
+                    <div class="billing-section">
+                        <div class="billing-header">Primary Billing Information</div>
+                        <div class="form-grid">
+                            <label>Bill To Name:</label>
+                            <input type="text" value="">
+                            <label></label>
+                            <div></div>
+
+                            <label>Address 1:</label>
+                            <input type="text" value="">
+                            <label></label>
+                            <div></div>
+
+                            <label>Address 2:</label>
+                            <input type="text" value="">
+                            <label></label>
+                            <div></div>
+
+                            <label>City,St,Zip:</label>
+                            <div style="display: flex; gap: 5px;">
+                                <input type="text" value="" style="flex: 1;">
+                                <input type="text" value="" style="width: 50px;">
+                                <input type="text" value="" style="width: 80px;">
+                                <select style="width: 150px;">
+                                    <option>UNITED STATES</option>
+                                </select>
+                            </div>
+                            <label></label>
+                            <div></div>
+
+                            <label>Attn To:</label>
+                            <input type="text" value="">
+                            <label></label>
+                            <div></div>
+
+                            <label>Phone Num:</label>
+                            <div style="display: flex; gap: 5px;">
+
+                                <input type="text" value="(_____)______-_______" style="width: 160px;">
+                                <span>Ext:</span>
+                                <input type="text" value="" style="width: 50px;">
+                                <span class="disabled-field">Fax Num:</span>
+                                <input class="disabled-field" type="text" value="(_____)______-_______"
+                                    style="width: 160px;">
+                            </div>
+                            <label></label>
+                            <div></div>
+
+                            <label>To Email:</label>
+                            <input type="text" value="">
+                            <label></label>
+                            <div></div>
+
+                            <label>CC Email:</label>
+                            <input type="text" value="">
+                            <label></label>
+                            <div></div>
+                        </div>
+                    </div>
+
+                    <div class="billing-section">
+                        <div class="billing-header">Secondary Billing Information</div>
+                        <div class="form-grid">
+                            <label>Bill To Name:</label>
+                            <input type="text" value="">
+                            <label></label>
+                            <div></div>
+
+                            <label>Address 1:</label>
+                            <input type="text" value="">
+                            <label></label>
+                            <div></div>
+
+                            <label>Address 2:</label>
+                            <input type="text" value="">
+                            <label></label>
+                            <div></div>
+
+                            <label>City,St,Zip:</label>
+                            <div style="display: flex; gap: 5px;">
+                                <input type="text" value="" style="flex: 1;">
+                                <input type="text" value="" style="width: 50px;">
+                                <input type="text" value="" style="width: 80px;">
+                                <select style="width: 150px;">
+                                    <option>UNITED STATES</option>
+                                </select>
+                            </div>
+                            <label></label>
+                            <div></div>
+
+                            <label>Attn To:</label>
+                            <input type="text" value="">
+                            <label></label>
+                            <div></div>
+
+                            <label>Phone Num:</label>
+                            <div style="display: flex; gap: 5px;">
+
+                                <input type="text" value="(_____)______-_______" style="width: 160px;">
+                                <span>Ext:</span>
+                                <input type="text" value="" style="width: 50px;">
+                                <span class="disabled-field">Fax Num:</span>
+                                <input class="disabled-field" type="text" value="(_____)______-_______"
+                                    style="width: 160px;">
+                            </div>
+                            <label></label>
+                            <div></div>
+
+                            <label>To Email:</label>
+                            <input type="text" value="">
+                            <label></label>
+                            <div></div>
+
+                            <label>CC Email:</label>
+                            <input type="text" value="">
+                            <label></label>
+                            <div></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="button-bar">
+                    <button>New PO</button>
+                    <button>Delete PO</button>
+                </div>
+            </div>
+
+            <!-- Resellers IDs Tab -->
+            <div class="tab-content" id="resellers-tab">
+                <div class="grid-container" style="height: 300px;">
+                    <div class="grid-header" style="grid-template-columns: 150px 2fr 2fr;">
+                        <div>Reseller ID</div>
+                        <div>State</div>
+                        <div>Type</div>
+                    </div>
+                    <div class="grid-row grid-row selected" style="grid-template-columns: 150px 2fr 2fr;">
+                        <div>12346</div>
+                        <div>ALASKA</div>
+                        <div>Exempt</div>
+                    </div>
+                </div>
+                <div class="button-bar" style="justify-content: flex-start; padding: 10px 0;">
+                    <button>New Reseller</button>
+                    <button>Delete Reseller</button>
+                </div>
+            </div>
+
+            <!-- Internal Contacts Tab -->
+            <div class="tab-content" id="internal-tab">
+                <div class="grid-container" style="height: 350px;">
+                    <div class="grid-header" style="grid-template-columns: 100px 200px 200px 150px 250px 120px 120px;">
+                        <div>Contract Cd</div>
+                        <div>Contract Name</div>
+                        <div>Contact Name</div>
+                        <div>Contact Title</div>
+                        <div>Email Address</div>
+                        <div>Start Date</div>
+                        <div>End Date</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- External Contacts Tab -->
+            <div class="tab-content" id="external-tab">
+                <div class="grid-container" style="height: 350px;">
+                    <div class="grid-header"
+                        style="grid-template-columns: 100px 180px 180px 100px 60px 150px 200px 120px 150px;">
+                        <div>Contract Cd</div>
+                        <div>Contract Name</div>
+                        <div>Contact Name</div>
+                        <div>City</div>
+                        <div>State</div>
+                        <div>Title</div>
+                        <div>Email Address</div>
+                        <div>Contact Type</div>
+                        <div>Primary Phone</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Maintenance Contract Tab -->
+            <div class="tab-content" id="maintenance-tab">
+                <button onclick="openMaintenanceDialog()"
+                        style="padding: 5px 10px; background-color: #ece9d8; border: 2px outset #ece9d8; cursor: pointer;">
+                        Maint Details
+                    </button>
+                <div class="grid-container" style="height: 300px;">
+                    <div class="grid-header"
+                        style="grid-template-columns: 100px 120px 120px 140px 100px 150px 180px 140px;">
+                        <div>Contract Cd</div>
+                        <div>Entry Date</div>
+                        <div>Start Date</div>
+                        <div>Expiration Date</div>
+                        <div>Status Cd</div>
+                        <div>Contract Type</div>
+                        <div>ContractTerm(mos)</div>
+                        <div>Pre Month Invoice</div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="button-bar">
+            <button>Reset</button>
+            <button>New Client</button>
+            <button>New Contract</button>
+            <button>Save</button>
+            <button>Close</button>
+        </div>
+
+        <div class="status-bar">
+            <span>Welcome Hasan Abu ghalyoun | Connection: TEST (WCF) | Version 3.5.3</span>
+            <span>Login: 06/17/2025 12:11 PM | Last Login: 06/16/2025 08:09 AM | Last Login IP: 10.205.2.175</span>
+        </div>
+    </div>
+
+    <!-- Default Billing Info Dialog -->
+    <div class="dialog-overlay" id="billing-dialog">
+        <div class="dialog" style="width: 614px;">
+            <div class="dialog-title">
+                <span>🔍 Default Billing Info for ARAMARK</span>
+                <button onclick="closeBillingDialog()"
+                    style="width: 16px; height: 14px; border: 1px solid #fff; background: #d4d0c8; font-size: 10px; cursor: pointer;">X</button>
+            </div>
+            <div class="dialog-content">
+                <div class="billing-section">
+                    <div class="billing-header">Primary Billing Information</div>
+                    <div class="form-grid">
+                        <label>Bill To Name:</label>
+                        <input type="text" value="">
+                        <label></label>
+                        <div></div>
+
+                        <label>Address 1:</label>
+                        <input type="text" value="">
+                        <label></label>
+                        <div></div>
+
+                        <label>Address 2:</label>
+                        <input type="text" value="">
+                        <label></label>
+                        <div></div>
+
+                        <label>City:</label>
+                        <div style="display: flex; gap: 5px;">
+                            <input type="text" value="" style="flex: 1;">
+                            <input type="text" value="" style="width: 50px;">
+                            <input type="text" value="" style="width: 80px;">
+                            <select style="width: 150px;">
+                                <option>UNITED STATES</option>
+                            </select>
+                        </div>
+                        <label></label>
+                        <div></div>
+
+                        <label>Attn To:</label>
+                        <input type="text" value="">
+                        <label></label>
+                        <div></div>
+
+                        <label>Phone Num:</label>
+                        <div style="display: flex; gap: 5px;">
+
+                            <input type="text" value="(_____)______-_______" style="width: 160px;">
+                            <span>Ext:</span>
+                            <input type="text" value="" style="width: 50px;">
+                            <span class="disabled-field">Fax Num:</span>
+                            <input class="disabled-field" type="text" value="(_____)______-_______"
+                                style="width: 160px;">
+                        </div>
+                        <label></label>
+                        <div></div>
+
+                        <label>To Email:</label>
+                        <input type="text" value="">
+                        <label></label>
+                        <div></div>
+
+                        <label>CC Email:</label>
+                        <input type="text" value="">
+                        <label></label>
+                        <div></div>
+                    </div>
+                </div>
+
+                <div class="billing-section">
+                    <div class="billing-header">Secondary Billing Information</div>
+                    <div class="form-grid">
+                        <label>Bill To Name:</label>
+                        <input type="text" value="">
+                        <label></label>
+                        <div></div>
+
+                        <label>Address 1:</label>
+                        <input type="text" value="">
+                        <label></label>
+                        <div></div>
+
+                        <label>Address 2:</label>
+                        <input type="text" value="">
+                        <label></label>
+                        <div></div>
+
+                        <label>City:</label>
+                        <div style="display: flex; gap: 5px;">
+                            <input type="text" value="" style="flex: 1;">
+                            <input type="text" value="" style="width: 50px;">
+                            <input type="text" value="" style="width: 80px;">
+                            <select style="width: 150px;">
+                                <option>UNITED STATES</option>
+                            </select>
+                        </div>
+                        <label></label>
+                        <div></div>
+
+                        <label>Attn To:</label>
+                        <input type="text" value="">
+                        <label></label>
+                        <div></div>
+
+                        <label>Phone Num:</label>
+                        <div style="display: flex; gap: 5px;">
+
+                            <input type="text" value="(_____)______-_______" style="width: 160px;">
+                            <span>Ext:</span>
+                            <input type="text" value="" style="width: 50px;">
+                            <span class="disabled-field">Fax Num:</span>
+                            <input class="disabled-field" type="text" value="(_____)______-_______"
+                                style="width: 160px;">
+                        </div>
+                        <label></label>
+                        <div></div>
+
+                        <label>To Email:</label>
+                        <input type="text" value="">
+                        <label></label>
+                        <div></div>
+
+                        <label>CC Email:</label>
+                        <input type="text" value="">
+                        <label></label>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="dialog-buttons">
+                <button onclick="closeBillingDialog()">Ok</button>
+                <button onclick="closeBillingDialog()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Maintenance Contract Dialog -->
+    <div class="dialog-overlay" id="maintenance-dialog">
+        <div class="dialog maintenance-dialog">
+            <div class="dialog-title">
+                <span>🔍 Maintenance Contract Details</span>
+                <button onclick="closeMaintenanceDialog()"
+                    style="width: 16px; height: 14px; border: 1px solid #fff; background: #d4d0c8; font-size: 10px; cursor: pointer;">X</button>
+            </div>
+            <div class="dialog-content">
+                <div class="form-grid">
+                    <label>Contract Cd:</label>
+                    <input type="text" value="">
+                    <label>Start Date:</label>
+                    <input type="text" value="" placeholder="mm/dd/yyyy">
+
+                    <label>Entry Dt:</label>
+                    <input type="text" value="">
+                    <label>Expiration Date:</label>
+                    <input type="text" value="" placeholder="mm/dd/yyyy">
+
+                    <label>Status:</label>
+                    <input type="text" value="">
+                    <label>Contract Term(mos):</label>
+                    <input type="text" value="">
+
+                    <label>Commissionable?:</label>
+                    <div style="display: flex; align-items: center;">
+                        <input type="checkbox"> Yes
+                    </div>
+                    <label>Sales Person:</label>
+                    <select>
+                        <option></option>
+                        <option>Hasan</option>
+                    </select>
+
+                    <label>ContractType:</label>
+                    <select>
+                        <option>Rental</option>
+                        <option>Service</option>
+                        <option>Purchase</option>
+                    </select>
+                    <label>Pre Month Invoice:</label>
+                    <div style="display: flex; align-items: center;">
+                        <input type="checkbox"> Yes
+                    </div>
+
+                    <label>Created By:</label>
+                    <input type="text" value="">
+                    <label></label>
+                    <div></div>
+                </div>
+
+                <div style="margin-top: 10px;">
+                    <label>Comments</label>
+                    <textarea class="comments-box"></textarea>
+                </div>
+            </div>
+            <div class="dialog-buttons">
+                <button>New Contract</button>
+                <button>Print</button>
+                <button>Save</button>
+                <button onclick="closeMaintenanceDialog()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabName) {
+            // Remove active class from all tabs and tab contents
+            const tabs = document.querySelectorAll('.tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => tab.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            // Add active class to clicked tab and corresponding content
+            event.target.classList.add('active');
+            document.getElementById(tabName + '-tab').classList.add('active');
+        }
+
+        function openBillingDialog() {
+            document.getElementById('billing-dialog').classList.add('active');
+        }
+
+        function closeBillingDialog() {
+            document.getElementById('billing-dialog').classList.remove('active');
+        }
+
+        function openMaintenanceDialog() {
+            document.getElementById('maintenance-dialog').classList.add('active');
+        }
+
+        function closeMaintenanceDialog() {
+            document.getElementById('maintenance-dialog').classList.remove('active');
+        }
+    </script>
+</body>
+
+</html>
