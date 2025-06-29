@@ -266,6 +266,62 @@
             background: white;
         }
     </style>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" rel="stylesheet">
+    <style>
+        .expand-btn {
+            background: none;
+            border: none;
+            color: #6c757d;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .expand-btn.expanded {
+            transform: rotate(90deg);
+        }
+
+        .phone-table {
+            background-color: #f8f9fa;
+            border-left: 3px solid #007bff;
+        }
+
+        .phone-table th {
+            background-color: #e9ecef;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .phone-table td {
+            font-size: 0.875rem;
+        }
+
+        .status-active {
+            color: #28a745;
+        }
+
+        .status-inactive {
+            color: #dc3545;
+        }
+
+        .contact-row {
+            cursor: pointer;
+        }
+
+        .contact-row:hover {
+            background-color: #f8f9fa;
+        }
+
+        .phone-row {
+            display: none;
+        }
+
+        .phone-row.show {
+            display: table-row;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 
 <body>
@@ -634,7 +690,6 @@
                                                         <th>Labor Code</th>
                                                         <th>Labor Description</th>
                                                         <th>Price</th>
-                                                        <th>Trips</th>
                                                         <th>ETC</th>
                                                         <th>BAH</th>
                                                         <th>Comments</th>
@@ -651,7 +706,6 @@
                                                         </td>
                                                         <td>A-M10</td>
                                                         <td>MILESTONE 10 - DELIVERABLE</td>
-                                                        <td>0.00</td>
                                                         <td>0.00</td>
                                                         <td>0.00</td>
                                                         <td>0.00</td>
@@ -688,7 +742,6 @@
                                                         </td>
                                                         <td>A-M11</td>
                                                         <td>MILESTONE 11 - DELIVERABLE</td>
-                                                        <td>0.00</td>
                                                         <td>0.00</td>
                                                         <td>0.00</td>
                                                         <td>0.00</td>
@@ -1567,7 +1620,7 @@
                                             </div>
                                         </div>
 
-                                       
+
 
                                         <script>
                                             // Select all checkbox functionality
@@ -1689,10 +1742,7 @@
                                                             <th>Manufacturer</th>
                                                             <th>Product Desc</th>
                                                             <th>Mfg List Price</th>
-                                                            <th>Inv</th>
-                                                            <th>S. Price Inv</th>
-                                                            <th>Client</th>
-                                                            <th>Rental</th>
+
                                                             <th class="text-center">Actions</th>
                                                         </tr>
                                                     </thead>
@@ -1716,30 +1766,8 @@
                                                                         value="1.42" step="0.01" min="0">
                                                                 </div>
                                                             </td>
-                                                            <td>
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox"
-                                                                        checked>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div class="input-group input-group-sm">
-                                                                    <span class="input-group-text">$</span>
-                                                                    <input type="number" class="form-control"
-                                                                        value="0.00" step="0.01" min="0">
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox"
-                                                                        checked>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox">
-                                                                </div>
-                                                            </td>
+
+
                                                             <td class="text-center">
                                                                 <div class="dropdown">
                                                                     <button class="btn btn-sm btn-light" type="button"
@@ -1789,30 +1817,8 @@
                                                                         value="1.42" step="0.01" min="0">
                                                                 </div>
                                                             </td>
-                                                            <td>
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox"
-                                                                        checked>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div class="input-group input-group-sm">
-                                                                    <span class="input-group-text">$</span>
-                                                                    <input type="number" class="form-control"
-                                                                        value="0.00" step="0.01" min="0">
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox"
-                                                                        checked>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox">
-                                                                </div>
-                                                            </td>
+
+
                                                             <td class="text-center">
                                                                 <div class="dropdown">
                                                                     <button class="btn btn-sm btn-light" type="button"
@@ -1862,29 +1868,8 @@
                                                                         value="1995.00" step="0.01" min="0">
                                                                 </div>
                                                             </td>
-                                                            <td>
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox"
-                                                                        checked>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div class="input-group input-group-sm">
-                                                                    <span class="input-group-text">$</span>
-                                                                    <input type="number" class="form-control"
-                                                                        value="0.00" step="0.01" min="0">
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox">
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" type="checkbox">
-                                                                </div>
-                                                            </td>
+
+
                                                             <td class="text-center">
                                                                 <div class="dropdown">
                                                                     <button class="btn btn-sm btn-light" type="button"
@@ -3638,18 +3623,14 @@
                                                                                     id="selectAllBilling">
                                                                             </div>
                                                                         </th>
-                                                                        <th>Invoice Cycle</th>
-                                                                        <th>Billing Type</th>
-                                                                        <th>Billing Freq</th>
+                                                                        <th>Invoice Opt#</th>
                                                                         <th>PO Number</th>
-                                                                        <th>Currency Code</th>
-                                                                        <th>Currency Name</th>
-                                                                        <th>Invoice Via</th>
-                                                                        <th>Active</th>
-                                                                        <th>Bill To Name</th>
-                                                                        <th>Address</th>
-                                                                        <th>Phone</th>
-                                                                        <th>Email</th>
+                                                                        <th>Terms</th>
+                                                                        <th>Project</th>
+                                                                        <th>Notes/Comments</th>
+                                                                        <th>Billing Informations</th>
+                                                                        <th>Services - Ticket types</th>
+                                                                        <th>Maintenance contract association</th>
                                                                         <th class="text-center">Actions</th>
                                                                     </tr>
                                                                 </thead>
@@ -3666,16 +3647,10 @@
                                                                         <td>2</td>
                                                                         <td>DAILY</td>
                                                                         <td>PO123456</td>
-                                                                        <td>USD</td>
-                                                                        <td>US Dollar</td>
-                                                                        <td>Paper</td>
-                                                                        <td>
-                                                                            <span class="badge bg-success">Yes</span>
-                                                                        </td>
-                                                                        <td>ARAMARK CORP</td>
-                                                                        <td>115 N. FIRST ST., BURBANK, CA 91502</td>
-                                                                        <td>(818) 973-3688</td>
-                                                                        <td>billing@aramark.com</td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
+                                                                        <td></td>
                                                                         <td class="text-center">
                                                                             <div class="dropdown">
                                                                                 <button class="btn btn-sm btn-light"
@@ -4464,133 +4439,486 @@
                                 </div>
                             </div>
                         </div>
-                      <div style="padding:1.5rem 0 !important ;">
-                          <!-- Page Header -->
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h2 class="section-header mb-0">Projects</h2>
-                            <button type="button" class="btn btn-custom-primary" onclick="showAddProjectModal()">
-                                <i class="bi bi-plus-circle me-2"></i>Add New Project
-                            </button>
-                        </div>
+                        <div>
+                            <!-- Page Header -->
 
-                        <!-- Contract Project Summary Table -->
-                        <div class="card shadow-sm mt-4">
-                            <div class="card-header bg-light">
-                                <h5 class="card-title mb-0">
-                                    <i class="bi bi-folder me-2"></i>Contract Project Summary
-                                </h5>
-                            </div>
-                            <div class="card-body p-0">
-                                <div class="table-responsive">
-                                    <table class="table table-hover mb-0">
-                                        <thead class="table-light">
-                                            <tr>
-                                                <th>Project ID</th>
-                                                <th>Project Name</th>
-                                                <th>Project Type</th>
-                                                <th>Comments</th>
-                                                <th width="80">Default</th>
-                                                <th width="100">Implementation</th>
-                                                <th width="80">Active</th>
-                                                <th>Last Updated By</th>
-                                                <th width="80">Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><strong>6916</strong></td>
-                                                <td>DEFAULT PROJECT</td>
-                                                <td>DEFAULT PROJECT</td>
-                                                <td class="text-truncate" style="max-width: 200px;"
-                                                    title="DEFAULT PROJECT FOR CLIENT 6456, CONTRACT ARA001">
-                                                    DEFAULT PROJECT FOR CLIENT 6456, CONTRACT ARA001
-                                                </td>
-                                                <td>
-                                                    <span class="badge bg-success">Y</span>
-                                                </td>
-                                                <td>
-                                                    <span class="badge bg-success">Y</span>
-                                                </td>
-                                                <td>
-                                                    <span class="badge bg-success">Y</span>
-                                                </td>
-                                                <td class="small">14069 - ABU GHA...</td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-sm btn-outline-secondary" type="button"
-                                                            data-bs-toggle="dropdown">
-                                                            <i class="bi bi-three-dots-vertical"></i>
-                                                        </button>
-                                                        <ul class="dropdown-menu">
-                                                            <li><a class="dropdown-item" href="#"
-                                                                    onclick="editProject(6916)"><i
-                                                                        class="bi bi-pencil me-2"></i>Edit</a></li>
-                                                            <li><a class="dropdown-item" href="#"
-                                                                    onclick="viewProject(6916)"><i
-                                                                        class="bi bi-eye me-2"></i>View</a></li>
-                                                            <li>
-                                                                <hr class="dropdown-divider">
-                                                            </li>
-                                                            <li><a class="dropdown-item text-danger" href="#"
-                                                                    onclick="deleteProject(6916)"><i
-                                                                        class="bi bi-trash me-2"></i>Delete</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <!-- Additional sample rows -->
-                                            <tr>
-                                                <td><strong>6917</strong></td>
-                                                <td>MAINTENANCE PROJECT</td>
-                                                <td>MAINTENANCE</td>
-                                                <td class="text-truncate" style="max-width: 200px;"
-                                                    title="Ongoing maintenance and support services">
-                                                    Ongoing maintenance and support services
-                                                </td>
-                                                <td>
-                                                    <span class="badge bg-secondary">N</span>
-                                                </td>
-                                                <td>
-                                                    <span class="badge bg-success">Y</span>
-                                                </td>
-                                                <td>
-                                                    <span class="badge bg-success">Y</span>
-                                                </td>
-                                                <td class="small">14070 - JANE DOE</td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-sm btn-outline-secondary" type="button"
-                                                            data-bs-toggle="dropdown">
-                                                            <i class="bi bi-three-dots-vertical"></i>
-                                                        </button>
-                                                        <ul class="dropdown-menu">
-                                                            <li><a class="dropdown-item" href="#"
-                                                                    onclick="editProject(6917)"><i
-                                                                        class="bi bi-pencil me-2"></i>Edit</a></li>
-                                                            <li><a class="dropdown-item" href="#"
-                                                                    onclick="viewProject(6917)"><i
-                                                                        class="bi bi-eye me-2"></i>View</a></li>
-                                                            <li>
-                                                                <hr class="dropdown-divider">
-                                                            </li>
-                                                            <li><a class="dropdown-item text-danger" href="#"
-                                                                    onclick="deleteProject(6917)"><i
-                                                                        class="bi bi-trash me-2"></i>Delete</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+
+                            <!-- Contract Project Summary Table -->
+                            <div class="card shadow-sm mt-4" id="ContractProjects">
+                                <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title mb-0">
+                                        <i class="bi bi-folder me-2"></i>Projects
+                                    </h5>
+                                    <button type="button" class="btn btn-sm btn-custom-primary"
+                                        onclick="showAddProjectModal()">
+                                        <i class="bi bi-plus-circle me-2"></i>Add New Project
+                                    </button>
+                                </div>
+                                <div class="card-body p-0">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover mb-0">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th>Project ID</th>
+                                                    <th>Project Name</th>
+                                                    <th>Project Type</th>
+                                                    <th>Comments</th>
+                                                    <th width="80">Default</th>
+                                                    <th width="100">Implementation</th>
+                                                    <th width="80">Active</th>
+                                                    <th>Last Updated By</th>
+                                                    <th width="80">Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><strong>6916</strong></td>
+                                                    <td>DEFAULT PROJECT</td>
+                                                    <td>DEFAULT PROJECT</td>
+                                                    <td class="text-truncate" style="max-width: 200px;"
+                                                        title="DEFAULT PROJECT FOR CLIENT 6456, CONTRACT ARA001">
+                                                        DEFAULT PROJECT FOR CLIENT 6456, CONTRACT ARA001
+                                                    </td>
+                                                    <td>
+                                                        <span class="badge bg-success">Y</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="badge bg-success">Y</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="badge bg-success">Y</span>
+                                                    </td>
+                                                    <td class="small">14069 - ABU GHA...</td>
+                                                    <td>
+                                                        <div class="dropdown">
+                                                            <button class="btn btn-sm btn-outline-secondary"
+                                                                type="button" data-bs-toggle="dropdown">
+                                                                <i class="bi bi-three-dots-vertical"></i>
+                                                            </button>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a class="dropdown-item" href="#"
+                                                                        onclick="editProject(6916)"><i
+                                                                            class="bi bi-pencil me-2"></i>Edit</a></li>
+                                                                <li><a class="dropdown-item" href="#"
+                                                                        onclick="viewProject(6916)"><i
+                                                                            class="bi bi-eye me-2"></i>View</a></li>
+                                                                <li>
+                                                                    <hr class="dropdown-divider">
+                                                                </li>
+                                                                <li><a class="dropdown-item text-danger" href="#"
+                                                                        onclick="deleteProject(6916)"><i
+                                                                            class="bi bi-trash me-2"></i>Delete</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <!-- Additional sample rows -->
+                                                <tr>
+                                                    <td><strong>6917</strong></td>
+                                                    <td>MAINTENANCE PROJECT</td>
+                                                    <td>MAINTENANCE</td>
+                                                    <td class="text-truncate" style="max-width: 200px;"
+                                                        title="Ongoing maintenance and support services">
+                                                        Ongoing maintenance and support services
+                                                    </td>
+                                                    <td>
+                                                        <span class="badge bg-secondary">N</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="badge bg-success">Y</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="badge bg-success">Y</span>
+                                                    </td>
+                                                    <td class="small">14070 - JANE DOE</td>
+                                                    <td>
+                                                        <div class="dropdown">
+                                                            <button class="btn btn-sm btn-outline-secondary"
+                                                                type="button" data-bs-toggle="dropdown">
+                                                                <i class="bi bi-three-dots-vertical"></i>
+                                                            </button>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a class="dropdown-item" href="#"
+                                                                        onclick="editProject(6917)"><i
+                                                                            class="bi bi-pencil me-2"></i>Edit</a></li>
+                                                                <li><a class="dropdown-item" href="#"
+                                                                        onclick="viewProject(6917)"><i
+                                                                            class="bi bi-eye me-2"></i>View</a></li>
+                                                                <li>
+                                                                    <hr class="dropdown-divider">
+                                                                </li>
+                                                                <li><a class="dropdown-item text-danger" href="#"
+                                                                        onclick="deleteProject(6917)"><i
+                                                                            class="bi bi-trash me-2"></i>Delete</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-light small text-muted">
+                                    <i class="bi bi-info-circle me-1"></i>
+                                    Showing 2 of 2 projects. Click "Add New Project" to create additional project
+                                    entries.
                                 </div>
                             </div>
-                            <div class="card-footer bg-light small text-muted">
-                                <i class="bi bi-info-circle me-1"></i>
-                                Showing 2 of 2 projects. Click "Add New Project" to create additional project entries.
+
+                        </div>
+                        <div>
+                            <!-- Page Header -->
+
+
+                            <!-- Contract Project Summary Table -->
+                            <div class="card shadow-sm mt-4" id="ContractExternalContacts">
+                                <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title mb-0">
+                                        <i class="ri-contacts-line me-2"></i>External Contacts
+                                    </h5>
+                                    <button type="button" class="btn btn-sm btn-custom-primary"
+                                        onclick="showExternalContactModal()">
+                                        <i class="bi bi-plus-circle me-2"></i>Add New Contact
+                                    </button>
+                                </div>
+                                <div class="card-body p-0">
+                                    <div class="table-responsive">
+                                        <table class="table mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th width="30"></th>
+                                                    <th>Active</th>
+                                                    <th>Contact ID</th>
+                                                    <th>First Name</th>
+                                                    <th>Last Name</th>
+                                                    <th>Title</th>
+                                                    <th>Vendor User ID</th>
+                                                    <th>Contact Type</th>
+                                                    <th>Email Address</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- Contact 1 -->
+                                                <tr class="contact-row" data-contact="1">
+                                                    <td>
+                                                        <button class="expand-btn" onclick="togglePhoneNumbers(1)">
+                                                            <i class="ri-arrow-right-s-line"></i>
+                                                        </button>
+                                                    </td>
+                                                    <td>
+                                                        <span class="badge bg-success">Y</span>
+                                                    </td>
+                                                    <td>10234</td>
+                                                    <td>John</td>
+                                                    <td>Doe</td>
+                                                    <td>Project Manager</td>
+                                                    <td>JDoe-Vendor</td>
+                                                    <td>Billing</td>
+                                                    <td>john.doe@example.com</td>
+                                                    <td>
+                                                        <button title="Add new Phone Number" type="button"
+                                                            class="btn btn-sm btn-success me-1">
+                                                            <i class="ri-phone-line"></i>
+                                                        </button>
+                                                        <button type="button" class="btn btn-sm btn-primary me-1">
+                                                            <i class="ri-edit-line"></i>
+                                                        </button>
+                                                        <button type="button" class="btn btn-sm btn-danger">
+                                                            <i class="ri-delete-bin-line"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <!-- Phone Numbers for Contact 1 -->
+                                                <tr class="phone-row" id="phone-1">
+                                                    <td colspan="10">
+
+                                                        <div class="table-responsive">
+                                                            <table class="table table-sm phone-table mb-0">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Phone Type</th>
+                                                                        <th>Phone Number</th>
+                                                                        <th>Extension</th>
+                                                                        <th>Actions</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>Work</td>
+                                                                        <td>(555) 123-4567</td>
+                                                                        <td>101</td>
+                                                                        <td>
+                                                                            <button type="button"
+                                                                                class="btn btn-sm btn-outline-danger">
+                                                                                <i class="ri-delete-bin-line"></i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Mobile</td>
+                                                                        <td>(555) 987-6543</td>
+                                                                        <td>-</td>
+                                                                        <td>
+                                                                            <button type="button"
+                                                                                class="btn btn-sm btn-outline-danger">
+                                                                                <i class="ri-delete-bin-line"></i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                                <!-- Contact 2 -->
+                                                <tr class="contact-row" data-contact="2">
+                                                    <td>
+                                                        <button class="expand-btn" onclick="togglePhoneNumbers(2)">
+                                                            <i class="ri-arrow-right-s-line"></i>
+                                                        </button>
+                                                    </td>
+                                                    <td>
+                                                        <span class="badge bg-success">Y</span>
+                                                    </td>
+                                                    <td>10235</td>
+                                                    <td>Jane</td>
+                                                    <td>Smith</td>
+                                                    <td>Technical Lead</td>
+                                                    <td>JSmith-Vendor</td>
+                                                    <td>Technical</td>
+                                                    <td>jane.smith@example.com</td>
+                                                    <td>
+                                                        <button title="Add new Phone Number" type="button"
+                                                            class="btn btn-sm btn-success me-1">
+                                                            <i class="ri-phone-line"></i>
+                                                        </button>
+                                                        <button type="button" class="btn btn-sm btn-primary me-1">
+                                                            <i class="ri-edit-line"></i>
+                                                        </button>
+                                                        <button type="button" class="btn btn-sm btn-danger">
+                                                            <i class="ri-delete-bin-line"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <!-- Phone Numbers for Contact 2 -->
+                                                <tr class="phone-row" id="phone-2">
+                                                    <td colspan="10">
+
+                                                        <div class="table-responsive">
+                                                            <table class="table table-sm phone-table mb-0">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Phone Type</th>
+                                                                        <th>Phone Number</th>
+                                                                        <th>Extension</th>
+                                                                        <th>Actions</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>Work</td>
+                                                                        <td>(555) 456-7890</td>
+                                                                        <td>102</td>
+                                                                        <td>
+                                                                            <button type="button"
+                                                                                class="btn btn-sm btn-outline-danger">
+                                                                                <i class="ri-delete-bin-line"></i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Mobile</td>
+                                                                        <td>(555) 123-9876</td>
+                                                                        <td>-</td>
+                                                                        <td>
+                                                                            <button type="button"
+                                                                                class="btn btn-sm btn-outline-danger">
+                                                                                <i class="ri-delete-bin-line"></i>
+                                                                            </button>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-light small text-muted">
+                                    <i class="bi bi-info-circle me-1"></i>
+                                    Showing 2 of 2 external contacts. Click "Add New Contact" to create additional
+                                    contact
+                                    entries.
+                                </div>
+                            </div>
+
+                        </div>
+                        <div>
+
+
+                            <!-- Default Billing Information Table -->
+                            <div class="card shadow-sm mt-4" id="BillingInfoTable">
+                                <div class="card-header bg-light d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title mb-0">
+                                        <i class="bi bi-list-ul me-2"></i>Billing Information
+                                    </h5>
+                                    <button onclick="showBillingInfoModal()" type="button"
+                                        class="btn btn-sm btn-custom-primary">
+                                        <i class="bi bi-plus-circle me-2"></i>Add New Billing Info
+                                    </button>
+                                </div>
+                                <div class="card-body p-0">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover mb-0">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th>Bill To Name</th>
+                                                    <th>Address</th>
+                                                    <th>City</th>
+                                                    <th>State</th>
+                                                    <th>Zip</th>
+                                                    <th>Country</th>
+                                                    <th>Phone</th>
+                                                    <th>Email</th>
+                                                    <th width="80">Default</th>
+                                                    <th width="80">Active</th>
+                                                    <th width="80">Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><strong>Acme Corporation</strong></td>
+                                                    <td class="text-truncate" style="max-width: 150px;"
+                                                        title="123 Business Plaza, Suite 100">
+                                                        123 Business Plaza, Suite 100
+                                                    </td>
+                                                    <td>New York</td>
+                                                    <td>NY</td>
+                                                    <td>10001</td>
+                                                    <td>UNITED STATES</td>
+                                                    <td class="small">(212) 555-0123</td>
+                                                    <td class="small">billing@acme.com</td>
+                                                    <td>
+                                                        <span class="badge bg-success">Y</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="badge bg-success">Y</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="dropdown">
+                                                            <button class="btn btn-sm btn-outline-secondary"
+                                                                type="button" data-bs-toggle="dropdown">
+                                                                <i class="bi bi-three-dots-vertical"></i>
+                                                            </button>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a class="dropdown-item" href="#"><i
+                                                                            class="bi bi-pencil me-2"></i>Edit</a></li>
+                                                                <li><a class="dropdown-item" href="#"><i
+                                                                            class="bi bi-eye me-2"></i>View</a></li>
+                                                                <li>
+                                                                    <hr class="dropdown-divider">
+                                                                </li>
+                                                                <li><a class="dropdown-item text-danger" href="#"><i
+                                                                            class="bi bi-trash me-2"></i>Delete</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Global Tech Solutions</strong></td>
+                                                    <td class="text-truncate" style="max-width: 150px;"
+                                                        title="456 Technology Drive">
+                                                        456 Technology Drive
+                                                    </td>
+                                                    <td>San Francisco</td>
+                                                    <td>CA</td>
+                                                    <td>94102</td>
+                                                    <td>UNITED STATES</td>
+                                                    <td class="small">(415) 555-0987</td>
+                                                    <td class="small">accounts@globaltech.com</td>
+                                                    <td>
+                                                        <span class="badge bg-secondary">N</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="badge bg-success">Y</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="dropdown">
+                                                            <button class="btn btn-sm btn-outline-secondary"
+                                                                type="button" data-bs-toggle="dropdown">
+                                                                <i class="bi bi-three-dots-vertical"></i>
+                                                            </button>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a class="dropdown-item" href="#"><i
+                                                                            class="bi bi-pencil me-2"></i>Edit</a></li>
+                                                                <li><a class="dropdown-item" href="#"><i
+                                                                            class="bi bi-eye me-2"></i>View</a></li>
+                                                                <li>
+                                                                    <hr class="dropdown-divider">
+                                                                </li>
+                                                                <li><a class="dropdown-item text-danger" href="#"><i
+                                                                            class="bi bi-trash me-2"></i>Delete</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-light small text-muted">
+                                    <i class="bi bi-info-circle me-1"></i>
+                                    Showing 3 of 3 billing information entries. Click "Add New Billing Info" to create
+                                    additional entries.
+                                </div>
                             </div>
                         </div>
+                       
+                        <script>
+                            function togglePhoneNumbers(contactId) {
+                                const phoneRow = document.getElementById(`phone-${contactId}`);
+                                const expandBtn = document.querySelector(`[data-contact="${contactId}"] .expand-btn`);
 
-                      </div>
+                                if (phoneRow.classList.contains('show')) {
+                                    phoneRow.classList.remove('show');
+                                    expandBtn.classList.remove('expanded');
+                                } else {
+                                    // Hide all other phone rows
+                                    document.querySelectorAll('.phone-row').forEach(row => {
+                                        row.classList.remove('show');
+                                    });
+                                    document.querySelectorAll('.expand-btn').forEach(btn => {
+                                        btn.classList.remove('expanded');
+                                    });
+
+                                    // Show current phone row
+                                    phoneRow.classList.add('show');
+                                    expandBtn.classList.add('expanded');
+                                }
+                            }
+
+                            // Optional: Click on row to expand
+                            document.querySelectorAll('.contact-row').forEach(row => {
+                                row.addEventListener('click', function (e) {
+                                    if (!e.target.closest('button')) {
+                                        const contactId = this.dataset.contact;
+                                        togglePhoneNumbers(contactId);
+                                    }
+                                });
+                            });
+                        </script>
+
+
+
+
+
+
+
                         <!-- Add Project Modal -->
                         <div class="modal fade" id="addProjectModal" tabindex="-1"
                             aria-labelledby="addProjectModalLabel" aria-hidden="true">
@@ -4850,32 +5178,21 @@
                                         </a>
                                     </div>
                                     <div class="col-md-3">
-                                        <a onclick="showBillingInfoModal()"
-                                            class="btn btn-outline-primary btn-sm w-100 mb-2">
-                                            <i class="bi bi-receipt me-2"></i>Default Billing Info
-                                        </a>
-                                    </div>
-                                    <div class="col-md-3">
                                         <a onclick="showInternalContactsModal()"
                                             class="btn btn-outline-primary btn-sm w-100 mb-2">
                                             <i class="bi bi-person-badge me-2"></i>Internal Contacts
                                         </a>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <a onclick="showExternalContactModal()"
-                                            class="btn btn-outline-primary btn-sm w-100">
-                                            <i class="bi bi-people me-2"></i>External Contacts
-                                        </a>
-                                    </div>
+
+
                                     <div class="col-md-3">
                                         <a onclick="showLaborRatesModal()" class="btn btn-outline-primary btn-sm w-100">
                                             <i class="bi bi-currency-dollar me-2"></i>Labor Rates
                                         </a>
                                     </div>
                                     <div class="col-md-3">
-                                        <a onclick="showDispatchInstructionsModal()" class="btn btn-outline-primary btn-sm w-100">
+                                        <a onclick="showDispatchInstructionsModal()"
+                                            class="btn btn-outline-primary btn-sm w-100">
                                             <i class="bi bi-gear me-2"></i>Dispatch Service Instructions
                                         </a>
                                     </div>
@@ -4901,7 +5218,7 @@
 
                     <!-- Audit Information Sidebar -->
                     <div class="col-lg-3">
-                        <div class="card shadow-sm sticky-top" style="top: 100px;">
+                        <div class="card shadow-sm sticky-top" style="top: 122px;">
                             <div class="card-header bg-light d-flex align-items-center">
                                 <i class="bi bi-info-circle me-2"></i>
                                 <strong>Audit Information</strong>
@@ -5082,7 +5399,6 @@
     </footer>
 
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         function toggleFooter() {
             const footer = document.getElementById('siteFooter');
@@ -5654,18 +5970,33 @@
                     <h5 class="modal-title" id="billingInfoModalLabel">
                         <i class="bi bi-credit-card me-2"></i>Default Billing Info for ARA001
                     </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="activeProject" checked="">
+                                    <label class="form-check-label" for="activeProject">
+                                        Primary Billing Info
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <!-- Main Content Area -->
-                        <div class="col-9">
+                        <div class="col">
                             <form id="billingInfoForm">
                                 <!-- Primary Billing Information -->
                                 <div class="mb-4">
-                                    <h6 class="section-header">
-                                        <i class="bi bi-building me-2"></i>Primary Billing Information
-                                    </h6>
                                     <div class="row g-3">
                                         <div class="col-12">
                                             <label for="primaryBillToName" class="form-label">Bill To Name <span
@@ -5734,115 +6065,8 @@
                                     </div>
                                 </div>
 
-                                <!-- Secondary Billing Information -->
-                                <div class="mb-4">
-                                    <h6 class="section-header">
-                                        <i class="bi bi-building-add me-2"></i>Secondary Billing Information
-                                    </h6>
-                                    <div class="row g-3">
-                                        <div class="col-12">
-                                            <label for="secondaryBillToName" class="form-label">Bill To Name</label>
-                                            <input type="text" class="form-control" id="secondaryBillToName">
-                                        </div>
-                                        <div class="col-12">
-                                            <label for="secondaryAddress1" class="form-label">Address 1</label>
-                                            <input type="text" class="form-control" id="secondaryAddress1">
-                                        </div>
-                                        <div class="col-12">
-                                            <label for="secondaryAddress2" class="form-label">Address 2</label>
-                                            <input type="text" class="form-control" id="secondaryAddress2">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="secondaryCity" class="form-label">City</label>
-                                            <input type="text" class="form-control" id="secondaryCity">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="secondaryState" class="form-label">State</label>
-                                            <input type="text" class="form-control" id="secondaryState" maxlength="2">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="secondaryZip" class="form-label">Zip</label>
-                                            <input type="text" class="form-control" id="secondaryZip">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="secondaryCountry" class="form-label">Country</label>
-                                            <select class="form-select" id="secondaryCountry">
-                                                <option value="">-- Select --</option>
-                                                <option value="US" selected>UNITED STATES</option>
-                                                <option value="CA">CANADA</option>
-                                                <option value="MX">MEXICO</option>
-                                                <option value="UK">UNITED KINGDOM</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-12">
-                                            <label for="secondaryAttnTo" class="form-label">Attn To</label>
-                                            <input type="text" class="form-control" id="secondaryAttnTo">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="secondaryPhone" class="form-label">Phone Num</label>
-                                            <input type="tel" class="form-control" id="secondaryPhone"
-                                                placeholder="(___) ___-____">
-                                        </div>
-                                        <div class="col-md-2">
-                                            <label for="secondaryExt" class="form-label">Ext</label>
-                                            <input type="text" class="form-control" id="secondaryExt">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="secondaryFax" class="form-label">Fax Num</label>
-                                            <input type="tel" class="form-control" id="secondaryFax"
-                                                placeholder="(___) ___-____">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="secondaryToEmail" class="form-label">To Email</label>
-                                            <input type="email" class="form-control" id="secondaryToEmail">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="secondaryCcEmail" class="form-label">CC Email</label>
-                                            <input type="email" class="form-control" id="secondaryCcEmail">
-                                        </div>
-                                    </div>
-                                </div>
+
                             </form>
-                        </div>
-
-                        <!-- Audit Information Box -->
-                        <div class="col-3">
-                            <div class="card border-0 shadow-sm">
-                                <div class="card-header bg-light border-bottom">
-                                    <h6 class="mb-0 text-muted">
-                                        <i class="bi bi-clock-history me-2"></i>Audit Information
-                                    </h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="mb-3">
-                                        <small class="text-muted d-block">Entered By:</small>
-                                        <strong class="text-primary">14069 - ABU GHALYOUN, HASAN</strong>
-                                    </div>
-                                    <div class="mb-3">
-                                        <small class="text-muted d-block">Last Updated By:</small>
-                                        <strong class="text-primary">14069 - ABU GHALYOUN, HASAN</strong>
-                                    </div>
-                                    <div class="mb-0">
-                                        <small class="text-muted d-block">Last Update Date:</small>
-                                        <strong class="text-dark">05/16/2025 03:32 PM</strong>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Additional Info Tips -->
-                            <div class="alert alert-info mt-3 small">
-                                <i class="bi bi-lightbulb me-1"></i>
-                                <strong>Tip:</strong> Currently, billing information is saved in its existing format.
-                                After normalization, these entries should be stored as a list, allowing users to save
-                                any amount they choose. They can then select from this list, with entries ordered by
-                                their save date.
-                            </div>
-
-                            <div class="alert alert-info mt-3 small">
-                                <i class="bi bi-lightbulb me-1"></i>
-                                <strong>Tip:</strong> Primary billing information is required for all invoices.
-                                Secondary billing is optional and can be used for special circumstances.
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -6392,96 +6616,30 @@
                 <div class="modal-body">
                     <form id="externalContactForm">
                         <!-- Client Contract External Contact Summary Table -->
-                        <div class="mb-4">
-                            <h6 class="section-header">Client Contract External Contact Summary</h6>
-                            <div class="table-responsive" style="max-height: 200px; overflow-y: auto;">
-                                <table class="table table-sm table-striped table-bordered">
-                                    <thead class="table-light" style="position: sticky; top: 0; z-index: 1;">
-                                        <tr>
-                                            <th>Active</th>
-                                            <th>Contact ID</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Title</th>
-                                            <th>Vendor User ID</th>
-                                            <th>Contact Type</th>
-                                            <th>Email Address</th>
-                                        </tr>
-                                        <!-- Filter row -->
-                                        <tr>
-                                            <td>
-                                                <select class="form-control form-control-sm">
-                                                    <option value=""></option>
-                                                    <option value="yes">Yes</option>
-                                                    <option value="no">No</option>
-                                                </select>
-                                            </td>
-                                            <td><input type="text" class="form-control form-control-sm"
-                                                    placeholder="Contains..."></td>
-                                            <td><input type="text" class="form-control form-control-sm"
-                                                    placeholder="Contains..."></td>
-                                            <td><input type="text" class="form-control form-control-sm"
-                                                    placeholder="Contains..."></td>
-                                            <td><input type="text" class="form-control form-control-sm"
-                                                    placeholder="Contains..."></td>
-                                            <td><input type="text" class="form-control form-control-sm"
-                                                    placeholder="Contains..."></td>
-                                            <td><input type="text" class="form-control form-control-sm"
-                                                    placeholder="Contains..."></td>
-                                            <td><input type="text" class="form-control form-control-sm"
-                                                    placeholder="Contains..."></td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <!-- Example Row -->
-                                        <tr>
-                                            <td class="text-center"><i class="bi bi-check-circle-fill text-success"></i>
-                                            </td>
-                                            <td>10234</td>
-                                            <td>John</td>
-                                            <td>Doe</td>
-                                            <td>Project Manager</td>
-                                            <td>JDoe-Vendor</td>
-                                            <td>Billing</td>
-                                            <td>john.doe@example.com</td>
-                                        </tr>
-                                        <!-- Add more contact rows here -->
-                                        <tr>
-                                            <td class="text-center"><i class="bi bi-x-circle-fill text-danger"></i></td>
-                                            <td>10235</td>
-                                            <td>Jane</td>
-                                            <td>Smith</td>
-                                            <td>Technical Lead</td>
-                                            <td>JSmith-Vendor</td>
-                                            <td>Technical</td>
-                                            <td>jane.smith@example.com</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+
 
                         <!-- Form sections for details and phone numbers -->
                         <div class="row">
                             <!-- Left side: Contact Details -->
-                            <div class="col-lg-7">
+                            <div class="col-lg">
                                 <h6 class="section-header">Client Contract External Contact Details</h6>
                                 <div class="row g-3">
                                     <div class="col-12">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="contactActive" checked>
+                                            <input class="form-check-input" type="checkbox" id="contactActive"
+                                                checked="">
                                             <label class="form-check-label" for="contactActive">Active</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="firstName" class="form-label">First Name <span
                                                 class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" id="firstName" required>
+                                        <input type="text" class="form-control is-invalid" id="firstName" required="">
                                     </div>
                                     <div class="col-md-6">
                                         <label for="lastName" class="form-label">Last Name <span
                                                 class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" id="lastName" required>
+                                        <input type="text" class="form-control is-invalid" id="lastName" required="">
                                     </div>
                                     <div class="col-md-6">
                                         <label for="title" class="form-label">Title</label>
@@ -6494,7 +6652,7 @@
                                     <div class="col-md-6">
                                         <label for="contactType" class="form-label">Contact Type <span
                                                 class="text-danger">*</span></label>
-                                        <select class="form-select" id="contactType" required>
+                                        <select class="form-select is-valid" id="contactType" required="">
                                             <option value="">-- Select --</option>
                                             <option value="Billing">Billing</option>
                                             <option value="Technical">Technical</option>
@@ -6505,7 +6663,7 @@
                                     <div class="col-12">
                                         <label for="address1" class="form-label">Address 1 <span
                                                 class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" id="address1" required>
+                                        <input type="text" class="form-control" id="address1" required="">
                                     </div>
                                     <div class="col-12">
                                         <label for="address2" class="form-label">Address 2</label>
@@ -6514,7 +6672,7 @@
                                     <div class="col-md-5">
                                         <label for="city" class="form-label">City <span
                                                 class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" id="city" required>
+                                        <input type="text" class="form-control" id="city" required="">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="zipCode" class="form-label">Zip/Postal</label>
@@ -6523,7 +6681,7 @@
                                     <div class="col-md-4">
                                         <label for="country" class="form-label">Country <span
                                                 class="text-danger">*</span></label>
-                                        <select class="form-select" id="country" required>
+                                        <select class="form-select" id="country" required="">
                                             <option value="US">UNITED STATES</option>
                                             <option value="CA">CANADA</option>
                                             <option value="MX">MEXICO</option>
@@ -6543,42 +6701,7 @@
                             </div>
 
                             <!-- Right side: Phone Numbers -->
-                            <div class="col-lg-5">
-                                <h6 class="section-header">Client Contract External Contact Phone Numbers</h6>
-                                <div class="table-responsive" style="max-height: 250px; overflow-y: auto;">
-                                    <table class="table table-sm table-striped table-bordered">
-                                        <thead class="table-light" style="position: sticky; top: 0; z-index: 1;">
-                                            <tr>
-                                                <th>Phone Type</th>
-                                                <th>Phone Number</th>
-                                                <th>Extension</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <!-- Example Phone Row -->
-                                            <tr>
-                                                <td>Work</td>
-                                                <td>(555) 123-4567</td>
-                                                <td>101</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Mobile</td>
-                                                <td>(555) 987-6543</td>
-                                                <td></td>
-                                            </tr>
-                                            <!-- Add more phone rows here -->
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="d-flex justify-content-end gap-2 mt-2">
-                                    <button type="button" class="btn btn-sm btn-outline-primary">
-                                        <i class="bi bi-plus-circle me-1"></i> Add Phone Number
-                                    </button>
-                                    <button type="button" class="btn btn-sm btn-outline-danger">
-                                        <i class="bi bi-trash me-1"></i> Delete Phone Number
-                                    </button>
-                                </div>
-                            </div>
+
                         </div>
                     </form>
                 </div>
@@ -6798,114 +6921,122 @@
         }
     </script>
 
-<!-- Dispatch Service Instructions Modal -->
-<div class="modal fade" id="dispatchInstructionsModal" tabindex="-1" aria-labelledby="dispatchInstructionsModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="dispatchInstructionsModalLabel">Instructions</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <!-- Tabs -->
-                <ul class="nav nav-tabs" id="instructionsTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="dispatch-tab" data-bs-toggle="tab" data-bs-target="#dispatch-tab-pane" type="button" role="tab" aria-controls="dispatch-tab-pane" aria-selected="true">Dispatch Services</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="history-tab" data-bs-toggle="tab" data-bs-target="#history-tab-pane" type="button" role="tab" aria-controls="history-tab-pane" aria-selected="false">History</button>
-                    </li>
-                </ul>
+    <!-- Dispatch Service Instructions Modal -->
+    <div class="modal fade" id="dispatchInstructionsModal" tabindex="-1"
+        aria-labelledby="dispatchInstructionsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="dispatchInstructionsModalLabel">Instructions</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Tabs -->
+                    <ul class="nav nav-tabs" id="instructionsTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="dispatch-tab" data-bs-toggle="tab"
+                                data-bs-target="#dispatch-tab-pane" type="button" role="tab"
+                                aria-controls="dispatch-tab-pane" aria-selected="true">Dispatch Services</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="history-tab" data-bs-toggle="tab"
+                                data-bs-target="#history-tab-pane" type="button" role="tab"
+                                aria-controls="history-tab-pane" aria-selected="false">History</button>
+                        </li>
+                    </ul>
 
-                <!-- Tab Content -->
-                <div class="tab-content" id="instructionsTabsContent">
-                    <!-- Dispatch Services Pane -->
-                    <div class="tab-pane fade show active p-3" id="dispatch-tab-pane" role="tabpanel" aria-labelledby="dispatch-tab" tabindex="0">
-                        <form id="dispatchInstructionsForm">
-                            <div class="mb-3">
-                                <label for="dispatchInstructionsText" class="form-label">Dispatch Services</label>
-                                <textarea class="form-control" id="dispatchInstructionsText" rows="12"></textarea>
-                                <div class="form-text text-end">2000 characters max.</div>
+                    <!-- Tab Content -->
+                    <div class="tab-content" id="instructionsTabsContent">
+                        <!-- Dispatch Services Pane -->
+                        <div class="tab-pane fade show active p-3" id="dispatch-tab-pane" role="tabpanel"
+                            aria-labelledby="dispatch-tab" tabindex="0">
+                            <form id="dispatchInstructionsForm">
+                                <div class="mb-3">
+                                    <label for="dispatchInstructionsText" class="form-label">Dispatch Services</label>
+                                    <textarea class="form-control" id="dispatchInstructionsText" rows="12"></textarea>
+                                    <div class="form-text text-end">2000 characters max.</div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- History Pane -->
+                        <div class="tab-pane fade p-3" id="history-tab-pane" role="tabpanel"
+                            aria-labelledby="history-tab" tabindex="0">
+                            <h6 class="section-header">Instruction History</h6>
+                            <div class="table-responsive" style="max-height: 45vh;">
+                                <table class="table table-sm table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>User</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>2023-10-26 14:30</td>
+                                            <td>jdoe</td>
+                                            <td>Updated instructions.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2023-09-15 11:00</td>
+                                            <td>asmith</td>
+                                            <td>Updated instructions.</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2023-08-01 09:12</td>
+                                            <td>jdoe</td>
+                                            <td>Created initial instructions.</td>
+                                        </tr>
+                                        <!-- More history rows can be added here -->
+                                    </tbody>
+                                </table>
                             </div>
-                        </form>
-                    </div>
-                    <!-- History Pane -->
-                    <div class="tab-pane fade p-3" id="history-tab-pane" role="tabpanel" aria-labelledby="history-tab" tabindex="0">
-                        <h6 class="section-header">Instruction History</h6>
-                         <div class="table-responsive" style="max-height: 45vh;">
-                            <table class="table table-sm table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>User</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>2023-10-26 14:30</td>
-                                        <td>jdoe</td>
-                                        <td>Updated instructions.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2023-09-15 11:00</td>
-                                        <td>asmith</td>
-                                        <td>Updated instructions.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2023-08-01 09:12</td>
-                                        <td>jdoe</td>
-                                        <td>Created initial instructions.</td>
-                                    </tr>
-                                    <!-- More history rows can be added here -->
-                                </tbody>
-                            </table>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer d-flex justify-content-between">
-                <div>
-                    
-                </div>
-                <div>
-                    <button type="button" class="btn btn-custom-primary"><i class="bi bi-check-lg me-1"></i> Save</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <div class="modal-footer d-flex justify-content-between">
+                    <div>
+
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-custom-primary"><i class="bi bi-check-lg me-1"></i>
+                            Save</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<script>
-    /**
-     * Initializes and shows the Bootstrap modal for dispatch instructions.
-     */
-    function showDispatchInstructionsModal() {
-        const modalEl = document.getElementById('dispatchInstructionsModal');
-        const instructionsModal = new bootstrap.Modal(modalEl);
-        instructionsModal.show();
-    }
+    <script>
+        /**
+         * Initializes and shows the Bootstrap modal for dispatch instructions.
+         */
+        function showDispatchInstructionsModal() {
+            const modalEl = document.getElementById('dispatchInstructionsModal');
+            const instructionsModal = new bootstrap.Modal(modalEl);
+            instructionsModal.show();
+        }
 
-    /**
-     * Adds a click event listener to the History button to switch to the history tab.
-     * This listener waits for the DOM to be loaded before attaching the event.
-     * The Bootstrap Tab instance is created on the first click to avoid race conditions.
-     */
-    document.addEventListener('DOMContentLoaded', function() {
-        const historyButton = document.getElementById('historyButton');
-        let historyTab = null; // To be initialized on first click
+        /**
+         * Adds a click event listener to the History button to switch to the history tab.
+         * This listener waits for the DOM to be loaded before attaching the event.
+         * The Bootstrap Tab instance is created on the first click to avoid race conditions.
+         */
+        document.addEventListener('DOMContentLoaded', function () {
+            const historyButton = document.getElementById('historyButton');
+            let historyTab = null; // To be initialized on first click
 
-        historyButton.addEventListener('click', function() {
-            // Lazy initialization: create the Tab instance only once on the first click.
-            // This ensures the bootstrap object is defined.
-            if (!historyTab) {
-                historyTab = new bootstrap.Tab(document.getElementById('history-tab'));
-            }
-            historyTab.show();
+            historyButton.addEventListener('click', function () {
+                // Lazy initialization: create the Tab instance only once on the first click.
+                // This ensures the bootstrap object is defined.
+                if (!historyTab) {
+                    historyTab = new bootstrap.Tab(document.getElementById('history-tab'));
+                }
+                historyTab.show();
+            });
         });
-    });
-</script>
+    </script>
 
 </body>
 
