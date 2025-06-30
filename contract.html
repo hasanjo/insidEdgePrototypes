@@ -269,9 +269,13 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.css" rel="stylesheet">
     <style>
-        table{
+        .ckfrm{
+                padding-top: 40px;
+        }
+        table {
             border: solid 2.5px #d7dadc;
         }
+
         .expand-btn {
             background: none;
             border: none;
@@ -461,7 +465,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mt-4">
-                                            <div class="form-check form-check-inline">
+                                            <div class="form-check form-check-inline" style="padding-top:15px ;">
                                                 <input class="form-check-input" type="checkbox" id="finalized">
                                                 <label class="form-check-label" for="finalized">Finalized?</label>
                                             </div>
@@ -483,22 +487,9 @@
                                             <option value="ARAMARK SUB CLIENT" selected>ARAMARK SUB CLIENT</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-6">
-                                        <label for="svcDeliveryList" class="form-label">Service Delivery List</label>
-                                        <select class="form-select" id="svcDeliveryList">
-                                            <option value="">-- Select Service Delivery --</option>
-                                            <option value="Standard">Standard</option>
-                                            <option value="Express">Express</option>
-                                        </select>
-                                    </div>
-                                </div>
 
-                                <!-- Technical Details -->
-                                <div class="row g-3 mb-3">
-                                    <div class="col-md-4">
-                                        <label for="webPv" class="form-label">Web P/V</label>
-                                        <input type="text" class="form-control" id="webPv" placeholder="Enter Web P/V">
-                                    </div>
+
+
                                     <div class="col-md-4">
                                         <label for="technicianRepresents" class="form-label">Technician
                                             Represents</label>
@@ -515,29 +506,14 @@
                                         <input type="text" class="form-control highlight-field" id="service" value="SSR"
                                             required>
                                     </div>
-                                    <div class="col-md-6">
-                                        <label for="maintenanceType" class="form-label">Maintenance Type</label>
-                                        <select class="form-select" id="maintenanceType">
-                                            <option value="">-- Select Type --</option>
-                                            <option value="Product" selected>Product</option>
-                                            <option value="Service">Service</option>
-                                            <option value="Hardware">Hardware</option>
-                                        </select>
-                                    </div>
+
                                 </div>
 
                                 <h5 class="section-header mt-4">Billing Information</h5>
 
                                 <!-- Financial Details -->
                                 <div class="row g-3 mb-3">
-                                    <div class="col-md-4">
-                                        <label for="contractAmt" class="form-label">Contract Amt</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text">$</span>
-                                            <input type="text" class="form-control" id="contractAmt" value="0.00"
-                                                pattern="^\d+(\.\d{2})?$">
-                                        </div>
-                                    </div>
+
                                     <div class="col-md-4">
                                         <label for="billingIncrement" class="form-label">Billing Increment
                                             (Minutes)</label>
@@ -548,15 +524,17 @@
                                         </select>
                                     </div>
                                     <div class="col-md-4">
-                                        <label for="terms" class="form-label">Terms</label>
-                                        <input type="text" class="form-control" id="terms" value="1 PERCENT 20 DAYS">
-                                    </div>
-                                </div>
+                                        <label for="billingTerms" class="form-label">Terms</label>
 
-                                <!-- Tax Information -->
-                                <div class="row g-3 mb-3">
-                                    <div class="col-md-6">
-                                        <div class="form-check">
+                                        <select class="form-select" id="billingTerms">
+                                            <option value="NET 30 DAYS" selected>NET 30 DAYS</option>
+                                            <option value="NET 45 DAYS">NET 45 DAYS</option>
+                                            <option value="NET 60 DAYS">NET 60 DAYS</option>
+                                        </select>
+                                    </div>
+                               
+                                    <div class="col-md-2" >
+                                        <div class="form-check ckfrm">
                                             <input class="form-check-input" type="checkbox" id="usaTaxExempt" checked>
                                             <label class="form-check-label" for="usaTaxExempt">USA Tax Exempt</label>
                                         </div>
@@ -564,9 +542,9 @@
 
                                 </div>
 
-                                <h5 class="section-header mt-4">Item To Show On Invoice</h5>
+                                <h5 class="section-header mt-4">Items To Show On Invoice</h5>
 
-                                <!-- Item To Show On Invoice -->
+                                <!-- Items To Show On Invoice -->
                                 <div class="row g-3 mb-3">
 
                                     <div class="col-md-3">
@@ -597,7 +575,7 @@
 
 
                                     <div class="col-md-2">
-                                        <div class="form-check">
+                                        <div class="form-check ckfrm">
                                             <input class="form-check-input" type="checkbox" id="serialNum" checked>
                                             <label class="form-check-label" for="serialNum">Serial #?</label>
                                         </div>
@@ -605,7 +583,7 @@
 
                                     <div class="col-md-2">
 
-                                        <div class="form-check">
+                                        <div class="form-check ckfrm">
                                             <input class="form-check-input" type="checkbox" id="dispSvc" checked>
                                             <label class="form-check-label" for="dispSvc">Dispatch Service</label>
                                         </div>
@@ -639,12 +617,6 @@
                                                         aria-controls="labor" aria-selected="true">Labor</button>
                                                 </li>
                                                 <li class="nav-item" role="presentation">
-                                                    <button class="nav-link" id="manuf-discount-tab"
-                                                        data-bs-toggle="pill" data-bs-target="#manuf-discount"
-                                                        type="button" role="tab" aria-controls="manuf-discount"
-                                                        aria-selected="false">Manuf Discount</button>
-                                                </li>
-                                                <li class="nav-item" role="presentation">
                                                     <button class="nav-link" id="purchase-orders-tab"
                                                         data-bs-toggle="pill" data-bs-target="#purchase-orders"
                                                         type="button" role="tab" aria-controls="purchase-orders"
@@ -656,18 +628,8 @@
                                                         type="button" role="tab" aria-controls="product-price"
                                                         aria-selected="false">Product Price</button>
                                                 </li>
-                                                <li class="nav-item" role="presentation">
-                                                    <button class="nav-link" id="lead-times-tab" data-bs-toggle="pill"
-                                                        data-bs-target="#lead-times" type="button" role="tab"
-                                                        aria-controls="lead-times" aria-selected="false">Lead
-                                                        Times</button>
-                                                </li>
-                                                <li class="nav-item" role="presentation">
-                                                    <button class="nav-link" id="maint-codes-tab" data-bs-toggle="pill"
-                                                        data-bs-target="#maint-codes" type="button" role="tab"
-                                                        aria-controls="maint-codes" aria-selected="false">Maint
-                                                        Codes</button>
-                                                </li>
+                                             
+                                              
                                                 <li class="nav-item" role="presentation">
                                                     <button class="nav-link" id="maint-by-product-tab"
                                                         data-bs-toggle="pill" data-bs-target="#maint-by-product"
@@ -687,7 +649,7 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div class="card-body" style="padding:0" >
+                                        <div class="card-body" style="padding:0">
                                             <div class="tab-content" id="contractTabsContent">
                                                 <!-- Labor Tab -->
                                                 <div class="tab-pane fade show active" id="labor" role="tabpanel"
@@ -695,15 +657,15 @@
                                                     <div class="d-flex justify-content-between align-items-center mb-3">
                                                         <h6 class="mb-0">Contract Labor Configuration</h6>
                                                         <div class="d-flex gap-2">
-                                                           <button class="btn btn-custom-accent btn-sm me-2"><i
-                                                                class="bi bi-plus-circle me-2"></i>Add Labor
-                                                            Code</button>
-                                                        <button class="btn btn-danger btn-sm"><i
-                                                                class="bi bi-trash me-2"></i>Delete
-                                                            Selected</button>
+                                                            <button class="btn btn-custom-accent btn-sm me-2"><i
+                                                                    class="bi bi-plus-circle me-2"></i>Add Labor
+                                                                Code</button>
+                                                            <button class="btn btn-danger btn-sm"><i
+                                                                    class="bi bi-trash me-2"></i>Delete
+                                                                Selected</button>
                                                         </div>
                                                     </div>
-                                                    
+
                                                     <div class="table-responsive">
                                                         <table class="table table-hover">
                                                             <thead class="table-light">
@@ -810,338 +772,7 @@
                                                     </div>
                                                 </div>
 
-                                                <!-- Other Tabs (placeholder content) -->
-                                                <div class="tab-pane fade" id="manuf-discount" role="tabpanel"
-                                                    aria-labelledby="manuf-discount-tab">
-                                                    <!-- ----------------------------------------------------------- -->
-
-
-
-
-
-
-                                                    <div class="d-flex justify-content-between align-items-center mb-3">
-                                                        <h6 class="mb-0">Manufacturer Discount Configuration</h6>
-                                                        <div class="d-flex gap-2">
-                                                            <button class="btn btn-custom-accent btn-sm"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#addManufacturerModal">
-                                                                <i class="bi bi-plus-circle me-2"></i>Add Manufacturer
-                                                            </button>
-                                                            <button class="btn btn-outline-danger btn-sm"
-                                                                id="deleteSelectedBtn" disabled>
-                                                                <i class="bi bi-trash me-2"></i>Delete Selected
-                                                            </button>
-                                                        </div>
-                                                    </div>
-
-                                                    <!-- Manufacturer Discount Table -->
-                                                    <div class="table-responsive">
-                                                        <table class="table table-hover">
-                                                            <thead class="table-light">
-                                                                <tr>
-                                                                    <th width="40">
-                                                                        <div class="form-check">
-                                                                            <input class="form-check-input"
-                                                                                type="checkbox" id="selectAllManuf">
-                                                                        </div>
-                                                                    </th>
-                                                                    <th>Manuf Id</th>
-                                                                    <th>Manufacturer Name</th>
-                                                                    <th>Manufacturer Description</th>
-                                                                    <th>Owner</th>
-                                                                    <th>Discount %</th>
-                                                                    <th width="120" class="text-center">Actions</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>
-                                                                        <div class="form-check">
-                                                                            <input
-                                                                                class="form-check-input manufacturer-checkbox"
-                                                                                type="checkbox" value="10">
-                                                                        </div>
-                                                                    </td>
-                                                                    <td><strong>10</strong></td>
-                                                                    <td>ACCU</td>
-                                                                    <td>ACCU Inc</td>
-                                                                    <td>
-                                                                        <span class="badge bg-primary">Inventory</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span class="fw-bold text-success">1.00%</span>
-                                                                    </td>
-                                                                    <td class="text-center">
-                                                                        <div class="btn-group">
-                                                                            <button
-                                                                                class="btn btn-outline-primary btn-sm me-1"
-                                                                                data-bs-toggle="tooltip"
-                                                                                title="View Details">
-                                                                                <i class="bi bi-eye"></i>
-                                                                            </button>
-                                                                            <div class="dropdown">
-                                                                                <button class="btn btn-sm btn-light"
-                                                                                    type="button"
-                                                                                    data-bs-toggle="dropdown"
-                                                                                    aria-expanded="false">
-                                                                                    <i
-                                                                                        class="bi bi-three-dots-vertical"></i>
-                                                                                </button>
-                                                                                <ul class="dropdown-menu">
-                                                                                    <li><a class="dropdown-item"
-                                                                                            href="#"
-                                                                                            onclick="editManufacturer(10)"><i
-                                                                                                class="bi bi-pencil-square me-2"></i>Edit</a>
-                                                                                    </li>
-                                                                                    <li><a class="dropdown-item"
-                                                                                            href="#"
-                                                                                            onclick="duplicateManufacturer(10)"><i
-                                                                                                class="bi bi-files me-2"></i>Duplicate</a>
-                                                                                    </li>
-                                                                                    <li>
-                                                                                        <hr class="dropdown-divider">
-                                                                                    </li>
-                                                                                    <li><a class="dropdown-item text-danger"
-                                                                                            href="#"
-                                                                                            onclick="deleteManufacturer(10)"><i
-                                                                                                class="bi bi-trash me-2"></i>Delete</a>
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>
-                                                                        <div class="form-check">
-                                                                            <input
-                                                                                class="form-check-input manufacturer-checkbox"
-                                                                                type="checkbox" value="620">
-                                                                        </div>
-                                                                    </td>
-                                                                    <td><strong>620</strong></td>
-                                                                    <td>ACCEL</td>
-                                                                    <td>ACCELERATED CONCEPTS</td>
-                                                                    <td>
-                                                                        <span class="badge bg-primary">Inventory</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span class="fw-bold text-success">2.00%</span>
-                                                                    </td>
-                                                                    <td class="text-center">
-                                                                        <div class="btn-group">
-                                                                            <button
-                                                                                class="btn btn-outline-primary btn-sm me-1"
-                                                                                data-bs-toggle="tooltip"
-                                                                                title="View Details">
-                                                                                <i class="bi bi-eye"></i>
-                                                                            </button>
-                                                                            <div class="dropdown">
-                                                                                <button class="btn btn-sm btn-light"
-                                                                                    type="button"
-                                                                                    data-bs-toggle="dropdown"
-                                                                                    aria-expanded="false">
-                                                                                    <i
-                                                                                        class="bi bi-three-dots-vertical"></i>
-                                                                                </button>
-                                                                                <ul class="dropdown-menu">
-                                                                                    <li><a class="dropdown-item"
-                                                                                            href="#"
-                                                                                            onclick="editManufacturer(620)"><i
-                                                                                                class="bi bi-pencil-square me-2"></i>Edit</a>
-                                                                                    </li>
-                                                                                    <li><a class="dropdown-item"
-                                                                                            href="#"
-                                                                                            onclick="duplicateManufacturer(620)"><i
-                                                                                                class="bi bi-files me-2"></i>Duplicate</a>
-                                                                                    </li>
-                                                                                    <li>
-                                                                                        <hr class="dropdown-divider">
-                                                                                    </li>
-                                                                                    <li><a class="dropdown-item text-danger"
-                                                                                            href="#"
-                                                                                            onclick="deleteManufacturer(620)"><i
-                                                                                                class="bi bi-trash me-2"></i>Delete</a>
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>
-                                                                        <div class="form-check">
-                                                                            <input
-                                                                                class="form-check-input manufacturer-checkbox"
-                                                                                type="checkbox" value="766">
-                                                                        </div>
-                                                                    </td>
-                                                                    <td><strong>766</strong></td>
-                                                                    <td>410</td>
-                                                                    <td>410</td>
-                                                                    <td>
-                                                                        <span class="badge bg-primary">Inventory</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span class="fw-bold text-success">3.00%</span>
-                                                                    </td>
-                                                                    <td class="text-center">
-                                                                        <div class="btn-group">
-                                                                            <button
-                                                                                class="btn btn-outline-primary btn-sm me-1"
-                                                                                data-bs-toggle="tooltip"
-                                                                                title="View Details">
-                                                                                <i class="bi bi-eye"></i>
-                                                                            </button>
-                                                                            <div class="dropdown">
-                                                                                <button class="btn btn-sm btn-light"
-                                                                                    type="button"
-                                                                                    data-bs-toggle="dropdown"
-                                                                                    aria-expanded="false">
-                                                                                    <i
-                                                                                        class="bi bi-three-dots-vertical"></i>
-                                                                                </button>
-                                                                                <ul class="dropdown-menu">
-                                                                                    <li><a class="dropdown-item"
-                                                                                            href="#"
-                                                                                            onclick="editManufacturer(766)"><i
-                                                                                                class="bi bi-pencil-square me-2"></i>Edit</a>
-                                                                                    </li>
-                                                                                    <li><a class="dropdown-item"
-                                                                                            href="#"
-                                                                                            onclick="duplicateManufacturer(766)"><i
-                                                                                                class="bi bi-files me-2"></i>Duplicate</a>
-                                                                                    </li>
-                                                                                    <li>
-                                                                                        <hr class="dropdown-divider">
-                                                                                    </li>
-                                                                                    <li><a class="dropdown-item text-danger"
-                                                                                            href="#"
-                                                                                            onclick="deleteManufacturer(766)"><i
-                                                                                                class="bi bi-trash me-2"></i>Delete</a>
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-
-                                                    <!-- Table Footer with Summary -->
-                                                    <div
-                                                        class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
-                                                        <small class="text-muted">Showing 3 of 3 manufacturers</small>
-                                                        <div class="d-flex align-items-center gap-3">
-                                                            <small class="text-muted">Average Discount: <span
-                                                                    class="fw-bold text-primary">2.00%</span></small>
-                                                            <button class="btn btn-outline-secondary btn-sm">
-                                                                <i class="bi bi-download me-2"></i>Export
-                                                            </button>
-                                                        </div>
-                                                    </div>
-
-
-
-
-                                                    <script>
-                                                        // Select all functionality
-                                                        document.getElementById('selectAllManuf')?.addEventListener('change', function (e) {
-                                                            const checkboxes = document.querySelectorAll('.manufacturer-checkbox');
-                                                            checkboxes.forEach(cb => cb.checked = e.target.checked);
-                                                            updateDeleteButton();
-                                                        });
-
-                                                        // Individual checkbox functionality
-                                                        document.querySelectorAll('.manufacturer-checkbox').forEach(checkbox => {
-                                                            checkbox.addEventListener('change', updateDeleteButton);
-                                                        });
-
-                                                        function updateDeleteButton() {
-                                                            const checkedBoxes = document.querySelectorAll('.manufacturer-checkbox:checked');
-                                                            const deleteBtn = document.getElementById('deleteSelectedBtn');
-                                                            deleteBtn.disabled = checkedBoxes.length === 0;
-                                                        }
-
-                                                        function editManufacturer(id) {
-                                                            // Update modal title for editing
-                                                            document.getElementById('addManufacturerModalLabel').innerHTML =
-                                                                '<i class="bi bi-pencil-square me-2"></i>Edit Manufacturer';
-
-                                                            // Show modal
-                                                            new bootstrap.Modal(document.getElementById('addManufacturerModal')).show();
-
-                                                            // Here you would typically load the manufacturer data
-                                                            console.log('Editing manufacturer:', id);
-                                                        }
-
-                                                        function duplicateManufacturer(id) {
-                                                            // Create a copy of the manufacturer
-                                                            console.log('Duplicating manufacturer:', id);
-                                                            // Implementation would copy the data and show add modal
-                                                        }
-
-                                                        function deleteManufacturer(id) {
-                                                            // Show confirmation modal
-                                                            new bootstrap.Modal(document.getElementById('deleteConfirmModal')).show();
-                                                            // Store the ID for deletion
-                                                            window.deleteTargetId = id;
-                                                        }
-
-                                                        function saveManufacturer() {
-                                                            const form = document.getElementById('manufacturerForm');
-                                                            if (form.checkValidity()) {
-                                                                // Save logic here
-                                                                console.log('Saving manufacturer...');
-                                                                bootstrap.Modal.getInstance(document.getElementById('addManufacturerModal')).hide();
-
-                                                                // Show success message
-                                                                showToast('Manufacturer saved successfully!', 'success');
-                                                            } else {
-                                                                form.classList.add('was-validated');
-                                                            }
-                                                        }
-
-                                                        function confirmDelete() {
-                                                            // Delete logic here
-                                                            console.log('Deleting manufacturer:', window.deleteTargetId);
-                                                            bootstrap.Modal.getInstance(document.getElementById('deleteConfirmModal')).hide();
-
-                                                            // Show success message
-                                                            showToast('Manufacturer deleted successfully!', 'success');
-                                                        }
-
-                                                        function showToast(message, type = 'info') {
-                                                            // Simple toast notification (you could use Bootstrap toast or a toast library)
-                                                            const alertDiv = document.createElement('div');
-                                                            alertDiv.className = `alert alert-${type === 'success' ? 'success' : 'info'} alert-dismissible fade show position-fixed`;
-                                                            alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
-                                                            alertDiv.innerHTML = `
-        ${message}
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    `;
-                                                            document.body.appendChild(alertDiv);
-
-                                                            // Auto-remove after 3 seconds
-                                                            setTimeout(() => {
-                                                                if (alertDiv.parentNode) {
-                                                                    alertDiv.remove();
-                                                                }
-                                                            }, 3000);
-                                                        }
-
-                                                        // Initialize tooltips
-                                                        document.addEventListener('DOMContentLoaded', function () {
-                                                            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-                                                            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-                                                                return new bootstrap.Tooltip(tooltipTriggerEl);
-                                                            });
-                                                        });
-                                                    </script>
-                                                    <!-- ----------------------------------------------------------- -->
-                                                </div>
+                                           
 
                                                 <div class="tab-pane fade" id="purchase-orders" role="tabpanel"
                                                     aria-labelledby="purchase-orders-tab">
@@ -1151,17 +782,18 @@
                                                     <div class="d-flex justify-content-between align-items-center mb-3">
                                                         <h6 class="mb-0">Purchase Order Management</h6>
                                                         <div class="d-flex gap-2">
-                                                            <button class="btn btn-custom-accent btn-sm" >
+                                                            <button class="btn btn-custom-accent btn-sm">
                                                                 <i class="bi bi-plus-circle me-2"></i>Add PO
                                                             </button>
-                                                            <button class="btn btn-outline-danger btn-sm" id="deleteSelectedBtn" disabled="">
+                                                            <button class="btn btn-outline-danger btn-sm"
+                                                                id="deleteSelectedBtn" disabled="">
                                                                 <i class="bi bi-trash me-2"></i>Delete Selected POs
                                                             </button>
                                                         </div>
                                                     </div>
 
 
-                                                 
+
 
                                                     <!-- Tab Navigation -->
                                                     <div class="card shadow-sm mb-4">
@@ -2164,551 +1796,8 @@
                                                     <!-- ----------------------- Product Price----------------------------- -->
                                                 </div>
 
-                                                <div class="tab-pane fade" id="lead-times" role="tabpanel"
-                                                    aria-labelledby="lead-times-tab">
-                                                    <!-- Lead Times Tab Content -->
+                                               
 
-                                                    <div class="d-flex justify-content-between align-items-center mb-3">
-                                                        <h6 class="mb-0">Lead Times</h6>
-                                                        <div class="d-flex gap-2">
-                                                            <button class="btn btn-custom-accent btn-sm" >
-                                                                <i class="bi bi-plus-circle me-2"></i>Add a New Lead Time Entry
-                                                            </button>
-                                                            <button class="btn btn-outline-danger btn-sm" id="deleteSelectedBtn" disabled="">
-                                                                <i class="bi bi-trash me-2"></i>Delete Selected Lead Time
-                                                            </button>
-                                                        </div>
-                                                    </div>
-
-                                                    
-                                                    <div class="card-body p-0">
-                                                        <div class="table-responsive">
-                                                            <table class="table table-hover mb-0" id="leadTimesTable">
-                                                                <thead class="">
-                                                                    <tr>
-                                                                        <th width="50">
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input"
-                                                                                    type="checkbox"
-                                                                                    id="selectAllLeadTimes">
-                                                                            </div>
-                                                                        </th>
-                                                                        <th>Lead Time Fr</th>
-                                                                        <th>Lead Time To</th>
-                                                                        <th>Lead Time Type Code</th>
-                                                                        <th>Lead Time Fee</th>
-                                                                        <th width="100" class="text-center">Actions</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr class="table-warning selected-row"
-                                                                        data-selected="true">
-                                                                        <td>
-                                                                            <div class="form-check">
-                                                                                <input
-                                                                                    class="form-check-input row-checkbox"
-                                                                                    type="checkbox" checked>
-                                                                            </div>
-                                                                        </td>
-                                                                        <td>
-                                                                            <input type="number"
-                                                                                class="form-control form-control-sm"
-                                                                                value="1" min="0" max="999">
-                                                                        </td>
-                                                                        <td>
-                                                                            <input type="number"
-                                                                                class="form-control form-control-sm"
-                                                                                value="6" min="0" max="999">
-                                                                        </td>
-                                                                        <td>
-                                                                            <select class="form-select form-select-sm">
-                                                                                <option value="">-- Select Type --
-                                                                                </option>
-                                                                                <option value="Scheduled Maintenance"
-                                                                                    selected>
-                                                                                    Scheduled Maintenance</option>
-                                                                                <option value="Emergency Repair">
-                                                                                    Emergency Repair
-                                                                                </option>
-                                                                                <option value="Preventive Maintenance">
-                                                                                    Preventive
-                                                                                    Maintenance</option>
-                                                                                <option value="Routine Service">Routine
-                                                                                    Service
-                                                                                </option>
-                                                                                <option value="Installation">
-                                                                                    Installation</option>
-                                                                            </select>
-                                                                        </td>
-                                                                        <td>
-                                                                            <div class="input-group input-group-sm">
-                                                                                <span class="input-group-text">$</span>
-                                                                                <input type="number"
-                                                                                    class="form-control" value="2.00"
-                                                                                    step="0.01" min="0">
-                                                                            </div>
-                                                                        </td>
-                                                                        <td class="text-center">
-                                                                            <div class="dropdown">
-                                                                                <button class="btn btn-sm btn-light"
-                                                                                    type="button"
-                                                                                    data-bs-toggle="dropdown"
-                                                                                    aria-expanded="false">
-                                                                                    <i
-                                                                                        class="bi bi-three-dots-vertical"></i>
-                                                                                </button>
-                                                                                <ul class="dropdown-menu">
-                                                                                    <li><a class="dropdown-item"
-                                                                                            href="#"><i
-                                                                                                class="bi bi-pencil-square me-2"></i>Edit</a>
-                                                                                    </li>
-                                                                                    <li><a class="dropdown-item"
-                                                                                            href="#"><i
-                                                                                                class="bi bi-files me-2"></i>Duplicate</a>
-                                                                                    </li>
-                                                                                    <li>
-                                                                                        <hr class="dropdown-divider">
-                                                                                    </li>
-                                                                                    <li><a class="dropdown-item text-danger"
-                                                                                            href="#"><i
-                                                                                                class="bi bi-trash me-2"></i>Delete</a>
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-footer">
-                                                        <div class="row align-items-center">
-                                                            <div class="col-md-6">
-                                                                <small class="text-muted">
-                                                                    <i class="bi bi-info-circle me-1"></i>
-                                                                    Lead times are calculated in days. Select a row to
-                                                                    enable delete
-                                                                    functionality.
-                                                                </small>
-                                                            </div>
-                                                            <div class="col-md-6 text-end">
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-
-                                                    <script>
-                                                        document.addEventListener('DOMContentLoaded', function () {
-                                                            // Row selection functionality
-                                                            const table = document.getElementById('leadTimesTable');
-                                                            const deleteBtn = document.getElementById('deleteLeadTimeBtn');
-                                                            const selectAllCheckbox = document.getElementById('selectAllLeadTimes');
-                                                            const rowCheckboxes = document.querySelectorAll('.row-checkbox');
-
-                                                            // Handle individual row selection
-                                                            rowCheckboxes.forEach(checkbox => {
-                                                                checkbox.addEventListener('change', function () {
-                                                                    const row = this.closest('tr');
-                                                                    if (this.checked) {
-                                                                        row.classList.add('table-warning', 'selected-row');
-                                                                        row.setAttribute('data-selected', 'true');
-                                                                    } else {
-                                                                        row.classList.remove('table-warning', 'selected-row');
-                                                                        row.removeAttribute('data-selected');
-                                                                    }
-                                                                    updateDeleteButton();
-                                                                    updateSelectAllCheckbox();
-                                                                });
-                                                            });
-
-                                                            // Handle row clicks (excluding form elements)
-                                                            table.addEventListener('click', function (e) {
-                                                                if (e.target.tagName !== 'INPUT' &&
-                                                                    e.target.tagName !== 'SELECT' &&
-                                                                    e.target.tagName !== 'BUTTON' &&
-                                                                    !e.target.closest('.dropdown')) {
-
-                                                                    const row = e.target.closest('tr');
-                                                                    if (row && row.closest('tbody')) {
-                                                                        const checkbox = row.querySelector('.row-checkbox');
-                                                                        if (checkbox) {
-                                                                            checkbox.checked = !checkbox.checked;
-                                                                            checkbox.dispatchEvent(new Event('change'));
-                                                                        }
-                                                                    }
-                                                                }
-                                                            });
-
-                                                            // Select all functionality
-                                                            selectAllCheckbox.addEventListener('change', function () {
-                                                                const isChecked = this.checked;
-                                                                rowCheckboxes.forEach(checkbox => {
-                                                                    checkbox.checked = isChecked;
-                                                                    checkbox.dispatchEvent(new Event('change'));
-                                                                });
-                                                            });
-
-                                                            // Update delete button state
-                                                            function updateDeleteButton() {
-                                                                const hasSelectedRows = document.querySelectorAll('tr[data-selected="true"]').length > 0;
-                                                                deleteBtn.disabled = !hasSelectedRows;
-                                                            }
-
-                                                            // Update select all checkbox state
-                                                            function updateSelectAllCheckbox() {
-                                                                const totalCheckboxes = rowCheckboxes.length;
-                                                                const checkedCheckboxes = document.querySelectorAll('.row-checkbox:checked').length;
-
-                                                                if (checkedCheckboxes === 0) {
-                                                                    selectAllCheckbox.indeterminate = false;
-                                                                    selectAllCheckbox.checked = false;
-                                                                } else if (checkedCheckboxes === totalCheckboxes) {
-                                                                    selectAllCheckbox.indeterminate = false;
-                                                                    selectAllCheckbox.checked = true;
-                                                                } else {
-                                                                    selectAllCheckbox.indeterminate = true;
-                                                                }
-                                                            }
-
-                                                            // Initialize states
-                                                            updateDeleteButton();
-                                                            updateSelectAllCheckbox();
-
-                                                            // Add new lead time entry
-                                                            document.querySelector('.btn-custom-accent').addEventListener('click', function () {
-                                                                const tbody = table.querySelector('tbody');
-                                                                const newRow = document.createElement('tr');
-                                                                newRow.innerHTML = `
-            <td>
-                <div class="form-check">
-                    <input class="form-check-input row-checkbox" type="checkbox">
-                </div>
-            </td>
-            <td>
-                <input type="number" class="form-control form-control-sm" value="" min="0" max="999" placeholder="From">
-            </td>
-            <td>
-                <input type="number" class="form-control form-control-sm" value="" min="0" max="999" placeholder="To">
-            </td>
-            <td>
-                <select class="form-select form-select-sm">
-                    <option value="">-- Select Type --</option>
-                    <option value="Scheduled Maintenance">Scheduled Maintenance</option>
-                    <option value="Emergency Repair">Emergency Repair</option>
-                    <option value="Preventive Maintenance">Preventive Maintenance</option>
-                    <option value="Routine Service">Routine Service</option>
-                    <option value="Installation">Installation</option>
-                </select>
-            </td>
-            <td>
-                <div class="input-group input-group-sm">
-                    <span class="input-group-text">$</span>
-                    <input type="number" class="form-control" value="0.00" step="0.01" min="0">
-                </div>
-            </td>
-            <td class="text-center">
-                <div class="dropdown">
-                    <button class="btn btn-sm btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi bi-three-dots-vertical"></i>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square me-2"></i>Edit</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-files me-2"></i>Duplicate</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Delete</a></li>
-                    </ul>
-                </div>
-            </td>
-        `;
-
-                                                                tbody.appendChild(newRow);
-
-                                                                // Add event listener to new checkbox
-                                                                const newCheckbox = newRow.querySelector('.row-checkbox');
-                                                                newCheckbox.addEventListener('change', function () {
-                                                                    const row = this.closest('tr');
-                                                                    if (this.checked) {
-                                                                        row.classList.add('table-warning', 'selected-row');
-                                                                        row.setAttribute('data-selected', 'true');
-                                                                    } else {
-                                                                        row.classList.remove('table-warning', 'selected-row');
-                                                                        row.removeAttribute('data-selected');
-                                                                    }
-                                                                    updateDeleteButton();
-                                                                    updateSelectAllCheckbox();
-                                                                });
-
-                                                                // Focus on first input
-                                                                newRow.querySelector('input[type="number"]').focus();
-                                                            });
-
-                                                            // Delete selected entries
-                                                            deleteBtn.addEventListener('click', function () {
-                                                                const selectedRows = document.querySelectorAll('tr[data-selected="true"]');
-                                                                if (selectedRows.length > 0) {
-                                                                    if (confirm(`Are you sure you want to delete ${selectedRows.length} selected lead time entr${selectedRows.length === 1 ? 'y' : 'ies'}?`)) {
-                                                                        selectedRows.forEach(row => row.remove());
-                                                                        updateDeleteButton();
-                                                                        updateSelectAllCheckbox();
-                                                                    }
-                                                                }
-                                                            });
-                                                        });
-                                                    </script>
-                                                </div>
-
-                                                <div class="tab-pane fade" id="maint-codes" role="tabpanel"
-                                                    aria-labelledby="maint-codes-tab">
-                                                    <div class="d-flex justify-content-between align-items-center mb-3">
-                                                        <h6 class="mb-0">Contract Coverage Maintenance Codes</h6>
-                                                        <div class="d-flex gap-2">
-                                                            <button class="btn btn-custom-accent btn-sm">
-                                                                <i class="bi bi-plus-circle me-2"></i>Add a New Contract
-                                                                Coverage
-                                                            </button>
-                                                            <button class="btn btn-danger btn-sm">
-                                                                <i class="bi bi-trash me-2"></i>Delete Current Coverage
-                                                            </button>
-                                                            <button class="btn btn-outline-secondary btn-sm"
-                                                                data-bs-toggle="tooltip" title="Help and Documentation">
-                                                                <i class="bi bi-question-circle"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="table-responsive">
-                                                        <table class="table table-hover table-bordered">
-                                                            <thead class="table-light">
-                                                                <tr>
-                                                                    <th width="40">
-                                                                        <div class="form-check">
-                                                                            <input class="form-check-input"
-                                                                                type="checkbox"
-                                                                                id="selectAllMaintCodes">
-                                                                        </div>
-                                                                    </th>
-                                                                    <th width="120">Coverage Cd</th>
-                                                                    <th>Coverage Desc</th>
-                                                                    <th width="150">Type</th>
-                                                                    <th width="100">% List</th>
-                                                                    <th width="120" class="text-center">Exceptions</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr class="table-warning">
-                                                                    <td>
-                                                                        <div class="form-check">
-                                                                            <input class="form-check-input"
-                                                                                type="checkbox" value="101">
-                                                                        </div>
-                                                                    </td>
-                                                                    <td><strong>101</strong></td>
-                                                                    <td>NBD, SMARTNET MMGT, GCC SUPPORT</td>
-                                                                    <td><span
-                                                                            class="badge bg-primary">Maintenance</span>
-                                                                    </td>
-                                                                    <td class="text-end">1.00</td>
-                                                                    <td class="text-center">
-                                                                        <div class="dropdown">
-                                                                            <button
-                                                                                class="btn btn-sm btn-outline-primary dropdown-toggle"
-                                                                                type="button" data-bs-toggle="dropdown"
-                                                                                aria-expanded="false">
-                                                                                Edit...
-                                                                            </button>
-                                                                            <ul class="dropdown-menu">
-                                                                                <li><a class="dropdown-item" href="#"><i
-                                                                                            class="bi bi-pencil-square me-2"></i>Edit
-                                                                                        Coverage</a></li>
-                                                                                <li><a class="dropdown-item" href="#"><i
-                                                                                            class="bi bi-gear me-2"></i>Configure
-                                                                                        Exceptions</a></li>
-                                                                                <li><a class="dropdown-item" href="#"><i
-                                                                                            class="bi bi-files me-2"></i>Duplicate</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <hr class="dropdown-divider">
-                                                                                </li>
-                                                                                <li><a class="dropdown-item text-danger"
-                                                                                        href="#"><i
-                                                                                            class="bi bi-trash me-2"></i>Remove</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr class="table-warning">
-                                                                    <td>
-                                                                        <div class="form-check">
-                                                                            <input class="form-check-input"
-                                                                                type="checkbox" value="112">
-                                                                        </div>
-                                                                    </td>
-                                                                    <td><strong>112</strong></td>
-                                                                    <td>MFG 4HR PARTS ONLY-ACUT&H LABOR BEST EFFORT L...
-                                                                    </td>
-                                                                    <td><span
-                                                                            class="badge bg-primary">Maintenance</span>
-                                                                    </td>
-                                                                    <td class="text-end">1.00</td>
-                                                                    <td class="text-center">
-                                                                        <div class="dropdown">
-                                                                            <button
-                                                                                class="btn btn-sm btn-outline-primary dropdown-toggle"
-                                                                                type="button" data-bs-toggle="dropdown"
-                                                                                aria-expanded="false">
-                                                                                Edit...
-                                                                            </button>
-                                                                            <ul class="dropdown-menu">
-                                                                                <li><a class="dropdown-item" href="#"><i
-                                                                                            class="bi bi-pencil-square me-2"></i>Edit
-                                                                                        Coverage</a></li>
-                                                                                <li><a class="dropdown-item" href="#"><i
-                                                                                            class="bi bi-gear me-2"></i>Configure
-                                                                                        Exceptions</a></li>
-                                                                                <li><a class="dropdown-item" href="#"><i
-                                                                                            class="bi bi-files me-2"></i>Duplicate</a>
-                                                                                </li>
-                                                                                <li>
-                                                                                    <hr class="dropdown-divider">
-                                                                                </li>
-                                                                                <li><a class="dropdown-item text-danger"
-                                                                                        href="#"><i
-                                                                                            class="bi bi-trash me-2"></i>Remove</a>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-
-                                                    <!-- Coverage Details Form (Hidden by default, shown when adding/editing) -->
-                                                    <div class="card mt-4" id="coverageForm" style="display: none;">
-                                                        <div class="card-header bg-light">
-                                                            <h6 class="mb-0"><i class="bi bi-gear me-2"></i>Coverage
-                                                                Configuration
-                                                            </h6>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <div class="row g-3">
-                                                                <div class="col-md-3">
-                                                                    <label for="coverageCode"
-                                                                        class="form-label">Coverage Code <span
-                                                                            class="text-danger">*</span></label>
-                                                                    <input type="text" class="form-control"
-                                                                        id="coverageCode" placeholder="Enter code"
-                                                                        required>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <label for="coverageDesc"
-                                                                        class="form-label">Coverage
-                                                                        Description <span
-                                                                            class="text-danger">*</span></label>
-                                                                    <input type="text" class="form-control"
-                                                                        id="coverageDesc"
-                                                                        placeholder="Enter description" required>
-                                                                </div>
-                                                                <div class="col-md-3">
-                                                                    <label for="coverageType" class="form-label">Type
-                                                                        <span class="text-danger">*</span></label>
-                                                                    <select class="form-select" id="coverageType"
-                                                                        required>
-                                                                        <option value="">-- Select Type --</option>
-                                                                        <option value="Maintenance" selected>Maintenance
-                                                                        </option>
-                                                                        <option value="Support">Support</option>
-                                                                        <option value="Warranty">Warranty</option>
-                                                                    </select>
-                                                                </div>
-                                                                <div class="col-md-3">
-                                                                    <label for="listPercentage" class="form-label">%
-                                                                        List <span class="text-danger">*</span></label>
-                                                                    <div class="input-group">
-                                                                        <input type="number" class="form-control"
-                                                                            id="listPercentage" step="0.01" min="0"
-                                                                            max="100" value="1.00" required>
-                                                                        <span class="input-group-text">%</span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-9">
-                                                                    <label for="coverageNotes"
-                                                                        class="form-label">Additional
-                                                                        Notes</label>
-                                                                    <textarea class="form-control" id="coverageNotes"
-                                                                        rows="2"
-                                                                        placeholder="Enter any additional notes or exceptions..."></textarea>
-                                                                </div>
-                                                            </div>
-                                                            <div class="d-flex justify-content-end gap-2 mt-3">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    onclick="hideCoverageForm()">
-                                                                    <i class="bi bi-x-circle me-2"></i>Cancel
-                                                                </button>
-                                                                <button type="button" class="btn btn-custom-primary">
-                                                                    <i class="bi bi-save me-2"></i>Save Coverage
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <!-- Empty State Message (when no coverage codes exist) -->
-                                                    <div class="text-center py-5" id="emptyCoverageState"
-                                                        style="display: none;">
-                                                        <i class="bi bi-inbox display-4 text-muted"></i>
-                                                        <h5 class="text-muted mt-3">No Maintenance Coverage Codes
-                                                            Configured</h5>
-                                                        <p class="text-muted">Click "Add a New Contract Coverage" to get
-                                                            started.
-                                                        </p>
-                                                    </div>
-
-                                                    <script>
-                                                        // Select all functionality for maintenance codes
-                                                        document.getElementById('selectAllMaintCodes')?.addEventListener('change', function (e) {
-                                                            const checkboxes = document.querySelectorAll('#maint-codes tbody input[type="checkbox"]');
-                                                            checkboxes.forEach(cb => cb.checked = e.target.checked);
-                                                        });
-
-                                                        // Show coverage form
-                                                        function showCoverageForm() {
-                                                            document.getElementById('coverageForm').style.display = 'block';
-                                                            document.getElementById('emptyCoverageState').style.display = 'none';
-                                                        }
-
-                                                        // Hide coverage form
-                                                        function hideCoverageForm() {
-                                                            document.getElementById('coverageForm').style.display = 'none';
-                                                        }
-
-                                                        // Add new coverage button event
-                                                        document.querySelector('#maint-codes .btn-custom-accent')?.addEventListener('click', showCoverageForm);
-
-                                                        // Delete selected coverage
-                                                        document.querySelector('#maint-codes .btn-danger')?.addEventListener('click', function () {
-                                                            const selectedCheckboxes = document.querySelectorAll('#maint-codes tbody input[type="checkbox"]:checked');
-                                                            if (selectedCheckboxes.length === 0) {
-                                                                alert('Please select at least one coverage code to delete.');
-                                                                return;
-                                                            }
-
-                                                            if (confirm(`Are you sure you want to delete ${selectedCheckboxes.length} coverage code(s)?`)) {
-                                                                selectedCheckboxes.forEach(cb => {
-                                                                    cb.closest('tr').remove();
-                                                                });
-                                                            }
-                                                        });
-
-                                                        // Validate percentage input
-                                                        document.getElementById('listPercentage')?.addEventListener('input', function (e) {
-                                                            const value = parseFloat(e.target.value);
-                                                            if (value < 0) e.target.value = 0;
-                                                            if (value > 100) e.target.value = 100;
-                                                        });
-                                                    </script>
-                                                </div>
 
                                                 <div class="tab-pane fade" id="maint-by-product" role="tabpanel"
                                                     aria-labelledby="maint-by-product-tab">
@@ -2717,7 +1806,7 @@
                                                     <div class="d-flex justify-content-between align-items-center mb-3">
                                                         <h6 class="mb-0">Maintenance by Product</h6>
                                                         <div class="d-flex gap-2">
-                                                            <button class="btn btn-custom-accent btn-sm" >
+                                                            <button class="btn btn-custom-accent btn-sm">
                                                                 <i class="bi bi-plus-circle me-2"></i>Add Product
                                                             </button>
                                                         </div>
@@ -3171,13 +2260,14 @@
                                                     </script>
                                                 </div>
 
-                                              <div class="tab-pane fade" id="packages" role="tabpanel" aria-labelledby="packages-tab">
+                                                <div class="tab-pane fade" id="packages" role="tabpanel"
+                                                    aria-labelledby="packages-tab">
                                                     <div class="d-flex justify-content-between align-items-center mb-3">
                                                         <h6 class="mb-0">Package Management</h6>
                                                         <div class="d-flex align-items-center gap-2">
                                                             <div class="input-group" style="width: 250px;">
-                                                                
-                                                                
+
+
                                                             </div>
                                                             <button class="btn btn-custom-accent btn-sm">
                                                                 <i class="bi bi-plus-circle me-2"></i>New Package
@@ -3186,10 +2276,10 @@
                                                     </div>
 
                                                     <!-- Filters Row -->
-                                                    
+
 
                                                     <!-- Results Summary -->
-                                                    
+
 
                                                     <!-- Packages Table -->
                                                     <div class="table-responsive">
@@ -3198,12 +2288,16 @@
                                                                 <tr>
                                                                     <th width="40">
                                                                         <div class="form-check">
-                                                                            <input class="form-check-input" type="checkbox" id="selectAllPackages">
+                                                                            <input class="form-check-input"
+                                                                                type="checkbox" id="selectAllPackages">
                                                                         </div>
                                                                     </th>
-                                                                    <th>Package Code <i class="bi bi-arrow-up-down ms-1"></i></th>
-                                                                    <th>MFG List Price <i class="bi bi-arrow-up-down ms-1"></i></th>
-                                                                    <th>Sale Price <i class="bi bi-arrow-up-down ms-1"></i></th>
+                                                                    <th>Package Code <i
+                                                                            class="bi bi-arrow-up-down ms-1"></i></th>
+                                                                    <th>MFG List Price <i
+                                                                            class="bi bi-arrow-up-down ms-1"></i></th>
+                                                                    <th>Sale Price <i
+                                                                            class="bi bi-arrow-up-down ms-1"></i></th>
                                                                     <th>Comments</th>
                                                                     <th>Status</th>
                                                                     <th>Last Updated</th>
@@ -3215,7 +2309,8 @@
                                                                 <tr>
                                                                     <td>
                                                                         <div class="form-check">
-                                                                            <input class="form-check-input" type="checkbox" value="PKG001">
+                                                                            <input class="form-check-input"
+                                                                                type="checkbox" value="PKG001">
                                                                         </div>
                                                                     </td>
                                                                     <td>
@@ -3228,12 +2323,15 @@
                                                                         <br><small class="text-muted">List</small>
                                                                     </td>
                                                                     <td>
-                                                                        <span class="fw-bold text-success">$249.99</span>
+                                                                        <span
+                                                                            class="fw-bold text-success">$249.99</span>
                                                                         <br><small class="text-muted">17%
                                                                             discount</small>
                                                                     </td>
                                                                     <td>
-                                                                        <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Standard maintenance package including quarterly inspections and basic repairs">
+                                                                        <span data-bs-toggle="tooltip"
+                                                                            data-bs-placement="top"
+                                                                            data-bs-original-title="Standard maintenance package including quarterly inspections and basic repairs">
                                                                             Standard maintenance package...
                                                                         </span>
                                                                     </td>
@@ -3246,28 +2344,40 @@
                                                                             Smith</small>
                                                                     </td>
                                                                     <td class="text-center">
-                                                                        <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#packageDetailsModal" data-package="PKG001">
+                                                                        <button class="btn btn-outline-primary btn-sm"
+                                                                            data-bs-toggle="modal"
+                                                                            data-bs-target="#packageDetailsModal"
+                                                                            data-package="PKG001">
                                                                             <i class="bi bi-info-circle"></i>
                                                                         </button>
                                                                     </td>
                                                                     <td class="text-center">
                                                                         <div class="dropdown">
-                                                                            <button class="btn btn-sm btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                                <i class="bi bi-three-dots-vertical"></i>
+                                                                            <button class="btn btn-sm btn-light"
+                                                                                type="button" data-bs-toggle="dropdown"
+                                                                                aria-expanded="false">
+                                                                                <i
+                                                                                    class="bi bi-three-dots-vertical"></i>
                                                                             </button>
                                                                             <ul class="dropdown-menu">
-                                                                                <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square me-2"></i>Edit
+                                                                                <li><a class="dropdown-item" href="#"><i
+                                                                                            class="bi bi-pencil-square me-2"></i>Edit
                                                                                         Package</a></li>
-                                                                                <li><a class="dropdown-item" href="#"><i class="bi bi-files me-2"></i>Duplicate</a>
+                                                                                <li><a class="dropdown-item" href="#"><i
+                                                                                            class="bi bi-files me-2"></i>Duplicate</a>
                                                                                 </li>
-                                                                                <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>View
+                                                                                <li><a class="dropdown-item" href="#"><i
+                                                                                            class="bi bi-eye me-2"></i>View
                                                                                         History</a></li>
                                                                                 <li>
                                                                                     <hr class="dropdown-divider">
                                                                                 </li>
-                                                                                <li><a class="dropdown-item" href="#"><i class="bi bi-pause me-2"></i>Deactivate</a>
+                                                                                <li><a class="dropdown-item" href="#"><i
+                                                                                            class="bi bi-pause me-2"></i>Deactivate</a>
                                                                                 </li>
-                                                                                <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Delete</a>
+                                                                                <li><a class="dropdown-item text-danger"
+                                                                                        href="#"><i
+                                                                                            class="bi bi-trash me-2"></i>Delete</a>
                                                                                 </li>
                                                                             </ul>
                                                                         </div>
@@ -3276,7 +2386,8 @@
                                                                 <tr>
                                                                     <td>
                                                                         <div class="form-check">
-                                                                            <input class="form-check-input" type="checkbox" value="PKG002">
+                                                                            <input class="form-check-input"
+                                                                                type="checkbox" value="PKG002">
                                                                         </div>
                                                                     </td>
                                                                     <td>
@@ -3289,12 +2400,15 @@
                                                                         <br><small class="text-muted">List</small>
                                                                     </td>
                                                                     <td>
-                                                                        <span class="fw-bold text-success">$519.99</span>
+                                                                        <span
+                                                                            class="fw-bold text-success">$519.99</span>
                                                                         <br><small class="text-muted">13%
                                                                             discount</small>
                                                                     </td>
                                                                     <td>
-                                                                        <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Comprehensive service package with monthly inspections, priority support, and extended warranty">
+                                                                        <span data-bs-toggle="tooltip"
+                                                                            data-bs-placement="top"
+                                                                            data-bs-original-title="Comprehensive service package with monthly inspections, priority support, and extended warranty">
                                                                             Comprehensive service package...
                                                                         </span>
                                                                     </td>
@@ -3307,28 +2421,40 @@
                                                                             Johnson</small>
                                                                     </td>
                                                                     <td class="text-center">
-                                                                        <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#packageDetailsModal" data-package="PKG002">
+                                                                        <button class="btn btn-outline-primary btn-sm"
+                                                                            data-bs-toggle="modal"
+                                                                            data-bs-target="#packageDetailsModal"
+                                                                            data-package="PKG002">
                                                                             <i class="bi bi-info-circle"></i>
                                                                         </button>
                                                                     </td>
                                                                     <td class="text-center">
                                                                         <div class="dropdown">
-                                                                            <button class="btn btn-sm btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                                <i class="bi bi-three-dots-vertical"></i>
+                                                                            <button class="btn btn-sm btn-light"
+                                                                                type="button" data-bs-toggle="dropdown"
+                                                                                aria-expanded="false">
+                                                                                <i
+                                                                                    class="bi bi-three-dots-vertical"></i>
                                                                             </button>
                                                                             <ul class="dropdown-menu">
-                                                                                <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square me-2"></i>Edit
+                                                                                <li><a class="dropdown-item" href="#"><i
+                                                                                            class="bi bi-pencil-square me-2"></i>Edit
                                                                                         Package</a></li>
-                                                                                <li><a class="dropdown-item" href="#"><i class="bi bi-files me-2"></i>Duplicate</a>
+                                                                                <li><a class="dropdown-item" href="#"><i
+                                                                                            class="bi bi-files me-2"></i>Duplicate</a>
                                                                                 </li>
-                                                                                <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>View
+                                                                                <li><a class="dropdown-item" href="#"><i
+                                                                                            class="bi bi-eye me-2"></i>View
                                                                                         History</a></li>
                                                                                 <li>
                                                                                     <hr class="dropdown-divider">
                                                                                 </li>
-                                                                                <li><a class="dropdown-item" href="#"><i class="bi bi-pause me-2"></i>Deactivate</a>
+                                                                                <li><a class="dropdown-item" href="#"><i
+                                                                                            class="bi bi-pause me-2"></i>Deactivate</a>
                                                                                 </li>
-                                                                                <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Delete</a>
+                                                                                <li><a class="dropdown-item text-danger"
+                                                                                        href="#"><i
+                                                                                            class="bi bi-trash me-2"></i>Delete</a>
                                                                                 </li>
                                                                             </ul>
                                                                         </div>
@@ -3337,7 +2463,8 @@
                                                                 <tr>
                                                                     <td>
                                                                         <div class="form-check">
-                                                                            <input class="form-check-input" type="checkbox" value="PKG003">
+                                                                            <input class="form-check-input"
+                                                                                type="checkbox" value="PKG003">
                                                                         </div>
                                                                     </td>
                                                                     <td>
@@ -3350,12 +2477,15 @@
                                                                         <br><small class="text-muted">List</small>
                                                                     </td>
                                                                     <td>
-                                                                        <span class="fw-bold text-success">$1,099.99</span>
+                                                                        <span
+                                                                            class="fw-bold text-success">$1,099.99</span>
                                                                         <br><small class="text-muted">15%
                                                                             discount</small>
                                                                     </td>
                                                                     <td>
-                                                                        <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Enterprise-level package with 24/7 support, dedicated account manager, and custom SLA">
+                                                                        <span data-bs-toggle="tooltip"
+                                                                            data-bs-placement="top"
+                                                                            data-bs-original-title="Enterprise-level package with 24/7 support, dedicated account manager, and custom SLA">
                                                                             Enterprise-level package...
                                                                         </span>
                                                                     </td>
@@ -3368,28 +2498,40 @@
                                                                             Davis</small>
                                                                     </td>
                                                                     <td class="text-center">
-                                                                        <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#packageDetailsModal" data-package="PKG003">
+                                                                        <button class="btn btn-outline-primary btn-sm"
+                                                                            data-bs-toggle="modal"
+                                                                            data-bs-target="#packageDetailsModal"
+                                                                            data-package="PKG003">
                                                                             <i class="bi bi-info-circle"></i>
                                                                         </button>
                                                                     </td>
                                                                     <td class="text-center">
                                                                         <div class="dropdown">
-                                                                            <button class="btn btn-sm btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                                <i class="bi bi-three-dots-vertical"></i>
+                                                                            <button class="btn btn-sm btn-light"
+                                                                                type="button" data-bs-toggle="dropdown"
+                                                                                aria-expanded="false">
+                                                                                <i
+                                                                                    class="bi bi-three-dots-vertical"></i>
                                                                             </button>
                                                                             <ul class="dropdown-menu">
-                                                                                <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square me-2"></i>Edit
+                                                                                <li><a class="dropdown-item" href="#"><i
+                                                                                            class="bi bi-pencil-square me-2"></i>Edit
                                                                                         Package</a></li>
-                                                                                <li><a class="dropdown-item" href="#"><i class="bi bi-files me-2"></i>Duplicate</a>
+                                                                                <li><a class="dropdown-item" href="#"><i
+                                                                                            class="bi bi-files me-2"></i>Duplicate</a>
                                                                                 </li>
-                                                                                <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>View
+                                                                                <li><a class="dropdown-item" href="#"><i
+                                                                                            class="bi bi-eye me-2"></i>View
                                                                                         History</a></li>
                                                                                 <li>
                                                                                     <hr class="dropdown-divider">
                                                                                 </li>
-                                                                                <li><a class="dropdown-item" href="#"><i class="bi bi-pause me-2"></i>Deactivate</a>
+                                                                                <li><a class="dropdown-item" href="#"><i
+                                                                                            class="bi bi-pause me-2"></i>Deactivate</a>
                                                                                 </li>
-                                                                                <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Delete</a>
+                                                                                <li><a class="dropdown-item text-danger"
+                                                                                        href="#"><i
+                                                                                            class="bi bi-trash me-2"></i>Delete</a>
                                                                                 </li>
                                                                             </ul>
                                                                         </div>
@@ -3398,7 +2540,8 @@
                                                                 <tr>
                                                                     <td>
                                                                         <div class="form-check">
-                                                                            <input class="form-check-input" type="checkbox" value="PKG004">
+                                                                            <input class="form-check-input"
+                                                                                type="checkbox" value="PKG004">
                                                                         </div>
                                                                     </td>
                                                                     <td>
@@ -3416,12 +2559,15 @@
                                                                             discount</small>
                                                                     </td>
                                                                     <td>
-                                                                        <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Discontinued package - no longer available for new contracts">
+                                                                        <span data-bs-toggle="tooltip"
+                                                                            data-bs-placement="top"
+                                                                            data-bs-original-title="Discontinued package - no longer available for new contracts">
                                                                             Discontinued package...
                                                                         </span>
                                                                     </td>
                                                                     <td>
-                                                                        <span class="badge bg-secondary">Discontinued</span>
+                                                                        <span
+                                                                            class="badge bg-secondary">Discontinued</span>
                                                                     </td>
                                                                     <td>
                                                                         <small>03/15/2025</small>
@@ -3429,26 +2575,37 @@
                                                                             Wilson</small>
                                                                     </td>
                                                                     <td class="text-center">
-                                                                        <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#packageDetailsModal" data-package="PKG004">
+                                                                        <button class="btn btn-outline-secondary btn-sm"
+                                                                            data-bs-toggle="modal"
+                                                                            data-bs-target="#packageDetailsModal"
+                                                                            data-package="PKG004">
                                                                             <i class="bi bi-info-circle"></i>
                                                                         </button>
                                                                     </td>
                                                                     <td class="text-center">
                                                                         <div class="dropdown">
-                                                                            <button class="btn btn-sm btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                                <i class="bi bi-three-dots-vertical"></i>
+                                                                            <button class="btn btn-sm btn-light"
+                                                                                type="button" data-bs-toggle="dropdown"
+                                                                                aria-expanded="false">
+                                                                                <i
+                                                                                    class="bi bi-three-dots-vertical"></i>
                                                                             </button>
                                                                             <ul class="dropdown-menu">
-                                                                                <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>View
+                                                                                <li><a class="dropdown-item" href="#"><i
+                                                                                            class="bi bi-eye me-2"></i>View
                                                                                         Details</a></li>
-                                                                                <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>View
+                                                                                <li><a class="dropdown-item" href="#"><i
+                                                                                            class="bi bi-eye me-2"></i>View
                                                                                         History</a></li>
                                                                                 <li>
                                                                                     <hr class="dropdown-divider">
                                                                                 </li>
-                                                                                <li><a class="dropdown-item" href="#"><i class="bi bi-arrow-clockwise me-2"></i>Reactivate</a>
+                                                                                <li><a class="dropdown-item" href="#"><i
+                                                                                            class="bi bi-arrow-clockwise me-2"></i>Reactivate</a>
                                                                                 </li>
-                                                                                <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Delete</a>
+                                                                                <li><a class="dropdown-item text-danger"
+                                                                                        href="#"><i
+                                                                                            class="bi bi-trash me-2"></i>Delete</a>
                                                                                 </li>
                                                                             </ul>
                                                                         </div>
@@ -3457,7 +2614,8 @@
                                                                 <tr>
                                                                     <td>
                                                                         <div class="form-check">
-                                                                            <input class="form-check-input" type="checkbox" value="PKG005">
+                                                                            <input class="form-check-input"
+                                                                                type="checkbox" value="PKG005">
                                                                         </div>
                                                                     </td>
                                                                     <td>
@@ -3475,12 +2633,15 @@
                                                                             discount</small>
                                                                     </td>
                                                                     <td>
-                                                                        <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Entry-level package for small businesses with basic maintenance needs">
+                                                                        <span data-bs-toggle="tooltip"
+                                                                            data-bs-placement="top"
+                                                                            data-bs-original-title="Entry-level package for small businesses with basic maintenance needs">
                                                                             Entry-level package for small...
                                                                         </span>
                                                                     </td>
                                                                     <td>
-                                                                        <span class="badge bg-warning text-dark">Inactive</span>
+                                                                        <span
+                                                                            class="badge bg-warning text-dark">Inactive</span>
                                                                     </td>
                                                                     <td>
                                                                         <small>06/20/2025</small>
@@ -3488,28 +2649,40 @@
                                                                             Brown</small>
                                                                     </td>
                                                                     <td class="text-center">
-                                                                        <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#packageDetailsModal" data-package="PKG005">
+                                                                        <button class="btn btn-outline-primary btn-sm"
+                                                                            data-bs-toggle="modal"
+                                                                            data-bs-target="#packageDetailsModal"
+                                                                            data-package="PKG005">
                                                                             <i class="bi bi-info-circle"></i>
                                                                         </button>
                                                                     </td>
                                                                     <td class="text-center">
                                                                         <div class="dropdown">
-                                                                            <button class="btn btn-sm btn-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                                                                <i class="bi bi-three-dots-vertical"></i>
+                                                                            <button class="btn btn-sm btn-light"
+                                                                                type="button" data-bs-toggle="dropdown"
+                                                                                aria-expanded="false">
+                                                                                <i
+                                                                                    class="bi bi-three-dots-vertical"></i>
                                                                             </button>
                                                                             <ul class="dropdown-menu">
-                                                                                <li><a class="dropdown-item" href="#"><i class="bi bi-pencil-square me-2"></i>Edit
+                                                                                <li><a class="dropdown-item" href="#"><i
+                                                                                            class="bi bi-pencil-square me-2"></i>Edit
                                                                                         Package</a></li>
-                                                                                <li><a class="dropdown-item" href="#"><i class="bi bi-files me-2"></i>Duplicate</a>
+                                                                                <li><a class="dropdown-item" href="#"><i
+                                                                                            class="bi bi-files me-2"></i>Duplicate</a>
                                                                                 </li>
-                                                                                <li><a class="dropdown-item" href="#"><i class="bi bi-eye me-2"></i>View
+                                                                                <li><a class="dropdown-item" href="#"><i
+                                                                                            class="bi bi-eye me-2"></i>View
                                                                                         History</a></li>
                                                                                 <li>
                                                                                     <hr class="dropdown-divider">
                                                                                 </li>
-                                                                                <li><a class="dropdown-item" href="#"><i class="bi bi-play me-2"></i>Activate</a>
+                                                                                <li><a class="dropdown-item" href="#"><i
+                                                                                            class="bi bi-play me-2"></i>Activate</a>
                                                                                 </li>
-                                                                                <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-trash me-2"></i>Delete</a>
+                                                                                <li><a class="dropdown-item text-danger"
+                                                                                        href="#"><i
+                                                                                            class="bi bi-trash me-2"></i>Delete</a>
                                                                                 </li>
                                                                             </ul>
                                                                         </div>
@@ -3525,7 +2698,8 @@
                                                         <nav aria-label="Package pagination">
                                                             <ul class="pagination pagination-sm mb-0">
                                                                 <li class="page-item disabled">
-                                                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                                                    <a class="page-link" href="#"
+                                                                        tabindex="-1">Previous</a>
                                                                 </li>
                                                                 <li class="page-item active">
                                                                     <a class="page-link" href="#">1</a>
@@ -3542,13 +2716,16 @@
                                                         <div class="col-12">
                                                             <div class="d-flex align-items-center gap-2">
                                                                 <small class="text-muted">With selected:</small>
-                                                                <button class="btn btn-outline-secondary btn-sm" id="bulkActivate">
+                                                                <button class="btn btn-outline-secondary btn-sm"
+                                                                    id="bulkActivate">
                                                                     <i class="bi bi-play me-1"></i>Activate
                                                                 </button>
-                                                                <button class="btn btn-outline-secondary btn-sm" id="bulkDeactivate">
+                                                                <button class="btn btn-outline-secondary btn-sm"
+                                                                    id="bulkDeactivate">
                                                                     <i class="bi bi-pause me-1"></i>Deactivate
                                                                 </button>
-                                                                <button class="btn btn-outline-danger btn-sm" id="bulkDelete">
+                                                                <button class="btn btn-outline-danger btn-sm"
+                                                                    id="bulkDelete">
                                                                     <i class="bi bi-trash me-1"></i>Delete
                                                                 </button>
                                                             </div>
@@ -3557,13 +2734,17 @@
 
 
                                                     <!-- Package Details Modal -->
-                                                    <div class="modal fade" id="packageDetailsModal" tabindex="-1" aria-labelledby="packageDetailsModalLabel" aria-hidden="true">
+                                                    <div class="modal fade" id="packageDetailsModal" tabindex="-1"
+                                                        aria-labelledby="packageDetailsModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog modal-lg">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h5 class="modal-title" id="packageDetailsModalLabel">Package
+                                                                    <h5 class="modal-title"
+                                                                        id="packageDetailsModalLabel">Package
                                                                         Details</h5>
-                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    <button type="button" class="btn-close"
+                                                                        data-bs-dismiss="modal"
+                                                                        aria-label="Close"></button>
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <div class="row g-3">
@@ -3596,7 +2777,8 @@
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <strong>Status:</strong>
-                                                                            <p id="modalStatus"><span class="badge bg-success">Active</span>
+                                                                            <p id="modalStatus"><span
+                                                                                    class="badge bg-success">Active</span>
                                                                             </p>
                                                                         </div>
                                                                         <div class="col-md-6">
@@ -3606,8 +2788,10 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                    <button type="button" class="btn btn-custom-primary">Edit
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-bs-dismiss="modal">Close</button>
+                                                                    <button type="button"
+                                                                        class="btn btn-custom-primary">Edit
                                                                         Package</button>
                                                                 </div>
                                                             </div>
@@ -5736,67 +4920,7 @@
             });
         });
     </script>
-    <!-- Add/Edit Manufacturer Modal -->
-    <div class="modal fade" id="addManufacturerModal" tabindex="-1" aria-labelledby="addManufacturerModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addManufacturerModalLabel">
-                        <i class="bi bi-plus-circle me-2"></i>Add New Manufacturer
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="manufacturerForm">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label for="manufId" class="form-label">Manufacturer ID <span
-                                        class="text-danger">*</span></label>
-                                <input type="number" class="form-control" id="manufId" required>
-                                <div class="form-text">Unique identifier for the manufacturer</div>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="manufName" class="form-label">Manufacturer Name <span
-                                        class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="manufName" required>
-                            </div>
-                            <div class="col-12">
-                                <label for="manufDescription" class="form-label">Manufacturer Description</label>
-                                <input type="text" class="form-control" id="manufDescription">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="owner" class="form-label">Owner <span class="text-danger">*</span></label>
-                                <select class="form-select" id="owner" required>
-                                    <option value="">-- Select Owner --</option>
-                                    <option value="Inventory" selected>Inventory</option>
-                                    <option value="Sales">Sales</option>
-                                    <option value="Purchasing">Purchasing</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="discountPercent" class="form-label">Discount Percentage <span
-                                        class="text-danger">*</span></label>
-                                <div class="input-group">
-                                    <input type="number" class="form-control" id="discountPercent" step="0.01" min="0"
-                                        max="100" required>
-                                    <span class="input-group-text">%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        <i class="bi bi-x-circle me-2"></i>Cancel
-                    </button>
-                    <button type="button" class="btn btn-custom-primary" onclick="saveManufacturer()">
-                        <i class="bi bi-save me-2"></i>Save Manufacturer
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <!-- Confirmation Modal for Delete -->
     <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmModalLabel"
