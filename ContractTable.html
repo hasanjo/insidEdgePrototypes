@@ -437,8 +437,29 @@
 
        
         <div class="section table-descriptions">
-    <h2>Table Relationship Descriptions</h2>
     
+    <div class="table-desc" style="background: #e8f5e9; border-left-color: #2ecc71;">
+    <h3>Contract Database Architecture Overview</h3>
+    <p><strong>This database represents a comprehensive contract management ecosystem with 50 foreign key relationships connecting 44 tables to the central CLIENT_CONTRACT table.</strong></p>
+    
+    <p><strong>Key Architecture Highlights:</strong></p>
+    <ul style="margin: 10px 0; padding-left: 20px;">
+        <li><strong>Composite Key Design</strong>: Most tables use both client_id + contract_cd as foreign keys, ensuring data integrity in multi-client environments</li>
+        <li><strong>Modular Structure</strong>: Tables are organized into functional domains (configuration, operations, reporting, etc.) for clear separation of concerns</li>
+        <li><strong>Scalable Relationships</strong>: Mix of one-to-one and one-to-many relationships supporting both simple configurations and complex transactional data</li>
+        <li><strong>B2B Integration Ready</strong>: Dedicated tables for partner integrations, web services, and cross-system data mapping</li>
+    </ul>
+    
+    <p><strong>Critical Issues Requiring Attention:</strong></p>
+    <ul style="margin: 10px 0; padding-left: 20px;">
+        <li><strong>5 Incorrect Relationship Types</strong>: CC_COMMENTS, CC_CONTACT, CC_EMPLOYEE, CC_LABOR, and CC_PROJECT are marked as one-to-one but should be one-to-many</li>
+        <li><strong>2 Incomplete Foreign Keys</strong>: EMAIL_ALERTS and REASON_CD only reference contract_cd without client_id</li>
+        <li><strong>Inconsistent Column Ordering</strong>: Some tables use contract_cd + client_id instead of the standard client_id + contract_cd</li>
+    </ul>
+    
+    <p><strong>Business Impact:</strong></p>
+    <p>This structure supports complex contract scenarios including multi-site deployments, phased project implementations, sophisticated billing arrangements, and comprehensive audit trails. The identified issues are relatively minor and can be corrected without major architectural changes, but addressing them will improve data integrity and prevent potential conflicts in multi-tenant scenarios.</p>
+</div>
     <div class="table-desc" style="background: #e8f5e9; border-left-color: #2ecc71;">
         <h3>Understanding the Flowchart</h3>
         <p><strong>The flowchart uses color coding to group related tables:</strong></p>
@@ -458,7 +479,7 @@
             <li><strong>Red lines</strong>: Relationships with identified issues</li>
         </ul>
     </div>
-    
+    <h2>Table Relationship Descriptions</h2>
     <div class="table-desc">
         <h3>CLIENT_CONTRACT (Master Table)</h3>
         <p>The central hub of the contract management system. This table stores all contract details and serves as the primary reference point for all contract-related activities. It maintains relationships with client information, billing terms, service levels, and geographical data, forming the foundation for all business operations.</p>
