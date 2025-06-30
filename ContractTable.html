@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contract Database Relationships</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f7fa;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-box {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        svg {
+            width: 100%;
+            height: auto;
+            background: #fafbfc;
+            border-radius: 8px;
+        }
+
+        .table-box {
+            fill: white;
+            stroke-width: 2;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .table-box:hover {
+            filter: brightness(0.95);
+        }
+
+        .master-table {
+            stroke: #2ecc71;
+            fill: #e8f8f5;
+        }
+
+        .config-table {
+            stroke: #3498db;
+            fill: #ebf5fb;
+        }
+
+        .operational-table {
+            stroke: #e74c3c;
+            fill: #fdedec;
+        }
+
+        .reporting-table {
+            stroke: #9b59b6;
+            fill: #f4ecf7;
+        }
+
+        .communication-table {
+            stroke: #f39c12;
+            fill: #fef9e7;
+        }
+
+        .b2b-table {
+            stroke: #1abc9c;
+            fill: #e8f6f3;
+        }
+
+        .product-table {
+            stroke: #34495e;
+            fill: #ebedef;
+        }
+
+        .table-text {
+            fill: #2c3e50;
+            font-size: 12px;
+            font-weight: 500;
+            pointer-events: none;
+            text-anchor: middle;
+        }
+
+        .relationship-line {
+            fill: none;
+            stroke: #95a5a6;
+            stroke-width: 1.5;
+            opacity: 0.6;
+        }
+
+        .one-to-one {
+            stroke-dasharray: none;
+        }
+
+        .one-to-many {
+            stroke-dasharray: 5, 3;
+        }
+
+        .issue-line {
+            stroke: #e74c3c;
+            stroke-width: 2;
+        }
+
+        .arrow {
+            fill: #95a5a6;
+        }
+
+        .section {
+            margin-top: 40px;
+        }
+
+        .table-descriptions {
+            display: grid;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .table-desc {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .table-desc h3 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+        }
+
+        .table-desc p {
+            margin: 0;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .issue-tag {
+            display: inline-block;
+            background: #e74c3c;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Contract Database Relationship Flowchart</h1>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-box master-table"></div>
+                <span>Master Tables</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box config-table"></div>
+                <span>Configuration</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box operational-table"></div>
+                <span>Operational</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box reporting-table"></div>
+                <span>Reporting</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box communication-table"></div>
+                <span>Communication</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box b2b-table"></div>
+                <span>B2B Integration</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box product-table"></div>
+                <span>Product/Inventory</span>
+            </div>
+        </div>
+
+        <svg viewBox="0 0 1200 1800" xmlns="http://www.w3.org/2000/svg">
+            <!-- Define arrow marker -->
+            <defs>
+                <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"
+                    markerUnits="strokeWidth">
+                    <path d="M0,0 L0,6 L9,3 z" class="arrow" />
+                </marker>
+            </defs>
+
+            <!-- Central client_contract table -->
+            <rect x="500" y="850" width="200" height="60" rx="8" class="table-box master-table" />
+            <text x="600" y="885" class="table-text">CLIENT_CONTRACT</text>
+
+            <!-- Master table references FROM client_contract -->
+            <rect x="100" y="850" width="120" height="40" rx="6" class="table-box master-table" />
+            <text x="160" y="875" class="table-text">CLIENT</text>
+            <line x1="500" y1="870" x2="220" y2="870" class="relationship-line one-to-one" marker-end="url(#arrow)" />
+
+            <rect x="250" y="780" width="120" height="40" rx="6" class="table-box master-table" />
+            <text x="310" y="805" class="table-text">SUBCLIENT</text>
+            <line x1="500" y1="860" x2="370" y2="800" class="relationship-line one-to-many" marker-end="url(#arrow)" />
+
+            <rect x="250" y="920" width="140" height="40" rx="6" class="table-box master-table" />
+            <text x="320" y="945" class="table-text">TERMS_OF_BILLING</text>
+            <line x1="500" y1="890" x2="390" y2="940" class="relationship-line one-to-many" marker-end="url(#arrow)" />
+
+            <rect x="100" y="780" width="120" height="40" rx="6" class="table-box master-table" />
+            <text x="160" y="805" class="table-text">COUNTRY</text>
+            <line x1="500" y1="855" x2="220" y2="800" class="relationship-line one-to-many" marker-end="url(#arrow)" />
+
+            <rect x="100" y="920" width="120" height="40" rx="6" class="table-box master-table" />
+            <text x="160" y="945" class="table-text">ACCOUNTING_CD</text>
+            <line x1="500" y1="895" x2="220" y2="940" class="relationship-line one-to-many" marker-end="url(#arrow)" />
+
+            <rect x="250" y="850" width="140" height="40" rx="6" class="table-box master-table" />
+            <text x="320" y="875" class="table-text">SERVICE_DLVR_LEVEL</text>
+            <line x1="500" y1="880" x2="390" y2="870" class="relationship-line one-to-many" marker-end="url(#arrow)" />
+
+            <!-- Configuration Tables -->
+            <rect x="50" y="100" width="160" height="40" rx="6" class="table-box config-table" />
+            <text x="130" y="125" class="table-text">CC_BILLING_OPT</text>
+            <line x1="130" y1="140" x2="550" y2="850" class="relationship-line one-to-one" marker-end="url(#arrow)" />
+
+            <rect x="230" y="100" width="180" height="40" rx="6" class="table-box config-table" />
+            <text x="320" y="125" class="table-text">CONTRACT_MAINT_TYPE</text>
+            <line x1="320" y1="140" x2="580" y2="850" class="relationship-line one-to-one" marker-end="url(#arrow)" />
+
+            <rect x="430" y="100" width="220" height="40" rx="6" class="table-box config-table" />
+            <text x="540" y="125" class="table-text">ORDER_LABOR_PAYMENT_CONFIG</text>
+            <line x1="540" y1="140" x2="600" y2="850" class="relationship-line one-to-one" marker-end="url(#arrow)" />
+
+            <rect x="670" y="100" width="140" height="40" rx="6" class="table-box config-table" />
+            <text x="740" y="125" class="table-text">CC_SCHED_ALERT</text>
+            <line x1="740" y1="140" x2="630" y2="850" class="relationship-line one-to-one" marker-end="url(#arrow)" />
+
+            <rect x="830" y="100" width="140" height="40" rx="6" class="table-box config-table" />
+            <text x="900" y="125" class="table-text">WEB_RPT_SECURITY</text>
+            <line x1="900" y1="140" x2="650" y2="850" class="relationship-line one-to-one" marker-end="url(#arrow)" />
+
+            <rect x="990" y="100" width="120" height="40" rx="6" class="table-box config-table" />
+            <text x="1050" y="125" class="table-text">SHIP_VIA</text>
+            <line x1="1050" y1="140" x2="680" y2="850" class="relationship-line one-to-one" marker-end="url(#arrow)" />
+
+            <!-- Communication Tables -->
+            <rect x="50" y="200" width="140" height="40" rx="6" class="table-box communication-table" />
+            <text x="120" y="225" class="table-text">CC_COMMENTS</text>
+            <line x1="120" y1="240" x2="520" y2="850" class="relationship-line one-to-one issue-line"
+                marker-end="url(#arrow)" />
+
+            <rect x="210" y="200" width="160" height="40" rx="6" class="table-box communication-table" />
+            <text x="290" y="225" class="table-text">CC_COMMENTS_CHG</text>
+            <line x1="290" y1="240" x2="540" y2="850" class="relationship-line one-to-many" marker-end="url(#arrow)" />
+
+            <rect x="390" y="200" width="140" height="40" rx="6" class="table-box communication-table" />
+            <text x="460" y="225" class="table-text">CC_CONTACT</text>
+            <line x1="460" y1="240" x2="560" y2="850" class="relationship-line one-to-one issue-line"
+                marker-end="url(#arrow)" />
+
+            <rect x="550" y="200" width="140" height="40" rx="6" class="table-box communication-table" />
+            <text x="620" y="225" class="table-text">EMAIL_ALERTS</text>
+            <line x1="620" y1="240" x2="600" y2="850" class="relationship-line one-to-many issue-line"
+                marker-end="url(#arrow)" />
+
+            <!-- Resource Management -->
+            <rect x="710" y="200" width="140" height="40" rx="6" class="table-box communication-table" />
+            <text x="780" y="225" class="table-text">CC_EMPLOYEE</text>
+            <line x1="780" y1="240" x2="640" y2="850" class="relationship-line one-to-one issue-line"
+                marker-end="url(#arrow)" />
+
+            <rect x="870" y="200" width="120" height="40" rx="6" class="table-box communication-table" />
+            <text x="930" y="225" class="table-text">CC_LABOR</text>
+            <line x1="930" y1="240" x2="660" y2="850" class="relationship-line one-to-one issue-line"
+                marker-end="url(#arrow)" />
+
+            <rect x="1010" y="200" width="120" height="40" rx="6" class="table-box communication-table" />
+            <text x="1070" y="225" class="table-text">CC_PROJECT</text>
+            <line x1="1070" y1="240" x2="680" y2="850" class="relationship-line one-to-one issue-line"
+                marker-end="url(#arrow)" />
+
+            <!-- B2B Integration Tables -->
+            <rect x="50" y="300" width="100" height="40" rx="6" class="table-box b2b-table" />
+            <text x="100" y="325" class="table-text">CC_B2B</text>
+            <line x1="100" y1="340" x2="520" y2="850" class="relationship-line one-to-many" marker-end="url(#arrow)" />
+
+            <rect x="170" y="300" width="180" height="40" rx="6" class="table-box b2b-table" />
+            <text x="260" y="325" class="table-text">CC_B2B_PROD_MAPPINGS</text>
+            <line x1="260" y1="340" x2="540" y2="850" class="relationship-line one-to-many" marker-end="url(#arrow)" />
+
+            <rect x="370" y="300" width="160" height="40" rx="6" class="table-box b2b-table" />
+            <text x="450" y="325" class="table-text">PROVIDER_PROJECT</text>
+            <line x1="450" y1="340" x2="560" y2="850" class="relationship-line one-to-many" marker-end="url(#arrow)" />
+
+            <rect x="550" y="300" width="160" height="40" rx="6" class="table-box b2b-table" />
+            <text x="630" y="325" class="table-text">PROVIDER_TEMPLATE</text>
+            <line x1="630" y1="340" x2="620" y2="850" class="relationship-line one-to-many" marker-end="url(#arrow)" />
+
+            <rect x="730" y="300" width="180" height="40" rx="6" class="table-box b2b-table" />
+            <text x="820" y="325" class="table-text">WS_B2B_RESPONSES</text>
+            <line x1="820" y1="340" x2="650" y2="850" class="relationship-line one-to-many" marker-end="url(#arrow)" />
+
+            <rect x="930" y="300" width="180" height="40" rx="6" class="table-box b2b-table" />
+            <text x="1020" y="325" class="table-text">CC_WORKFLOW_MASTER</text>
+            <line x1="1020" y1="340" x2="670" y2="850" class="relationship-line one-to-many" marker-end="url(#arrow)" />
+
+            <!-- Product/Inventory Tables -->
+            <rect x="50" y="400" width="140" height="40" rx="6" class="table-box product-table" />
+            <text x="120" y="425" class="table-text">CC_LEAD_TIME</text>
+            <line x1="120" y1="440" x2="520" y2="850" class="relationship-line one-to-one" marker-end="url(#arrow)" />
+
+            <rect x="210" y="400" width="140" height="40" rx="6" class="table-box product-table" />
+            <text x="280" y="425" class="table-text">CC_MANUF_DISC</text>
+            <line x1="280" y1="440" x2="540" y2="850" class="relationship-line one-to-one" marker-end="url(#arrow)" />
+
+            <rect x="370" y="400" width="120" height="40" rx="6" class="table-box product-table" />
+            <text x="430" y="425" class="table-text">CC_PACKAGE</text>
+            <line x1="430" y1="440" x2="560" y2="850" class="relationship-line one-to-one" marker-end="url(#arrow)" />
+
+            <rect x="510" y="400" width="140" height="40" rx="6" class="table-box product-table" />
+            <text x="580" y="425" class="table-text">CC_PROD_MAINT</text>
+            <line x1="580" y1="440" x2="590" y2="850" class="relationship-line one-to-one" marker-end="url(#arrow)" />
+
+            <rect x="670" y="400" width="140" height="40" rx="6" class="table-box product-table" />
+            <text x="740" y="425" class="table-text">CC_PROD_MAX</text>
+            <line x1="740" y1="440" x2="630" y2="850" class="relationship-line one-to-one" marker-end="url(#arrow)" />
+
+            <rect x="830" y="400" width="120" height="40" rx="6" class="table-box product-table" />
+            <text x="890" y="425" class="table-text">OMS_PROD</text>
+            <line x1="890" y1="440" x2="650" y2="850" class="relationship-line one-to-many" marker-end="url(#arrow)" />
+
+            <!-- Operational Tables -->
+            <rect x="50" y="500" width="100" height="40" rx="6" class="table-box operational-table" />
+            <text x="100" y="525" class="table-text">ORDERS</text>
+            <line x1="100" y1="540" x2="520" y2="850" class="relationship-line one-to-many" marker-end="url(#arrow)" />
+
+            <rect x="170" y="500" width="140" height="40" rx="6" class="table-box operational-table" />
+            <text x="240" y="525" class="table-text">PURCHASE_ORDER</text>
+            <line x1="240" y1="540" x2="540" y2="850" class="relationship-line one-to-many" marker-end="url(#arrow)" />
+
+            <rect x="330" y="500" width="120" height="40" rx="6" class="table-box operational-table" />
+            <text x="390" y="525" class="table-text">RECEIVING</text>
+            <line x1="390" y1="540" x2="560" y2="850" class="relationship-line one-to-many" marker-end="url(#arrow)" />
+
+            <rect x="470" y="500" width="120" height="40" rx="6" class="table-box operational-table" />
+            <text x="530" y="525" class="table-text">INVOICE_CC</text>
+            <line x1="530" y1="540" x2="580" y2="850" class="relationship-line one-to-one" marker-end="url(#arrow)" />
+
+            <rect x="610" y="500" width="100" height="40" rx="6" class="table-box operational-table" />
+            <text x="660" y="525" class="table-text">SITE</text>
+            <line x1="660" y1="540" x2="620" y2="850" class="relationship-line one-to-many" marker-end="url(#arrow)" />
+
+            <rect x="730" y="500" width="140" height="40" rx="6" class="table-box operational-table" />
+            <text x="800" y="525" class="table-text">CC_SITE_MAINT</text>
+            <line x1="800" y1="540" x2="640" y2="850" class="relationship-line one-to-one" marker-end="url(#arrow)" />
+
+            <rect x="890" y="500" width="180" height="40" rx="6" class="table-box operational-table" />
+            <text x="980" y="525" class="table-text">FIELD_TRAVEL_CHARGE</text>
+            <line x1="980" y1="540" x2="660" y2="850" class="relationship-line one-to-many" marker-end="url(#arrow)" />
+
+            <!-- Additional Tables -->
+            <rect x="50" y="600" width="140" height="40" rx="6" class="table-box operational-table" />
+            <text x="120" y="625" class="table-text">CC_SALES_CREDIT</text>
+            <line x1="120" y1="640" x2="520" y2="850" class="relationship-line one-to-many" marker-end="url(#arrow)" />
+
+            <rect x="210" y="600" width="160" height="40" rx="6" class="table-box operational-table" />
+            <text x="290" y="625" class="table-text">ONBOARDING_CLIENT</text>
+            <line x1="290" y1="640" x2="540" y2="850" class="relationship-line one-to-many" marker-end="url(#arrow)" />
+
+            <rect x="390" y="600" width="120" height="40" rx="6" class="table-box operational-table" />
+            <text x="450" y="625" class="table-text">REASON_CD</text>
+            <line x1="450" y1="640" x2="560" y2="850" class="relationship-line one-to-many issue-line"
+                marker-end="url(#arrow)" />
+
+            <rect x="530" y="600" width="160" height="40" rx="6" class="table-box operational-table" />
+            <text x="610" y="625" class="table-text">TKT_360_VALUE_EXC</text>
+            <line x1="610" y1="640" x2="600" y2="850" class="relationship-line one-to-many" marker-end="url(#arrow)" />
+
+            <!-- Account Activity Tables -->
+            <rect x="50" y="700" width="220" height="40" rx="6" class="table-box product-table" />
+            <text x="160" y="725" class="table-text">CC_ACCOUNT_ACTIVITY_CACHE</text>
+            <line x1="160" y1="740" x2="520" y2="850" class="relationship-line one-to-one" marker-end="url(#arrow)" />
+
+            <rect x="290" y="700" width="240" height="40" rx="6" class="table-box product-table" />
+            <text x="410" y="725" class="table-text">CC_ACCOUNT_ACTIVITY_FORECAST</text>
+            <line x1="410" y1="740" x2="560" y2="850" class="relationship-line one-to-one" marker-end="url(#arrow)" />
+
+            <!-- Reporting Tables -->
+            <rect x="50" y="1400" width="200" height="40" rx="6" class="table-box reporting-table" />
+            <text x="150" y="1425" class="table-text">CC_RPT_CLIENT_INV_LEVELS</text>
+            <line x1="150" y1="1400" x2="550" y2="910" class="relationship-line one-to-many" marker-end="url(#arrow)" />
+
+            <rect x="270" y="1400" width="160" height="40" rx="6" class="table-box reporting-table" />
+            <text x="350" y="1425" class="table-text">CC_RPT_CODE_OFF</text>
+            <line x1="350" y1="1400" x2="570" y2="910" class="relationship-line one-to-many" marker-end="url(#arrow)" />
+
+            <rect x="450" y="1400" width="180" height="40" rx="6" class="table-box reporting-table" />
+            <text x="540" y="1425" class="table-text">CC_RPT_OPEN_LABOR</text>
+            <line x1="540" y1="1400" x2="590" y2="910" class="relationship-line one-to-many" marker-end="url(#arrow)" />
+
+            <rect x="650" y="1400" width="200" height="40" rx="6" class="table-box reporting-table" />
+            <text x="750" y="1425" class="table-text">CC_RPT_PROJECT_STATUS</text>
+            <line x1="750" y1="1400" x2="630" y2="910" class="relationship-line one-to-many" marker-end="url(#arrow)" />
+
+            <rect x="870" y="1400" width="160" height="40" rx="6" class="table-box reporting-table" />
+            <text x="950" y="1425" class="table-text">CC_RPT_SHIPPED</text>
+            <line x1="950" y1="1400" x2="650" y2="910" class="relationship-line one-to-many" marker-end="url(#arrow)" />
+        </svg>
+
+       
+        <div class="section table-descriptions">
+    <h2>Table Relationship Descriptions</h2>
+    
+    <div class="table-desc" style="background: #e8f5e9; border-left-color: #2ecc71;">
+        <h3>Understanding the Flowchart</h3>
+        <p><strong>The flowchart uses color coding to group related tables:</strong></p>
+        <ul style="margin: 10px 0; padding-left: 20px;">
+            <li><strong>Green</strong>: Master tables (core reference data like CLIENT, SUBCLIENT)</li>
+            <li><strong>Blue</strong>: Configuration tables (billing options, maintenance types, security)</li>
+            <li><strong>Red</strong>: Operational tables (orders, invoices, sites, receiving)</li>
+            <li><strong>Purple</strong>: Reporting tables (inventory levels, project status, shipping reports)</li>
+            <li><strong>Orange</strong>: Communication tables (comments, contacts, employees, labor)</li>
+            <li><strong>Teal</strong>: B2B Integration tables (provider projects, web service responses)</li>
+            <li><strong>Gray</strong>: Product/Inventory tables (lead times, product maintenance, forecasts)</li>
+        </ul>
+        <p><strong>Line styles indicate relationship types:</strong></p>
+        <ul style="margin: 10px 0; padding-left: 20px;">
+            <li><strong>Solid lines</strong>: One-to-One relationships</li>
+            <li><strong>Dashed lines</strong>: One-to-Many relationships</li>
+            <li><strong>Red lines</strong>: Relationships with identified issues</li>
+        </ul>
+    </div>
+    
+    <div class="table-desc">
+        <h3>CLIENT_CONTRACT (Master Table)</h3>
+        <p>The central hub of the contract management system. This table stores all contract details and serves as the primary reference point for all contract-related activities. It maintains relationships with client information, billing terms, service levels, and geographical data, forming the foundation for all business operations.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>CLIENT</h3>
+        <p>Contains the primary client information linked to contracts. Each contract must belong to exactly one client, establishing a one-to-one relationship that ensures proper client identification and maintains the business relationship hierarchy.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>SUBCLIENT</h3>
+        <p>Manages subsidiary or division-level client relationships. A single contract can be associated with multiple subclients, allowing for complex organizational structures where different divisions or departments operate under the same master contract.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>ACCOUNTING_CD</h3>
+        <p>Stores accounting codes used for financial categorization of contracts. Multiple contracts can share the same accounting code, facilitating financial reporting and ensuring consistent accounting treatment across similar contract types.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>CC_ACCOUNT_ACTIVITY_CACHE</h3>
+        <p>A performance optimization table that caches frequently accessed account activity data for contracts. Maintains a one-to-one relationship with contracts to provide rapid access to summarized activity information without querying transaction tables.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>CC_ACCOUNT_ACTIVITY_FORECAST</h3>
+        <p>Stores predictive analytics and forecasting data for contract-related account activities. Each contract has one forecast record, helping in planning and resource allocation based on historical patterns and projections.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>CC_B2B</h3>
+        <p>Manages business-to-business transaction data for contracts. Supports multiple B2B transactions per contract, tracking inter-company exchanges, automated ordering systems, and partner integrations.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>CC_B2B_PROD_MAPPINGS</h3>
+        <p>Maps product codes between internal systems and B2B partner systems for each contract. Allows multiple product mappings per contract to ensure accurate product identification across different systems and trading partners.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>CC_BILLING_OPT</h3>
+        <p>Defines billing options and preferences for each contract. Maintains a one-to-one relationship, storing billing frequency, payment methods, invoice delivery preferences, and other billing-specific configurations.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>CC_COMMENTS <span class="issue-tag">ISSUE: Should be One-to-Many</span></h3>
+        <p>Stores notes and comments related to contracts. Currently configured as one-to-one but should support multiple comments per contract to maintain a complete communication history and allow various users to add notes over time.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>CC_COMMENTS_CHG</h3>
+        <p>Tracks the change history of contract comments. Properly configured as one-to-many, allowing multiple change records per contract to maintain an audit trail of comment modifications.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>CC_CONTACT <span class="issue-tag">ISSUE: Should be One-to-Many</span></h3>
+        <p>Manages contact information for contract stakeholders. Currently set as one-to-one but should support multiple contacts per contract to accommodate various roles such as billing contacts, technical contacts, and business representatives.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>CC_EMPLOYEE <span class="issue-tag">ISSUE: Should be One-to-Many</span></h3>
+        <p>Links employee assignments to contracts. Should support multiple employees per contract to track account managers, support staff, and other personnel responsible for contract fulfillment and relationship management.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>CC_LABOR <span class="issue-tag">ISSUE: Should be One-to-Many</span></h3>
+        <p>Records labor activities and time tracking against contracts. Should allow multiple labor entries per contract to capture all work performed, enabling accurate billing and resource utilization tracking.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>CC_LEAD_TIME</h3>
+        <p>Defines product lead times specific to each contract. Maintains customized delivery timeframes that may differ from standard lead times, supporting contract-specific service level agreements.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>CC_MANUF_DISC</h3>
+        <p>Stores manufacturer discount structures negotiated for each contract. Enables contract-specific pricing agreements and volume discounts that override standard pricing models.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>CC_PACKAGE</h3>
+        <p>Defines bundled product or service packages available under each contract. Allows for customized offerings that combine multiple items at special pricing or terms.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>CC_PROD_MAINT</h3>
+        <p>Manages product maintenance schedules and requirements specific to each contract. Tracks warranty terms, maintenance intervals, and service obligations for products covered under the contract.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>CC_PROD_MAX</h3>
+        <p>Sets maximum order quantities or usage limits for products under each contract. Helps enforce contractual limits and manage inventory allocation across different contracts.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>CC_PROJECT <span class="issue-tag">ISSUE: Should be One-to-Many</span></h3>
+        <p>Links projects to contracts for project-based work. Should support multiple projects per contract to handle phased implementations, multiple work streams, or ongoing project activities.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>CC_RPT_CLIENT_INV_LEVELS</h3>
+        <p>Reporting table that captures client inventory level snapshots for contracts. Supports multiple records per contract to track inventory positions over time and generate trend analyses.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>CC_RPT_CODE_OFF</h3>
+        <p>Stores report data for code offset analysis by contract. Maintains multiple records per contract to support various reporting periods and analytical dimensions.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>CC_RPT_OPEN_LABOR</h3>
+        <p>Reporting table tracking unbilled or open labor hours by contract. Generates multiple entries per contract to support periodic reporting and work-in-progress analysis.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>CC_RPT_PROJECT_STATUS</h3>
+        <p>Captures project status reporting data for contract-related projects. Maintains historical status records to track project progression and milestone achievements over time.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>CC_RPT_SHIPPED</h3>
+        <p>Records shipping activity reports for each contract. Stores multiple shipping records to track fulfillment performance and delivery metrics against contractual obligations.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>CC_SALES_CREDIT</h3>
+        <p>Manages sales commission and credit allocations for contracts. Supports multiple sales credit entries to handle split commissions, team selling scenarios, and commission adjustments.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>CC_SCHED_ALERT</h3>
+        <p>Configures scheduled alerts and notifications for contract events. Maintains alert preferences for contract milestones, renewal dates, and other time-sensitive contract activities.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>CC_SITE_MAINT</h3>
+        <p>Stores site-specific maintenance configurations for contracts. Defines maintenance schedules, service windows, and site-specific requirements that may vary from standard maintenance procedures.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>CC_WORKFLOW_MASTER</h3>
+        <p>Defines workflow processes and approval chains for contract-related activities. Supports multiple workflows per contract to handle different process types such as order approval, change management, and service requests.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>CONTRACT_MAINT_TYPE</h3>
+        <p>Specifies the maintenance agreement type for each contract. Defines service levels, response times, and coverage details for maintenance services included in the contract.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>COUNTRY</h3>
+        <p>Reference table for country information linked to contract billing addresses. Supports international contracts by maintaining country-specific tax, shipping, and regulatory information.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>EMAIL_ALERTS <span class="issue-tag">ISSUE: Missing client_id in FK</span></h3>
+        <p>Manages email notification configurations for contracts. Currently uses only contract_cd as foreign key, which could cause issues in multi-client environments where contract codes might not be unique.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>FIELD_TRAVEL_CHARGE</h3>
+        <p>Records field service travel charges applicable to contracts. Maintains multiple charge records per contract to track travel expenses for on-site service delivery.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>INVOICE_CC</h3>
+        <p>Stores invoice configuration and preferences for each contract. Currently one-to-one but may need review if contracts can have multiple invoice configurations for different billing scenarios.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>OMS_PROD</h3>
+        <p>Links order management system products to contracts. Supports multiple products per contract, defining which products are available for ordering under specific contract terms.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>ONBOARDING_CLIENT</h3>
+        <p>Tracks client onboarding activities for new contracts. Maintains multiple onboarding records to support phased implementations and track progress through various onboarding stages.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>ORDER_LABOR_PAYMENT_CONFIG</h3>
+        <p>Configures labor payment terms and billing rules for contracts. Defines how labor charges are calculated, approved, and billed under the contract agreement.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>ORDERS</h3>
+        <p>Stores all orders placed under contracts. Properly configured as one-to-many, supporting the natural business flow where contracts generate multiple orders over their lifetime.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>PROVIDER_PROJECT</h3>
+        <p>Links external provider projects to contracts for outsourced or partner-delivered services. Supports multiple provider projects per contract for complex service delivery arrangements.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>PROVIDER_TEMPLATE</h3>
+        <p>Stores templates for provider service configurations under contracts. Enables standardized provider onboarding and service setup across multiple provider relationships.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>PURCHASE_ORDER</h3>
+        <p>Manages purchase orders issued under contracts. Supports multiple purchase orders per contract, tracking procurement activities and supplier relationships within contract terms.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>REASON_CD <span class="issue-tag">ISSUE: Missing client_id in FK</span></h3>
+        <p>Stores reason codes for various contract-related transactions. Currently missing client_id in its foreign key, which could compromise data isolation in multi-tenant environments.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>RECEIVING</h3>
+        <p>Records receipt of goods and services under contracts. Maintains multiple receiving records per contract to track all inbound deliveries and validate against purchase orders.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>SERVICE_DLVR_LEVEL</h3>
+        <p>Defines service delivery levels referenced by contracts. Establishes performance standards, response times, and quality metrics that govern service delivery under the contract.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>SHIP_VIA</h3>
+        <p>Specifies shipping methods and carriers authorized for each contract. May include negotiated shipping rates or preferred carriers as part of contract terms.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>SITE</h3>
+        <p>Manages physical locations associated with contracts. Supports multiple sites per contract for multi-location agreements, tracking delivery addresses and service locations.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>TERMS_OF_BILLING</h3>
+        <p>Reference table for billing terms used in contracts. Defines payment schedules, due dates, early payment discounts, and late payment penalties applicable to contract invoices.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>TKT_360_VALUE_EXC</h3>
+        <p>Tracks value exceptions or special pricing arrangements for contracts. Maintains multiple exception records to handle various pricing scenarios and contract-specific overrides.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>WEB_RPT_SECURITY</h3>
+        <p>Manages web reporting access permissions for contracts. Controls which reports and data views are available to contract stakeholders through web interfaces.</p>
+    </div>
+    
+    <div class="table-desc">
+        <h3>WS_B2B_RESPONSES</h3>
+        <p>Stores responses from B2B web service interactions for contracts. Maintains a history of system-to-system communications for audit trails and troubleshooting purposes.</p>
+    </div>
+</div>
+    </div>
+</body>
+
+</html>
